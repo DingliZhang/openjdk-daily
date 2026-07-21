@@ -1,0 +1,96 @@
+name: OpenJDK Daily Report
+
+on:
+  schedule:
+    # UTC 00:37 = 北京时间 08:37 / 日本时间 09:37
+    # 故意避开整点，降低 GitHub Actions 高峰期延迟的概率。
+    - cron: "37 0 * * *"
+  workflow_dispatch:
+    inputs:
+      report_date:
+        description: "要生成的日期，格式 YYYY-MM-DD；留空则生成昨天"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  models: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: openjdk-daily-report
+  cancel-in-progress: false
+
+env:
+  REPORT_TIMEZONE: Asia/Shanghai
+  OPENJDK_REPOSITORIES: openjdk/jdk
+  AI_MODEL: openai/gpt-4.1-mini
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Generate report
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPORT_DATE: ${{ github.event.inputs.report_date }}
+        run: |
+          python scripts/generate_report.py \
+            --date "${REPORT_DATE}" \
+            --timezone "${REPORT_TIMEZONE}" \
+            --repositories "${OPENJDK_REPOSITORIES}" \
+            --model "${AI_MODEL}"
+
+      - name: Commit generated report
+        run: |
+          git config user.name "openjdk-daily-bot"
+          git config user.email "openjdk-daily-bot@users.noreply.github.com"
+          git add docs data
+          if git diff --cached --quiet; then
+            echo "No report changes to commit."
+          else
+            git commit -m "report: add OpenJDK daily report"
+            git pull --rebase
+            git push
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build website
+        run: mkdocs build --strict
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

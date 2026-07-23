@@ -12,6 +12,18 @@
 6. 使用 MkDocs Material 构建并发布 GitHub Pages 网站。
 7. AI 调用失败时仍发布基础日报。
 
+
+## v2 稳定性改进
+
+此版本额外包含：
+
+- 固定使用 MkDocs 1.x，避免未来自动升级到不兼容的 MkDocs 2.x。
+- 在 GitHub Actions 中关闭 Material for MkDocs 的 MkDocs 2 提示。
+- AI 输入优先选择 RISC-V、已合并以及讨论较多的 PR。
+- 限制发送给 GitHub Models 的 PR 数量、正文长度和变更文件数量。
+- 遇到 `413 Payload Too Large` 时自动以 30、15、8 个 PR 的三级策略缩小并重试。
+- AI 最终仍不可用时继续生成基础日报，不影响网站发布。
+
 ## 首次部署
 
 ### 1. 创建公开仓库

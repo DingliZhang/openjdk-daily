@@ -378,27 +378,62 @@ def pull_table(pulls: Iterable[PullActivity], include_vendor: bool = False) -> s
     return "\n".join(lines)
 
 
-def call_model(token: str, model: str, report_day: date, pulls: list[PullActivity]) -> str:
-    compact = []
-    for pull in pulls[:80]:
-        compact.append(
-            {
-                "repository": pull.repository,
-                "number": pull.number,
-                "title": pull.title,
-                "url": pull.url,
-                "author": pull.author,
-                "vendor": pull.vendor,
-                "state": pull.state,
-                "activity": pull.activity,
-                "modules": pull.modules,
-                "architectures": pull.architectures,
-                "labels": pull.labels,
-                "body_excerpt": pull.body_excerpt[:350],
-                "changed_files": pull.changed_files[:12],
-            }
-        )
+def prioritize_model_pulls(pulls: list[PullActivity]) -> list[PullActivity]:
+    """Choose the most useful PRs for AI analysis without changing report statistics."""
+    return sorted(
+        pulls,
+        key=lambda pull: (
+            "RISC-V" not in pull.architectures,
+            pull.state != "已合并",
+            -(pull.reviews_today + pull.comments_today),
+            -pull.number,
+        ),
+    )
 
+
+def build_model_input(
+    pulls: list[PullActivity],
+    max_pulls: int,
+    max_json_bytes: int,
+) -> tuple[list[dict[str, Any]], int]:
+    """Build a compact JSON input and enforce a UTF-8 byte limit."""
+    compact: list[dict[str, Any]] = []
+
+    for pull in prioritize_model_pulls(pulls)[:max_pulls]:
+        item = {
+            "repository": pull.repository,
+            "number": pull.number,
+            "title": pull.title[:180],
+            "url": pull.url,
+            "author": pull.author,
+            "vendor": pull.vendor,
+            "state": pull.state,
+            "activity": pull.activity,
+            "modules": pull.modules[:3],
+            "architectures": pull.architectures[:3],
+            "labels": pull.labels[:5],
+            "body_excerpt": pull.body_excerpt[:160],
+            "changed_files": pull.changed_files[:5],
+        }
+
+        candidate = compact + [item]
+        encoded = json.dumps(
+            candidate,
+            ensure_ascii=False,
+            separators=(",", ":"),
+        ).encode("utf-8")
+
+        if len(encoded) > max_json_bytes:
+            break
+        compact.append(item)
+
+    encoded_size = len(
+        json.dumps(compact, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+    )
+    return compact, encoded_size
+
+
+def call_model(token: str, model: str, report_day: date, pulls: list[PullActivity]) -> str:
     system_prompt = """你是 OpenJDK 技术日报编辑。只能根据输入 JSON 中的事实写作。
 不得虚构 PR、Issue、作者、公司、性能数据、评审结论或技术影响。
 厂商字段为“未归属”时，不得猜测作者所属公司。
@@ -420,33 +455,94 @@ def call_model(token: str, model: str, report_day: date, pulls: list[PullActivit
 列出 2～6 个后续值得跟踪的 PR 或讨论方向。
 """
 
-    user_prompt = (
-        f"报告日期：{report_day.isoformat()}\n"
-        f"以下是程序采集的 PR 活动 JSON：\n{json.dumps(compact, ensure_ascii=False)}"
+    # Start conservatively. If GitHub Models still returns HTTP 413,
+    # retry with progressively smaller requests.
+    attempts = (
+        (30, 48_000),
+        (15, 24_000),
+        (8, 12_000),
     )
+    last_error = ""
 
-    response = requests.post(
-        MODELS_API,
-        headers={
-            "Accept": "application/vnd.github+json",
-            "Authorization": f"Bearer {token}",
-            "Content-Type": "application/json",
-            "X-GitHub-Api-Version": "2022-11-28",
-        },
-        json={
+    for attempt_number, (max_pulls, max_json_bytes) in enumerate(attempts, start=1):
+        compact, compact_bytes = build_model_input(
+            pulls,
+            max_pulls=max_pulls,
+            max_json_bytes=max_json_bytes,
+        )
+
+        user_prompt = (
+            f"报告日期：{report_day.isoformat()}\n"
+            f"程序共采集到 {len(pulls)} 个有活动的 PR。"
+            f"以下按 RISC-V、已合并以及讨论热度优先选取 {len(compact)} 个供技术观察。\n"
+            f"PR 活动 JSON：\n"
+            f"{json.dumps(compact, ensure_ascii=False, separators=(',', ':'))}"
+        )
+
+        request_payload = {
             "model": model,
             "messages": [
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
             ],
             "temperature": 0.2,
-            "max_tokens": 3000,
-        },
-        timeout=120,
+            "max_tokens": 1800,
+        }
+        request_bytes = len(
+            json.dumps(request_payload, ensure_ascii=False, separators=(",", ":")).encode("utf-8")
+        )
+
+        print(
+            "GitHub Models request "
+            f"{attempt_number}/{len(attempts)}: "
+            f"{len(compact)}/{len(pulls)} PRs, "
+            f"{compact_bytes} JSON bytes, "
+            f"{request_bytes} total request bytes"
+        )
+
+        response = requests.post(
+            MODELS_API,
+            headers={
+                "Accept": "application/vnd.github+json",
+                "Authorization": f"Bearer {token}",
+                "Content-Type": "application/json",
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+            json=request_payload,
+            timeout=120,
+        )
+
+        if response.status_code == 413:
+            last_error = (
+                f"HTTP 413 on attempt {attempt_number}: "
+                f"{safe_text(response.text, 500) or 'Payload Too Large'}"
+            )
+            print(
+                f"Warning: {last_error}; retrying with a smaller payload.",
+                file=sys.stderr,
+            )
+            continue
+
+        if not response.ok:
+            raise RuntimeError(
+                f"GitHub Models returned HTTP {response.status_code}: "
+                f"{safe_text(response.text, 1000)}"
+            )
+
+        payload = response.json()
+        choices = payload.get("choices") or []
+        if not choices:
+            raise RuntimeError("GitHub Models returned no choices")
+
+        content = choices[0].get("message", {}).get("content", "").strip()
+        if not content:
+            raise RuntimeError("GitHub Models returned empty content")
+        return content
+
+    raise RuntimeError(
+        "GitHub Models request remained too large after three reductions. "
+        f"Last error: {last_error}"
     )
-    response.raise_for_status()
-    payload = response.json()
-    return payload["choices"][0]["message"]["content"].strip()
 
 
 def fallback_observation(pulls: list[PullActivity], error: str) -> str:

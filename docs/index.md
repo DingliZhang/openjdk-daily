@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-07-22](reports/2026/2026-07-22.md)
+### [2026-07-23](reports/2026/2026-07-23.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 101 |
-| 已合并 PR | 2 |
-| RISC-V 相关 PR | 11 |
-| 活跃贡献者 | 58 |
+| 有活动的 PR | 86 |
+| 已合并 PR | 0 |
+| RISC-V 相关 PR | 12 |
+| 活跃贡献者 | 54 |
 
 ## 今日关注
 
-- [#32001](https://github.com/openjdk/jdk/pull/32001) 8388474: RISC-V: Relax satp mode check for sv57（新建、4 条评论）
-- [#32000](https://github.com/openjdk/jdk/pull/32000) 8388479: RISC-V: compiler/vectorapi/TestMaskedNotAllOnes.java fails after JDK-8386163（新建、4 条评论）
-- [#31989](https://github.com/openjdk/jdk/pull/31989) 8388559: RISC-V: use branchless instructions for CMoveI with constant 0/1（1 条评论）
-- [#31988](https://github.com/openjdk/jdk/pull/31988) 8388558: C2: Specify return_addr relative to _old_SP（1 条评论）
-- [#31973](https://github.com/openjdk/jdk/pull/31973) 8388475: RISC-V: Optimize MD5 intrinsics by reducing data dependency（有更新）
-- [#31961](https://github.com/openjdk/jdk/pull/31961) 8388460: RISC-V: Auto-enable Zcb extension features（有更新）
-- [#31959](https://github.com/openjdk/jdk/pull/31959) 8387969: RISC-V: Optimize zero-result integer cmoves with Zicond（有更新）
-- [#31958](https://github.com/openjdk/jdk/pull/31958) 8388459: RISC-V: Add specialized CMove patterns with zero operand（6 个 Review）
+- [#32027](https://github.com/openjdk/jdk/pull/32027) 8384415: Shenandoah: Hotpatch GC state checks（新建、6 条评论）
+- [#32021](https://github.com/openjdk/jdk/pull/32021) 8388838: RISC-V: vectorization tests failed when UseUnalignedAccesses is false（新建、5 条评论）
+- [#32020](https://github.com/openjdk/jdk/pull/32020) 8388837: RISC-V: Track card addresses directly in G1 array post-write barrier loop（新建、2 个 Review、8 条评论）
+- [#32000](https://github.com/openjdk/jdk/pull/32000) 8388479: RISC-V: compiler/vectorapi/TestMaskedNotAllOnes.java fails after JDK-8386163（有更新）
+- [#31973](https://github.com/openjdk/jdk/pull/31973) 8388475: RISC-V: Optimize MD5 intrinsics by reducing data dependency（2 条评论）
+- [#31958](https://github.com/openjdk/jdk/pull/31958) 8388459: RISC-V: Add specialized CMove patterns with zero operand（1 个 Review）
+- [#31956](https://github.com/openjdk/jdk/pull/31956) 8388458: RISC-V: Optimize G1 post-write barrier conditional card mark（3 条评论）
+- [#31880](https://github.com/openjdk/jdk/pull/31880) 8321012: RISC-V: C2 ExtractUB（1 条评论）
 
-[查看完整日报](reports/2026/2026-07-22.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-07-23.md) · [浏览全部历史](reports/index.md)

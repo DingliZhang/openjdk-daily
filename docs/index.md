@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-07-23](reports/2026/2026-07-23.md)
+### [2026-07-24](reports/2026/2026-07-24.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 86 |
+| 有活动的 PR | 63 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 12 |
-| 活跃贡献者 | 54 |
+| RISC-V 相关 PR | 13 |
+| 活跃贡献者 | 42 |
 
 ## 今日关注
 
-- [#32027](https://github.com/openjdk/jdk/pull/32027) 8384415: Shenandoah: Hotpatch GC state checks（新建、6 条评论）
-- [#32021](https://github.com/openjdk/jdk/pull/32021) 8388838: RISC-V: vectorization tests failed when UseUnalignedAccesses is false（新建、5 条评论）
-- [#32020](https://github.com/openjdk/jdk/pull/32020) 8388837: RISC-V: Track card addresses directly in G1 array post-write barrier loop（新建、2 个 Review、8 条评论）
-- [#32000](https://github.com/openjdk/jdk/pull/32000) 8388479: RISC-V: compiler/vectorapi/TestMaskedNotAllOnes.java fails after JDK-8386163（有更新）
-- [#31973](https://github.com/openjdk/jdk/pull/31973) 8388475: RISC-V: Optimize MD5 intrinsics by reducing data dependency（2 条评论）
+- [#32043](https://github.com/openjdk/jdk/pull/32043) 8388474: RISC-V: Relax satp mode check for sv57（新建、5 条评论）
+- [#32042](https://github.com/openjdk/jdk/pull/32042) 8388793: Convert test/jdk/java/foreign tests to use JUnit（新建、3 条评论）
+- [#32038](https://github.com/openjdk/jdk/pull/32038) 8388926: RISC-V: Skip redundant zext.w in set_narrow_klass when bit 31 is clear（新建、7 条评论）
+- [#32027](https://github.com/openjdk/jdk/pull/32027) 8384415: Shenandoah: Hotpatch GC state checks（2 条评论）
+- [#31989](https://github.com/openjdk/jdk/pull/31989) 8388559: RISC-V: use branchless instructions for CMoveI with constant 0/1（2 条评论）
+- [#31973](https://github.com/openjdk/jdk/pull/31973) 8388475: RISC-V: Optimize MD5 intrinsics by reducing data dependency（4 条评论）
 - [#31958](https://github.com/openjdk/jdk/pull/31958) 8388459: RISC-V: Add specialized CMove patterns with zero operand（1 个 Review）
-- [#31956](https://github.com/openjdk/jdk/pull/31956) 8388458: RISC-V: Optimize G1 post-write barrier conditional card mark（3 条评论）
-- [#31880](https://github.com/openjdk/jdk/pull/31880) 8321012: RISC-V: C2 ExtractUB（1 条评论）
+- [#31892](https://github.com/openjdk/jdk/pull/31892) 8388170: [s390x] compiler/inlining/LateInlineQueueDrainTest.java#id0 fail due to invalid ret_addr_offset（已关闭、4 条评论）
 
-[查看完整日报](reports/2026/2026-07-23.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-07-24.md) · [浏览全部历史](reports/index.md)

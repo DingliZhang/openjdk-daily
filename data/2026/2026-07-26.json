@@ -1,0 +1,681 @@
+{
+  "date": "2026-07-26",
+  "generated_at": "2026-07-27T04:25:52.293688+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 32048,
+      "title": "8389111: C2: Use BMI2 BZHI for variable int low-bit masks on x86",
+      "url": "https://github.com/openjdk/jdk/pull/32048",
+      "author": "aprilivy",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、7 条评论",
+      "created_at": "2026-07-25T23:08:25Z",
+      "updated_at": "2026-07-26T18:49:19Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 7,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/x86/x86.ad",
+        "test/hotspot/jtreg/compiler/intrinsics/bmi/TestBzhiI2L.java",
+        "test/hotspot/jtreg/compiler/intrinsics/bmi/verifycode/BzhiTestI2L.java"
+      ],
+      "body_excerpt": "C2 currently lowers variable `int` low-bit masks of the form: value & ((1 << bits) - 1) to a five-instruction sequence on x86. This change adds a BMI2 matcher rule that uses `BZHI`, reducing it to three instructions. The shift count is explicitly masked with `31` because Java shift distances wrap modulo 32, while `BZHI` treats counts greater than or equal to 32 differently. A scalar JMH throughput benchmark on a Ryzen 9 9950X3D improved from approximately 0.199 ns/op to 0.185 ns/op (6.9%). Testing: - HotSpot release and fastdebug builds - `compiler/intrinsics/bmi`: 26/26 tests passed - Verifie"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32047,
+      "title": "8388706: PolynomialP256Bench::benchAssign regression after JDK-8355216",
+      "url": "https://github.com/openjdk/jdk/pull/32047",
+      "author": "smemery",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、4 条评论",
+      "created_at": "2026-07-25T21:51:36Z",
+      "updated_at": "2026-07-25T22:00:40Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/micro/org/openjdk/bench/javax/crypto/full/PolynomialP256Bench.java"
+      ],
+      "body_excerpt": "This fix allows for more accurate comparisons between intrinsics and Java performance for P256 conditional set operations. Before this fix, benchmarks showed a 53% regression for intrinsics vs. Java due to constant propagation and dead-code removal by C2. After this fix, only a 8% drop in performance is observed for intrinsics vs. Java. --------- - [X] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\["
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32046,
+      "title": "8389108: RISC-V: C2: Optimize identity hash mask extraction with shift pair",
+      "url": "https://github.com/openjdk/jdk/pull/32046",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、7 条评论",
+      "created_at": "2026-07-25T16:16:52Z",
+      "updated_at": "2026-07-25T16:42:19Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 7,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/riscv.ad"
+      ],
+      "body_excerpt": "Hi, please consider that. On RISC-V, extracting the 31-bit identity hash from the mark word requires an AND with hash_mask (0x7FFFFFFF). The generic path loads this constant into a register and then performs a register-register AND: opto log without this patch: ``` 0b4 B5: # out( B36 B6 ) <- in( B4 ) Freq: 0.404595 0b4 + ld R7, [R11] # int, #@loadL 0b8 + srli R7, R7, (#11 & 0x3f) #@urShiftL_reg_imm 0bc + mv R29, #2147483647 # int, #@loadConI 0c2 + addw R7, R7, zr #@convL2I_reg 0c4 + andr R10, R7, R29 #@andI_reg_reg ``` assembly log without this patch: ``` ;; B5: # out( B36 B6 ) <- in( B4 ) Fre"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32043,
+      "title": "8388474: RISC-V: Relax satp mode check for sv57",
+      "url": "https://github.com/openjdk/jdk/pull/32043",
+      "author": "aprilivy",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-07-24T14:56:46Z",
+      "updated_at": "2026-07-27T02:02:29Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/vm_version_riscv.cpp"
+      ],
+      "body_excerpt": "Linux defaults userspace mappings to the sv48 address range even when the kernel uses sv57. HotSpot can therefore run safely on systems reporting an sv57 MMU. This change allows SATP modes through `VM_SV57` and updates the corresponding error message. `VM_SV64` remains unsupported. Testing: - RISC-V fastdebug HotSpot cross-build - QEMU RISC-V VM startup - Verified synthetic `sv57` CPU information is accepted - Verified `sv64` remains rejected --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything b"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32037,
+      "title": "8388842: VER_PLATFORM_WIN32_NT checks in WPrinterJob are obsolete",
+      "url": "https://github.com/openjdk/jdk/pull/32037",
+      "author": "MBaesken",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-07-24T07:26:56Z",
+      "updated_at": "2026-07-25T21:48:21Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "AArch64",
+        "Windows"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.desktop/windows/native/libawt/windows/WPrinterJob.cpp"
+      ],
+      "body_excerpt": "At some places in the coding we still check for VER_PLATFORM_WIN32_NT, but this should be obsolete. All Windows versions from at least Windows XP fall in this category https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-osversioninfoa There is another usage in java.base (java.base/windows/native/libjava/java_props_md.c), I can handle this here or do the java.base adjustment in another PR. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically u"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32035,
+      "title": "8388827: Unused Gen.CodeSizeOverflow",
+      "url": "https://github.com/openjdk/jdk/pull/32035",
+      "author": "aprilivy",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、6 条评论",
+      "created_at": "2026-07-23T23:39:32Z",
+      "updated_at": "2026-07-27T03:52:26Z",
+      "merged_at": null,
+      "closed_at": "2026-07-26T02:05:51Z",
+      "labels": [
+        "integrated",
+        "compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 6,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/jvm/Gen.java"
+      ],
+      "body_excerpt": "`Gen.CodeSizeOverflow` is no longer thrown after support for generating `jsr`/`ret` was removed by JDK-8011044. This removes the unused exception and its now-unreachable handler. The existing retry for fat jumps remains unchanged. Testing: - `make test TEST=langtools:tier1` --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must be properly reviewed (1 review required, with at"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32025,
+      "title": "Test memory map",
+      "url": "https://github.com/openjdk/jdk/pull/32025",
+      "author": "suchismith1993",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭",
+      "created_at": "2026-07-23T14:28:17Z",
+      "updated_at": "2026-07-25T18:03:21Z",
+      "merged_at": null,
+      "closed_at": "2026-07-25T18:03:21Z",
+      "labels": [
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/runtime/os.hpp"
+      ],
+      "body_excerpt": "--------- - [ ] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[ \\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 reviews required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer), 1 [Author](https://openjdk.org/bylaws#author)) ### Error &nbsp;⚠️ Pull request body is missing required line: `- [x]"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32024,
+      "title": "8388849: javax/swing/JInternalFrame/8069348/bug8069348.java should ignore execution in non-Windows platform if sun.java2d.d3d=true",
+      "url": "https://github.com/openjdk/jdk/pull/32024",
+      "author": "prsadhuk",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "1 条评论",
+      "created_at": "2026-07-23T11:35:11Z",
+      "updated_at": "2026-07-27T01:19:49Z",
+      "merged_at": null,
+      "closed_at": "2026-07-27T01:19:42Z",
+      "labels": [
+        "integrated",
+        "client"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "Windows"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/javax/swing/JInternalFrame/8069348/bug8069348.java"
+      ],
+      "body_excerpt": "Test should not run in non-WIndows platform if `sun.java2d.d3d=true` but `isSupported` call in the test checks for `Boolean.getBoolean(d3d)` which returns false as it treats \"true\" as the name of another system property so we need to use `Boolean.parseBoolean` which returns true and `isSupported` in that case returns false so that test should be ignored for non-Windows platform if d3d is true Since 1st @run execution already tests for default pipeline in non-Windows platform, there's no need to run it again if d3d is true --------- - [x] I confirm that I make this contribution in accordance wi"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32020,
+      "title": "8388837: RISC-V: Track card addresses directly in G1 array post-write barrier loop",
+      "url": "https://github.com/openjdk/jdk/pull/32020",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "2 条评论",
+      "created_at": "2026-07-23T06:43:22Z",
+      "updated_at": "2026-07-27T02:57:53Z",
+      "merged_at": null,
+      "closed_at": "2026-07-27T02:47:16Z",
+      "labels": [
+        "integrated",
+        "hotspot",
+        "hotspot-gc"
+      ],
+      "modules": [
+        "C2 编译器",
+        "GC",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/gc/g1/g1BarrierSetAssembler_riscv.cpp"
+      ],
+      "body_excerpt": "As discussed here: https://github.com/openjdk/jdk/pull/31956#issuecomment-5042736235 We can propose this array card-loop optimization and apply it on both RISC-V and AArch64. However, AArch64's indexed addressing may limit the performance benefit, so I need to run performance tests to verify it first. After that, I'll submit a new PR for AArch64. For now, let's only apply the optimization to the RISC-V backend here. ### Correctness Testing - [x] Run tier1-tier3 test with release on SG2044 ### Performance test: We can observe the throughput scores increased from 604.565 to 616.446. While this m"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32019,
+      "title": "8388485: javax/swing/JInternalFrame/Test6505027.java fails with Cannot invoke \"Object.getClass()\" because \"<local0>\" is null",
+      "url": "https://github.com/openjdk/jdk/pull/32019",
+      "author": "prsadhuk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-07-23T06:43:01Z",
+      "updated_at": "2026-07-26T06:22:15Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "test/jdk/javax/swing/JInternalFrame/Test6505027.java"
+      ],
+      "body_excerpt": "Test fails with NPE citing ``` java.lang.NullPointerException: Cannot invoke \"Object.getClass()\" because \"<local0>\" is null at Test6505027.validate(Test6505027.java:108) at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) at java.base/java.lang.reflect.Method.invoke(Method.java:583) at SwingTest.run(SwingTest.java:96) at SwingTest.start(SwingTest.java:131) at SwingTest.start(SwingTest.java:54) at Test6505027.main(Test6505027.java:67) ``` which can happen when the internal frame has not received native focus yet, or the Robot click’s focus tr"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31961,
+      "title": "8388460: RISC-V: Auto-enable Zcb extension features",
+      "url": "https://github.com/openjdk/jdk/pull/31961",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-07-18T06:39:39Z",
+      "updated_at": "2026-07-26T11:33:24Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/globals_riscv.hpp",
+        "src/hotspot/os_cpu/linux_riscv/riscv_hwprobe.cpp"
+      ],
+      "body_excerpt": "Hi, I ran some tests on the SpacemiT Key Stone K3 (which features physical Zcb hardware extensions). After enabling Zcb, the size of the related CodeCache decreased. So I propose to auto-enable this feature through hwprobe. ### Correctness testing - [x] Run tier1-tier3 test with release on SpacemiT Key Stone K3 ### Assembly variation We can print the assembly logs using the following command: ``` ./java -XX:+UnlockDiagnosticVMOptions -XX:+UnlockDiagnosticVMOptions -XX:+PrintStubCode -XX:+PrintInterpreter -XX:-TieredCompilation -XX:+PrintAssembly -version ``` ``` before this patch: 0x0000003f81"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31958,
+      "title": "8388459: RISC-V: Add specialized CMove patterns with zero operand",
+      "url": "https://github.com/openjdk/jdk/pull/31958",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、3 条评论",
+      "created_at": "2026-07-18T05:07:03Z",
+      "updated_at": "2026-07-26T12:24:07Z",
+      "merged_at": null,
+      "closed_at": "2026-07-26T11:27:00Z",
+      "labels": [
+        "integrated",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/riscv.ad"
+      ],
+      "body_excerpt": "Hi, this patch adds six specialized CMoveI/CMoveL C2 instruct for the zero-operand case: cmovI_cmpI_zero, cmovI_cmpU_zero, cmovL_cmpL_zero, cmovL_cmpUL_zero, cmovL_cmpL_zero, cmovL_cmpUL_zero. These rules pass the hardware zero register (x0/zr) directly to enc_cmove(), avoiding the need to load constant 0 into a register. ### Testing - [x] Run tier1-tier3 test with release on SpacemiT Key Stone K3 - [x] C2 instruct Opto log: ``` $ qemu-riscv64 -L /home/zifeihan/riscv_toolchain/sysroot \\ build/riscv64-fastdebug/jdk/bin/java \\ -XX:+UnlockDiagnosticVMOptions \\ -XX:+PrintOptoAssembly \\ -version 2>"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31928,
+      "title": "8387729: Not all --long-options accept space as seperator",
+      "url": "https://github.com/openjdk/jdk/pull/31928",
+      "author": "hgqxjj",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-07-16T09:49:12Z",
+      "updated_at": "2026-07-27T02:03:32Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/native/libjli/java.c",
+        "test/jdk/java/foreign/enablenativeaccess/TestEnableNativeAccess.java",
+        "test/jdk/java/lang/Object/FinalizationOption.java",
+        "test/jdk/java/lang/Object/InvalidFinalizationOption.java",
+        "test/jdk/java/lang/reflect/Field/mutateFinals/cli/CommandLineTest.java",
+        "test/jdk/sun/misc/UnsafeMemoryAccessWarnings.java"
+      ],
+      "body_excerpt": "Please review this change, thanks! **Description:** Some VM long options only accept arguments in the `--option=value` form, even though the launcher help states that long-option arguments may also be separated by whitespace. As a result, options such as `--illegal-final-field-mutation debug`, `--illegal-native-access warn` are not parsed correctly. **Solution:** Add `IsNonModuleVMWhiteSpaceOption()` to identify VM long options that accept whitespace-separated arguments and convert them to the `--option=value` form before passing them to the VM. Add `--enable-final-field-mutation` to the exist"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31898,
+      "title": "8353854: Change map_memory() signature to match other functions",
+      "url": "https://github.com/openjdk/jdk/pull/31898",
+      "author": "suchismith1993",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-07-14T15:51:53Z",
+      "updated_at": "2026-07-25T18:00:08Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/runtime/os.hpp"
+      ],
+      "body_excerpt": "[JDK-8353854 ](https://bugs.openjdk.org/browse/JDK-8353854) : Change map_memory() signature to match other functions JBS Issue : [JDK-8353854 ](https://bugs.openjdk.org/browse/JDK-8353854) Follow-up to [JDK-8353480](https://bugs.openjdk.org/browse/JDK-8353480), addressing @stefank's review suggestion to drop the default values for `allow_exec` and `mem_tag` and reorder them. ### Change map_memory(int fd, const char* file_name, size_t file_offset, char* addr, size_t bytes, MemTag mem_tag, - bool read_only = false, bool allow_exec = false) + bool allow_exec, bool read_only = false) This matches "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31750,
+      "title": "8387645: Replace obsolete sun.java2d.noddraw property with sun.java2d.d3d",
+      "url": "https://github.com/openjdk/jdk/pull/31750",
+      "author": "prsadhuk",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、5 条评论",
+      "created_at": "2026-07-02T05:54:59Z",
+      "updated_at": "2026-07-26T06:13:27Z",
+      "merged_at": null,
+      "closed_at": "2026-07-26T06:13:21Z",
+      "labels": [
+        "integrated",
+        "client"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/java/awt/FullScreen/DisplayModeNoRefreshTest.java",
+        "test/jdk/java/awt/FullScreen/MultimonFullscreenTest/MultimonFullscreenTest.java",
+        "test/jdk/java/awt/FullScreen/NonExistentDisplayModeTest/NonExistentDisplayModeTest.java",
+        "test/jdk/java/awt/FullScreen/SetFSWindow/FSFrame.java",
+        "test/jdk/java/awt/GraphicsDevice/CloneConfigsTest.java",
+        "test/jdk/java/awt/Multiscreen/DeviceIdentificationTest/DeviceIdentificationTest.java",
+        "test/jdk/java/awt/Window/TranslucentShapedFrameTest/TranslucentShapedFrameTest.java",
+        "test/jdk/sun/java2d/DirectX/OpaqueImageToSurfaceBlitTest/OpaqueImageToSurfaceBlitTest.java",
+        "test/jdk/sun/java2d/DirectX/StrikeDisposalCrashTest/StrikeDisposalCrashTest.java",
+        "test/jdk/sun/java2d/SunGraphics2D/EmptyClipRenderingTest.java",
+        "test/jdk/sun/java2d/pipe/MutableColorTest/MutableColorTest.java",
+        "test/jdk/sun/java2d/pipe/hw/RSLAPITest/RSLAPITest.java"
+      ],
+      "body_excerpt": "sun.java2d.noddraw property was used to render without d3d pipeline. However subsequent creation and use of sun.java2d.d3d property rendered it useless and obsolete. We should consider removing it and replacing with sun.java2d.d3d property. We already have a start with JDK-8373493 CI testing is ok --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must be properly reviewed (1 "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31704,
+      "title": "8387267: Editor for the last column in JTable is hard to activate after AUTO_RESIZE_LAST_COLUMN was configured",
+      "url": "https://github.com/openjdk/jdk/pull/31704",
+      "author": "prsadhuk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-06-29T04:54:26Z",
+      "updated_at": "2026-07-26T06:20:59Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.desktop/share/classes/javax/swing/JTable.java",
+        "test/jdk/javax/swing/JTable/TestAutoResizeLastColumn.java"
+      ],
+      "body_excerpt": "When JTable.setAutoResizeMode is called with JTable.AUTO_RESIZE_LAST_COLUMN, it is supposed to adjust the delta width to the last column only when table itself changes width but before JDK-8234071 fix, AUTO_RESIZE_LAST_COLUMN, was behaving exactly as if user specified AUTO_RESIZE_ALL_COLUMNS so width of all columns of table gets adjusted. JDK-8234071 fixes this issue by setting \"resizingColumn\" to last column when AUTO_RESIZE_LAST_COLUMN is specified so that only last column gets resized but the fix was wrongly instructing the JTable that the user is currently resizing the last column with the"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31131,
+      "title": "8384406: TestInheritFD.java fails Timed out waiting for second VM",
+      "url": "https://github.com/openjdk/jdk/pull/31131",
+      "author": "sendaoYan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-05-12T08:46:45Z",
+      "updated_at": "2026-07-25T19:45:40Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "oca",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/hotspot/jtreg/runtime/8176717/TestInheritFD.java"
+      ],
+      "body_excerpt": "Hi all, Test test/hotspot/jtreg/runtime/8176717/TestInheritFD.java could fails with TimeoutException when lsof takes many minutes (or appears hung) under a very large RLIMIT_NOFILE, leaving the second VM stuck and the harness waiting on child PIDs. This solution similar to https://bugs.openjdk.org/browse/JDK-8324668 This PR list open paths under user.dir via /proc/<pid>/fd instead of lsof. Other Unix systems keep the existing lsof command. This PR also add `@requires vm.flagless` as this test invoke `createLimitedTestJavaProcessBuilder()` --------- - [x] I confirm that I make this contribution"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 30212,
+      "title": "8379849: javax/net/ssl/Stapling/HttpsUrlConnClient.java fails Read timed out",
+      "url": "https://github.com/openjdk/jdk/pull/30212",
+      "author": "sendaoYan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-03-12T08:56:31Z",
+      "updated_at": "2026-07-25T19:41:09Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "oca",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/javax/net/ssl/Stapling/HttpsUrlConnClient.java"
+      ],
+      "body_excerpt": "Hi all, Test javax/net/ssl/Stapling/HttpsUrlConnClient.java fails \"Read timed out\" intermittently, espically the system is overload. This PR make the several timeout value receive and multiply the jtreg timeout factor. This will make test more robustness. Change has been verified locally by run the test 1000 times simultancely. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Chang"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 26804,
+      "title": "8365608: Test is skipped without skip exception /test/jdk/security/infra/java/security/cert/CertPathValidator/certification/ValidatePathWithParams.java",
+      "url": "https://github.com/openjdk/jdk/pull/26804",
+      "author": "myankelev",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2025-08-15T17:13:53Z",
+      "updated_at": "2026-07-25T22:03:59Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/CertignaCA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/DTrustCA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/DigicertCSRootG5.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/EmSignRootG2CA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/HaricaCA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/LuxTrustCA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/SectigoCSRootCAs.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/ValidatePathWithParams.java"
+      ],
+      "body_excerpt": "Replaced skip messages with skip exceptions --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue ### Issue * [JDK-8365608](https://bugs.openjdk.org/browse/JDK-8365608): T"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 24258,
+      "title": "8344116: C2: remove slice parameter from LoadNode::make",
+      "url": "https://github.com/openjdk/jdk/pull/24258",
+      "author": "linzihao1999",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2025-03-26T15:18:25Z",
+      "updated_at": "2026-07-25T22:15:01Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "shenandoah",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "GC"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/gc/g1/c2/g1BarrierSetC2.cpp",
+        "src/hotspot/share/gc/shared/c2/barrierSetC2.cpp",
+        "src/hotspot/share/gc/shared/c2/barrierSetC2.hpp",
+        "src/hotspot/share/gc/shared/c2/cardTableBarrierSetC2.cpp",
+        "src/hotspot/share/opto/arraycopynode.cpp",
+        "src/hotspot/share/opto/callnode.cpp",
+        "src/hotspot/share/opto/graphKit.cpp",
+        "src/hotspot/share/opto/graphKit.hpp",
+        "src/hotspot/share/opto/idealKit.cpp",
+        "src/hotspot/share/opto/idealKit.hpp",
+        "src/hotspot/share/opto/library_call.cpp",
+        "src/hotspot/share/opto/macro.cpp",
+        "src/hotspot/share/opto/macroArrayCopy.cpp",
+        "src/hotspot/share/opto/memnode.cpp",
+        "src/hotspot/share/opto/memnode.hpp",
+        "src/hotspot/share/opto/parse2.cpp",
+        "src/hotspot/share/opto/parse3.cpp",
+        "src/hotspot/share/opto/stringopts.cpp",
+        "src/hotspot/share/opto/vector.cpp"
+      ],
+      "body_excerpt": "This patch remove slice parameter from LoadNode::make I have done more work which remove slice paramater from StoreNode::make. Mention in https://github.com/openjdk/jdk/pull/21834#pullrequestreview-2429164805 Hi team, I am new, I'd appreciate any guidance. Thank a lot! - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must r"
+    }
+  ]
+}

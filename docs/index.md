@@ -4,23 +4,24 @@
 
 ## 最新日报
 
-### [2026-07-26](reports/2026/2026-07-26.md)
+### [2026-07-27](reports/2026/2026-07-27.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 20 |
+| 有活动的 PR | 43 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 5 |
-| 活跃贡献者 | 10 |
+| RISC-V 相关 PR | 7 |
+| 活跃贡献者 | 28 |
 
 ## 今日关注
 
-- [#32046](https://github.com/openjdk/jdk/pull/32046) 8389108: RISC-V: C2: Optimize identity hash mask extraction with shift pair（新建、7 条评论）
+- [#32046](https://github.com/openjdk/jdk/pull/32046) 8389108: RISC-V: C2: Optimize identity hash mask extraction with shift pair（有更新）
 - [#32043](https://github.com/openjdk/jdk/pull/32043) 8388474: RISC-V: Relax satp mode check for sv57（1 条评论）
-- [#32020](https://github.com/openjdk/jdk/pull/32020) 8388837: RISC-V: Track card addresses directly in G1 array post-write barrier loop（2 条评论）
-- [#31961](https://github.com/openjdk/jdk/pull/31961) 8388460: RISC-V: Auto-enable Zcb extension features（1 个 Review）
-- [#31958](https://github.com/openjdk/jdk/pull/31958) 8388459: RISC-V: Add specialized CMove patterns with zero operand（已关闭、3 条评论）
-- [#32048](https://github.com/openjdk/jdk/pull/32048) 8389111: C2: Use BMI2 BZHI for variable int low-bit masks on x86（新建、7 条评论）
-- [#32047](https://github.com/openjdk/jdk/pull/32047) 8388706: PolynomialP256Bench::benchAssign regression after JDK-8355216（新建、4 条评论）
+- [#32027](https://github.com/openjdk/jdk/pull/32027) 8384415: Shenandoah: Hotpatch GC state checks（1 个 Review）
+- [#32021](https://github.com/openjdk/jdk/pull/32021) 8388838: RISC-V: vectorization tests failed when UseUnalignedAccesses is false（3 条评论）
+- [#32020](https://github.com/openjdk/jdk/pull/32020) 8388837: RISC-V: Track card addresses directly in G1 array post-write barrier loop（已关闭、3 条评论）
+- [#31989](https://github.com/openjdk/jdk/pull/31989) 8388559: RISC-V: use branchless instructions for CMoveI with constant 0/1（1 条评论）
+- [#31454](https://github.com/openjdk/jdk/pull/31454) 8384807: Populate OMCache from C2（已关闭、1 个 Review、3 条评论）
+- [#32056](https://github.com/openjdk/jdk/pull/32056) Fix bad indentation（新建、3 条评论）
 
-[查看完整日报](reports/2026/2026-07-26.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-07-27.md) · [浏览全部历史](reports/index.md)

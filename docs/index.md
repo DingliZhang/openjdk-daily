@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-07-27](reports/2026/2026-07-27.md)
+### [2026-07-28](reports/2026/2026-07-28.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 43 |
+| 有活动的 PR | 62 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 7 |
-| 活跃贡献者 | 28 |
+| RISC-V 相关 PR | 6 |
+| 活跃贡献者 | 39 |
 
 ## 今日关注
 
-- [#32046](https://github.com/openjdk/jdk/pull/32046) 8389108: RISC-V: C2: Optimize identity hash mask extraction with shift pair（有更新）
-- [#32043](https://github.com/openjdk/jdk/pull/32043) 8388474: RISC-V: Relax satp mode check for sv57（1 条评论）
-- [#32027](https://github.com/openjdk/jdk/pull/32027) 8384415: Shenandoah: Hotpatch GC state checks（1 个 Review）
-- [#32021](https://github.com/openjdk/jdk/pull/32021) 8388838: RISC-V: vectorization tests failed when UseUnalignedAccesses is false（3 条评论）
-- [#32020](https://github.com/openjdk/jdk/pull/32020) 8388837: RISC-V: Track card addresses directly in G1 array post-write barrier loop（已关闭、3 条评论）
-- [#31989](https://github.com/openjdk/jdk/pull/31989) 8388559: RISC-V: use branchless instructions for CMoveI with constant 0/1（1 条评论）
-- [#31454](https://github.com/openjdk/jdk/pull/31454) 8384807: Populate OMCache from C2（已关闭、1 个 Review、3 条评论）
-- [#32056](https://github.com/openjdk/jdk/pull/32056) Fix bad indentation（新建、3 条评论）
+- [#32067](https://github.com/openjdk/jdk/pull/32067) 8389239: RISC-V: Optimize copy_memory_v with m2/m1 two-tier vector loop（新建、6 条评论）
+- [#32065](https://github.com/openjdk/jdk/pull/32065) 8389236: RISC-V: C2: Use more single-bit instructions from the Zbs extension（新建、4 条评论）
+- [#32061](https://github.com/openjdk/jdk/pull/32061) 8389223: RISC-V: Implement CRC32C intrinsic using Zbc extension（新建、5 条评论）
+- [#32043](https://github.com/openjdk/jdk/pull/32043) 8388474: RISC-V: Relax satp mode check for sv57（已关闭、1 条评论）
+- [#32001](https://github.com/openjdk/jdk/pull/32001) 8388474: RISC-V: Relax satp mode check for sv57（2 条评论）
+- [#31120](https://github.com/openjdk/jdk/pull/31120) 8317277: Java language implementation of value objects（有更新）
+- [#32072](https://github.com/openjdk/jdk/pull/32072) 8386595: Two java/net/MulticastSocket tests fail on machines with no ipv6 address other than loopback（新建、5 条评论）
+- [#32071](https://github.com/openjdk/jdk/pull/32071) 8388991: Adjust relauncher.c to avoid unused variable and init PROCESS_INFORMATION as suggested（新建、9 条评论）
 
-[查看完整日报](reports/2026/2026-07-27.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-07-28.md) · [浏览全部历史](reports/index.md)

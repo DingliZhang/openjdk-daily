@@ -4,24 +4,23 @@
 
 ## 最新日报
 
-### [2026-08-01](reports/2026/2026-08-01.md)
+### [2026-08-02](reports/2026/2026-08-02.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 53 |
+| 有活动的 PR | 13 |
 | 已合并 PR | 0 |
 | RISC-V 相关 PR | 2 |
-| 活跃贡献者 | 35 |
+| 活跃贡献者 | 11 |
 
 ## 今日关注
 
-- [#32076](https://github.com/openjdk/jdk/pull/32076) 8389312: RISC-V: vector_update_crc32 wrongly assumes undisturbed tail elements（已关闭、7 条评论）
-- [#28541](https://github.com/openjdk/jdk/pull/28541) 8372701: Randomized profile counters（2 个 Review、1 条评论）
-- [#32160](https://github.com/openjdk/jdk/pull/32160) 8388169: Test gc/g1/TestCodeCacheUnloadDuringConcurrentMark.java failed: Expected a not-entrant target nmethod before concurrent mark（新建、5 条评论）
-- [#32159](https://github.com/openjdk/jdk/pull/32159) 8389552: [s390]: Build fails due to missing CodeCache declaration in continuationEntry_s390.inline.hpp（新建、已关闭、1 个 Review、14 条评论）
-- [#32158](https://github.com/openjdk/jdk/pull/32158) 8389539: Clarify equivalence class sizing with value objects（新建、1 个 Review、4 条评论）
-- [#32157](https://github.com/openjdk/jdk/pull/32157) 8337680: failure_handler does not handle repeated commands well（新建、3 条评论）
-- [#32156](https://github.com/openjdk/jdk/pull/32156) 8389538: StringUtils::string_match may underflow-read a buffer（新建、4 条评论）
-- [#32155](https://github.com/openjdk/jdk/pull/32155) 8389537: (fs) Failure in querying attributes of a OneDrive folder over SMB (win)（新建、1 个 Review、5 条评论）
+- [#32162](https://github.com/openjdk/jdk/pull/32162) 8389581: RISC-V: building fails with clang toolchain（新建、5 条评论）
+- [#31774](https://github.com/openjdk/jdk/pull/31774) 8388924: RISC-V: Zbb andn/orn/xnor AD patterns never match in C2（1 条评论）
+- [#32164](https://github.com/openjdk/jdk/pull/32164) 8389152: Move null assignment outside debug block when clearing CRLs that exceed the maximum length（新建、4 条评论）
+- [#32163](https://github.com/openjdk/jdk/pull/32163) 8389218: C2: assert(false) failed: PhaseCCP not at fixpoint: analysis result may be unsound for CmpU（新建、5 条评论）
+- [#32161](https://github.com/openjdk/jdk/pull/32161) Remove deprecation from URLDecoder.decode + URLEncoder.encode method (default charset)（新建、2 个 Review、5 条评论）
+- [#32160](https://github.com/openjdk/jdk/pull/32160) 8388169: Test gc/g1/TestCodeCacheUnloadDuringConcurrentMark.java failed: Expected a not-entrant target nmethod before concurrent mark（有更新）
+- [#32150](https://github.com/openjdk/jdk/pull/32150) 8293983: [lworld] ValueTearing fails with "torn point NOT observed"（有更新）
 
-[查看完整日报](reports/2026/2026-08-01.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-02.md) · [浏览全部历史](reports/index.md)

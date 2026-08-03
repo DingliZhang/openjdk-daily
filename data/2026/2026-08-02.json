@@ -1,0 +1,489 @@
+{
+  "date": "2026-08-02",
+  "generated_at": "2026-08-03T04:10:58.872112+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 32164,
+      "title": "8389152: Move null assignment outside debug block when clearing CRLs that exceed the maximum length",
+      "url": "https://github.com/openjdk/jdk/pull/32164",
+      "author": "hgqxjj",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、4 条评论",
+      "created_at": "2026-08-02T12:27:06Z",
+      "updated_at": "2026-08-02T12:35:05Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/sun/security/provider/certpath/URICertStore.java"
+      ],
+      "body_excerpt": "Please review this change. Thanks! **Description:** When an oversized CRL is fetched, the cached `crl` is cleared only when debugging is enabled, and `lastModified` is not reset. **Solution:** Always clear the cached `crl` and reset `lastModified` when an oversized CRL is discarded. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32163,
+      "title": "8389218: C2: assert(false) failed: PhaseCCP not at fixpoint: analysis result may be unsound for CmpU",
+      "url": "https://github.com/openjdk/jdk/pull/32163",
+      "author": "hgqxjj",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-08-02T12:19:48Z",
+      "updated_at": "2026-08-02T12:28:03Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/subnode.cpp",
+        "test/hotspot/jtreg/compiler/ccp/TestCmpUCCPFixpoint.java"
+      ],
+      "body_excerpt": "Please review this change. Thanks! **Description:** The existing overflow handling in `CmpUNode::Value()` only covers cases where exactly one boundary wraps, as shown below: https://github.com/openjdk/jdk/blob/5b2d6991a1279d375f9a3c00c7bcd0bbcc7081d6/src/hotspot/share/opto/subnode.cpp#L848-L851 When both bounds wrap in the same direction, the code does not perform any further range analysis and may conservatively return the bottom comparison type. As a result, `not_bottom_type()` subsequently returns false, preventing the node from being revisited for further value refinement, as shown below: "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32162,
+      "title": "8389581: RISC-V: building fails with clang toolchain",
+      "url": "https://github.com/openjdk/jdk/pull/32162",
+      "author": "lgxbslgx",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-08-02T11:06:34Z",
+      "updated_at": "2026-08-03T03:03:50Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "构建与工具链"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/riscv.ad"
+      ],
+      "body_excerpt": "Hi all, When using the clang toolchain to build the riscv image on vision five2 board, the building fails. This patch uses the explicit `C2_MacroAssembler` to fix the building error. Best Regards, -- Guoxiong --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[x\\] Change must be properly re"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32161,
+      "title": "Remove deprecation from URLDecoder.decode + URLEncoder.encode method (default charset)",
+      "url": "https://github.com/openjdk/jdk/pull/32161",
+      "author": "simon04",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、2 个 Review、5 条评论",
+      "created_at": "2026-08-01T18:38:37Z",
+      "updated_at": "2026-08-02T08:35:39Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "net"
+      ],
+      "modules": [
+        "核心类库",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 5,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/java.base/share/classes/java/net/URLDecoder.java",
+        "src/java.base/share/classes/java/net/URLEncoder.java"
+      ],
+      "body_excerpt": "JEP 400: UTF-8 by Default. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[x\\] Change must not contain extraneous whitespace - \\[ \\] Commit message must refer to an issue ### Reviewers without OpenJDK IDs * @SAM-LATITUDE5500 (no known openjdk.org user name / ro"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32160,
+      "title": "8388169: Test gc/g1/TestCodeCacheUnloadDuringConcurrentMark.java failed: Expected a not-entrant target nmethod before concurrent mark",
+      "url": "https://github.com/openjdk/jdk/pull/32160",
+      "author": "albertnetymk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-08-01T14:40:32Z",
+      "updated_at": "2026-08-01T23:08:55Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-gc"
+      ],
+      "modules": [
+        "GC",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/hotspot/jtreg/ProblemList-Xcomp.txt",
+        "test/hotspot/jtreg/gc/TestCodeCacheUnload.java",
+        "test/hotspot/jtreg/gc/g1/TestCodeCacheUnloadDuringConcurrentMark.java",
+        "test/hotspot/jtreg/gc/testlibrary/CodeCacheUtils.java"
+      ],
+      "body_excerpt": "[JDK-8387742](https://bugs.openjdk.org/browse/JDK-8387742) recently added these two codecache unloading tests. Both had timing and nmethod identity assumptions that made them unreliable under `-Xcomp`. `TestCodeCacheUnloadDuringConcurrentMark` is readily reproduced with `JTREG_JAVA_OPTIONS=\"-Xcomp -ea -esa -XX:CompileThreshold=100 -XX:+UnlockExperimentalVMOptions -server -XX:+TieredCompilation -XX:+VerifyOops\"`. An automatic G1 concurrent mark can reclaim the target before the test starts its requested cycle, so the pre-cycle presence check fails even though reclamation worked. `TestCodeCacheU"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32150,
+      "title": "8293983: [lworld] ValueTearing fails with \"torn point NOT observed\"",
+      "url": "https://github.com/openjdk/jdk/pull/32150",
+      "author": "johan-sjolen",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-07-31T12:50:09Z",
+      "updated_at": "2026-08-02T13:51:35Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/hotspot/jtreg/runtime/valhalla/inlinetypes/ValueTearing.java"
+      ],
+      "body_excerpt": "Hi! I would like to fix this issue by deleting the test. Ensuring that we can observe tearing (for `@LooselyConsistentValue`s) does not seem a useful test, and it's been disabled via `@ignore` regardless. This test was also introduced under an entirely different Valhalla model. --------- - [X] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Co"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32123,
+      "title": "8388192: [lworld] Some code is not guarded by Arguments::is_valhalla_enabled()",
+      "url": "https://github.com/openjdk/jdk/pull/32123",
+      "author": "TobiHartmann",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review、2 条评论",
+      "created_at": "2026-07-31T07:20:02Z",
+      "updated_at": "2026-08-02T01:13:24Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 2,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/macroAssembler_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp",
+        "src/hotspot/cpu/x86/macroAssembler_x86.cpp",
+        "src/hotspot/cpu/x86/stubGenerator_x86_64_arraycopy.cpp",
+        "src/hotspot/share/opto/library_call.cpp",
+        "src/hotspot/share/opto/macroArrayCopy.cpp"
+      ],
+      "body_excerpt": "This PR replaces the Valhalla draft PR [2640](https://github.com/openjdk/valhalla/pull/2640), which was already reviewed by @chhagedorn but was not integrated due to the code freeze immediately before the Valhalla mainline integration. --- Some Valhalla specific code misses an `Arguments::is_valhalla_enabled()` check. Thanks, Tobias --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32099,
+      "title": "8389384: JDK-6960970 broke cross compilation on slow-debug level",
+      "url": "https://github.com/openjdk/jdk/pull/32099",
+      "author": "lgxbslgx",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、3 条评论",
+      "created_at": "2026-07-30T06:55:10Z",
+      "updated_at": "2026-08-02T09:57:13Z",
+      "merged_at": null,
+      "closed_at": "2026-08-02T03:54:13Z",
+      "labels": [
+        "integrated",
+        "serviceability",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "构建与工具链"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/prims/jvmtiExport.hpp"
+      ],
+      "body_excerpt": "Hi all, The compilation target `buildjdk` doesn't include the feature `jvmti`, so when cross compiling a slow-debug image, `JvmtiExport::has_frame_pop_for_top_frame` can't be found and the cross compilation fails. The cross building of release and fast-debug images succeeded. It may be caused by compiler optimization. Best Regards, -- Guoxiong --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progre"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32068,
+      "title": "Draft: 8370914: Refactor Type::meet and Type::join",
+      "url": "https://github.com/openjdk/jdk/pull/32068",
+      "author": "merykitty",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-07-28T11:07:00Z",
+      "updated_at": "2026-08-02T12:57:04Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/addnode.cpp",
+        "src/hotspot/share/opto/castnode.cpp",
+        "src/hotspot/share/opto/compile.cpp",
+        "src/hotspot/share/opto/graphKit.cpp",
+        "src/hotspot/share/opto/memnode.cpp",
+        "src/hotspot/share/opto/parse2.cpp",
+        "src/hotspot/share/opto/rangeinference.cpp",
+        "src/hotspot/share/opto/rangeinference.hpp",
+        "src/hotspot/share/opto/subnode.cpp",
+        "src/hotspot/share/opto/type.cpp",
+        "src/hotspot/share/opto/type.hpp",
+        "src/hotspot/share/opto/typejavaptr.hpp",
+        "src/hotspot/share/utilities/globalDefinitions.hpp",
+        "test/hotspot/gtest/opto/test_typejavaptr.cpp"
+      ],
+      "body_excerpt": "Draft --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[ \\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 reviews required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer), 1 [Author](https://openjdk.org/bylaws#author)) ### Reviewing <details><summary>Using <code>git</code></summary"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31774,
+      "title": "8388924: RISC-V: Zbb andn/orn/xnor AD patterns never match in C2",
+      "url": "https://github.com/openjdk/jdk/pull/31774",
+      "author": "Felix-Gong",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-07-04T09:39:51Z",
+      "updated_at": "2026-08-01T20:46:39Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "oca-verify",
+        "oca",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/riscv_b.ad",
+        "test/hotspot/jtreg/compiler/codegen/TestXnorZbb.java",
+        "test/hotspot/jtreg/compiler/codegen/TestXnorZbbStress.java"
+      ],
+      "body_excerpt": "The RISC-V backend defines Zbb (bit-manipulation) instruction rules for andn (a & ~b), orn (a | ~b), and xnor (~(a ^ b)) in riscv_b.ad. These rules have never actually fired since their introduction. They are effectively dead code in JDK 21 through current master. On real RISC-V hardware (SOPHGO SG2044), enabling -XX:+UseZbb produces no instruction count difference for patterns that should use andn/orn, confirming the rules do not match. Testing: - hotspot jtreg compiler/codegen: all pass - hotspot jtreg compiler/integerArithmetic: all pass - [x] I confirm that I make this contribution in acco"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31687,
+      "title": "8364404: PanelRepaint.java should not be resizable",
+      "url": "https://github.com/openjdk/jdk/pull/31687",
+      "author": "jyothilek",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-06-26T03:50:18Z",
+      "updated_at": "2026-08-02T04:17:18Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "macOS",
+        "Windows"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/java/awt/Panel/PanelRepaint/PanelRepaint.java"
+      ],
+      "body_excerpt": "Please review this Platforms tested: Windows 11, macOS, Linux, Ubuntu Summary: Update PanelRepaint manual test to make the test frame non-resizable, keeping the UI layout fixed during verification. While testing the non-resizable frame change, observed that tab focus traversal did not scroll lower rows into view. Set a clear size for the custom ScrollPanel so when focus moves with the Tab key, the selected row can scroll into view properly. - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this ma"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31408,
+      "title": "Iterative training",
+      "url": "https://github.com/openjdk/jdk/pull/31408",
+      "author": "veresov",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-06-05T18:28:42Z",
+      "updated_at": "2026-08-02T11:16:45Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "serviceability",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "PPC"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/cds/aotCacheAccess.cpp",
+        "src/hotspot/share/cds/aotClassLocation.cpp",
+        "src/hotspot/share/cds/aotLinkedClassBulkLoader.cpp",
+        "src/hotspot/share/cds/aotLinkedClassTable.cpp",
+        "src/hotspot/share/cds/aotMappedHeapLoader.cpp",
+        "src/hotspot/share/cds/aotMetaspace.cpp",
+        "src/hotspot/share/cds/aotStreamedHeapLoader.cpp",
+        "src/hotspot/share/cds/archiveBuilder.cpp",
+        "src/hotspot/share/cds/cdsConfig.cpp",
+        "src/hotspot/share/cds/cdsConfig.hpp",
+        "src/hotspot/share/cds/cppVtables.cpp",
+        "src/hotspot/share/cds/dumpTimeClassInfo.cpp",
+        "src/hotspot/share/cds/dynamicArchive.cpp",
+        "src/hotspot/share/cds/dynamicArchive.hpp",
+        "src/hotspot/share/cds/filemap.cpp",
+        "src/hotspot/share/cds/filemap.hpp",
+        "src/hotspot/share/cds/heapShared.cpp",
+        "src/hotspot/share/classfile/classLoader.cpp",
+        "src/hotspot/share/classfile/classLoaderDataShared.cpp",
+        "src/hotspot/share/classfile/javaClasses.cpp",
+        "src/hotspot/share/classfile/stringTable.cpp",
+        "src/hotspot/share/classfile/systemDictionary.cpp",
+        "src/hotspot/share/classfile/systemDictionaryShared.cpp",
+        "src/hotspot/share/compiler/compilationPolicy.cpp",
+        "src/hotspot/share/oops/constantPool.cpp",
+        "src/hotspot/share/oops/klass.hpp",
+        "src/hotspot/share/oops/trainingData.cpp",
+        "src/hotspot/share/oops/trainingData.hpp",
+        "src/hotspot/share/runtime/sharedRuntime.cpp",
+        "src/hotspot/share/runtime/vmStructs.cpp",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/memory/FileMapInfo.java",
+        "test/hotspot/jtreg/runtime/cds/appcds/aotCache/HelloAOTCache.java",
+        "test/hotspot/jtreg/runtime/cds/appcds/aotFlags/AOTFlags.java",
+        "test/hotspot/jtreg/runtime/cds/appcds/applications/JavacBench.java",
+        "test/lib/jdk/test/lib/cds/CDSAppTester.java"
+      ],
+      "body_excerpt": "--------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[ \\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 reviews required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer), 1 [Author](https://openjdk.org/bylaws#author)) ### Reviewing <details><summary>Using <code>git</code></summary> Chec"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31365,
+      "title": "8385697: Add a Pooled Confined Arena",
+      "url": "https://github.com/openjdk/jdk/pull/31365",
+      "author": "minborg",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-06-03T08:50:01Z",
+      "updated_at": "2026-08-02T11:24:28Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/java/lang/System.java",
+        "src/java.base/share/classes/java/lang/Thread.java",
+        "src/java.base/share/classes/java/lang/VirtualThread.java",
+        "src/java.base/share/classes/jdk/internal/access/JavaLangAccess.java",
+        "src/java.base/share/classes/jdk/internal/foreign/ArenaImpl.java",
+        "src/java.base/share/classes/jdk/internal/foreign/ConfinedSegmentPool.java",
+        "src/java.base/share/classes/jdk/internal/foreign/ConfinedSession.java",
+        "src/java.base/share/classes/jdk/internal/foreign/MemorySessionImpl.java",
+        "test/jdk/java/foreign/TestConfinedSegmentPool.java",
+        "test/jdk/java/foreign/TestConfinedSegmentPoolConfig.java",
+        "test/jdk/java/foreign/TestConfinedSegmentPoolDefensiveRelease.java",
+        "test/jdk/java/foreign/TestSegmentAllocators.java",
+        "test/micro/org/openjdk/bench/java/lang/foreign/AllocFromSliceTest.java",
+        "test/micro/org/openjdk/bench/java/lang/foreign/AllocFromTest.java",
+        "test/micro/org/openjdk/bench/java/lang/foreign/AllocTest.java"
+      ],
+      "body_excerpt": "## Summary This PR proposes to introduce a pooled confined arena as an optimization for `Arena.ofConfined()`, where small native allocations can be served from a reusable per-thread/per-slot memory pool instead of calling the regular native allocator for every short-lived arena. The arena remains confined to its owner thread and is still closed normally, but its backing storage can be reset and reused when the arena closes. The feature requires no API changes. ### Outline Platform threads: There are up to four lazily allocated pools per Thread, encoded in `Thread.confinedMemoryPool`. Virtual t"
+    }
+  ]
+}

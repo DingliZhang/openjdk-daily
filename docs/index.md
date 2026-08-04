@@ -4,23 +4,24 @@
 
 ## 最新日报
 
-### [2026-08-02](reports/2026/2026-08-02.md)
+### [2026-08-03](reports/2026/2026-08-03.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 13 |
+| 有活动的 PR | 110 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 2 |
-| 活跃贡献者 | 11 |
+| RISC-V 相关 PR | 4 |
+| 活跃贡献者 | 45 |
 
 ## 今日关注
 
-- [#32162](https://github.com/openjdk/jdk/pull/32162) 8389581: RISC-V: building fails with clang toolchain（新建、5 条评论）
-- [#31774](https://github.com/openjdk/jdk/pull/31774) 8388924: RISC-V: Zbb andn/orn/xnor AD patterns never match in C2（1 条评论）
-- [#32164](https://github.com/openjdk/jdk/pull/32164) 8389152: Move null assignment outside debug block when clearing CRLs that exceed the maximum length（新建、4 条评论）
-- [#32163](https://github.com/openjdk/jdk/pull/32163) 8389218: C2: assert(false) failed: PhaseCCP not at fixpoint: analysis result may be unsound for CmpU（新建、5 条评论）
-- [#32161](https://github.com/openjdk/jdk/pull/32161) Remove deprecation from URLDecoder.decode + URLEncoder.encode method (default charset)（新建、2 个 Review、5 条评论）
-- [#32160](https://github.com/openjdk/jdk/pull/32160) 8388169: Test gc/g1/TestCodeCacheUnloadDuringConcurrentMark.java failed: Expected a not-entrant target nmethod before concurrent mark（有更新）
-- [#32150](https://github.com/openjdk/jdk/pull/32150) 8293983: [lworld] ValueTearing fails with "torn point NOT observed"（有更新）
+- [#32162](https://github.com/openjdk/jdk/pull/32162) 8389581: RISC-V: building fails with clang toolchain（2 个 Review、1 条评论）
+- [#32124](https://github.com/openjdk/jdk/pull/32124) 8388193: [lworld] C2's ClearArray keeps zero fill value alive in register（已关闭、2 个 Review、5 条评论）
+- [#32123](https://github.com/openjdk/jdk/pull/32123) 8388192: [lworld] Some code is not guarded by Arguments::is_valhalla_enabled()（已关闭、2 个 Review、11 条评论）
+- [#31992](https://github.com/openjdk/jdk/pull/31992) 8388279: Compiled code fails with verifier error (II)（2 条评论）
+- [#32180](https://github.com/openjdk/jdk/pull/32180) 8389611: vframeStreamCommon::skip_prefixed_method_and_wrappers: unsigned underflow in prefix length leads to out-of-bounds read（新建、5 条评论）
+- [#32179](https://github.com/openjdk/jdk/pull/32179) 8389624: C2: Skip redundant AND mask in LibraryCallKit::inline_native_hashcode intrinsic when compact headers are disabled（新建、5 条评论）
+- [#32178](https://github.com/openjdk/jdk/pull/32178) 8389187: -XX:+VerifyContinuations triggers assert(max_thawing_size() == calculated_max_size)（新建、7 条评论）
+- [#32177](https://github.com/openjdk/jdk/pull/32177) 8388596: Virtual-thread freeze asserts on MethodHandle frame with scalarized value argument（新建、7 条评论）
 
-[查看完整日报](reports/2026/2026-08-02.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-03.md) · [浏览全部历史](reports/index.md)

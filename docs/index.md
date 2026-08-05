@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-08-03](reports/2026/2026-08-03.md)
+### [2026-08-04](reports/2026/2026-08-04.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 110 |
+| 有活动的 PR | 121 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 4 |
-| 活跃贡献者 | 45 |
+| RISC-V 相关 PR | 10 |
+| 活跃贡献者 | 73 |
 
 ## 今日关注
 
-- [#32162](https://github.com/openjdk/jdk/pull/32162) 8389581: RISC-V: building fails with clang toolchain（2 个 Review、1 条评论）
-- [#32124](https://github.com/openjdk/jdk/pull/32124) 8388193: [lworld] C2's ClearArray keeps zero fill value alive in register（已关闭、2 个 Review、5 条评论）
-- [#32123](https://github.com/openjdk/jdk/pull/32123) 8388192: [lworld] Some code is not guarded by Arguments::is_valhalla_enabled()（已关闭、2 个 Review、11 条评论）
-- [#31992](https://github.com/openjdk/jdk/pull/31992) 8388279: Compiled code fails with verifier error (II)（2 条评论）
-- [#32180](https://github.com/openjdk/jdk/pull/32180) 8389611: vframeStreamCommon::skip_prefixed_method_and_wrappers: unsigned underflow in prefix length leads to out-of-bounds read（新建、5 条评论）
-- [#32179](https://github.com/openjdk/jdk/pull/32179) 8389624: C2: Skip redundant AND mask in LibraryCallKit::inline_native_hashcode intrinsic when compact headers are disabled（新建、5 条评论）
-- [#32178](https://github.com/openjdk/jdk/pull/32178) 8389187: -XX:+VerifyContinuations triggers assert(max_thawing_size() == calculated_max_size)（新建、7 条评论）
-- [#32177](https://github.com/openjdk/jdk/pull/32177) 8388596: Virtual-thread freeze asserts on MethodHandle frame with scalarized value argument（新建、7 条评论）
+- [#32192](https://github.com/openjdk/jdk/pull/32192) 8389677: RISC-V: Prefer vmv.v.i to zero vector registers（新建、6 条评论）
+- [#32178](https://github.com/openjdk/jdk/pull/32178) 8389187: -XX:+VerifyContinuations triggers assert(max_thawing_size() == calculated_max_size)（2 条评论）
+- [#32076](https://github.com/openjdk/jdk/pull/32076) 8389312: RISC-V: vector_update_crc32 wrongly assumes undisturbed tail elements（有更新）
+- [#32067](https://github.com/openjdk/jdk/pull/32067) 8389239: RISC-V: Optimize copy_memory_v by reducing LMUL and hoisting vsetvli out of loop（有更新）
+- [#32027](https://github.com/openjdk/jdk/pull/32027) 8384415: Shenandoah: Hotpatch GC state checks（1 个 Review、12 条评论）
+- [#31961](https://github.com/openjdk/jdk/pull/31961) 8388460: RISC-V: Auto-enable Zcb extension features（已关闭、1 个 Review、5 条评论）
+- [#31923](https://github.com/openjdk/jdk/pull/31923) 8388288: RISC-V: Use Zicond instruction for encode/decode heap oop（1 条评论）
+- [#31864](https://github.com/openjdk/jdk/pull/31864) 8372563: Provide os::vm_max_address()（1 条评论）
 
-[查看完整日报](reports/2026/2026-08-03.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-04.md) · [浏览全部历史](reports/index.md)

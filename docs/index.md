@@ -4,23 +4,23 @@
 
 ## 最新日报
 
-### [2026-08-06](reports/2026/2026-08-06.md)
+### [2026-08-07](reports/2026/2026-08-07.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 92 |
+| 有活动的 PR | 96 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 5 |
-| 活跃贡献者 | 65 |
+| RISC-V 相关 PR | 7 |
+| 活跃贡献者 | 71 |
 
 ## 今日关注
 
-- [#32237](https://github.com/openjdk/jdk/pull/32237) 8389895: RISC-V: Fuse LoadN with DecodeN to eliminate redundant register moves（新建、4 条评论）
-- [#32221](https://github.com/openjdk/jdk/pull/32221) 8389734: [lworld] _c1_needs_stack_repair might be useless and might be removable（新建、2 个 Review、5 条评论）
-- [#32162](https://github.com/openjdk/jdk/pull/32162) 8389581: RISC-V: building fails with clang toolchain（已关闭、5 条评论）
-- [#32034](https://github.com/openjdk/jdk/pull/32034) 8338534: Shenandoah: Handle alloc failure differently when immediate garbage is available（2 条评论）
-- [#31956](https://github.com/openjdk/jdk/pull/31956) 8388458: RISC-V: Optimize G1 post-write barrier conditional card mark（1 个 Review、2 条评论）
-- [#32238](https://github.com/openjdk/jdk/pull/32238) 8389903: ProblemList javax/swing/JMenu/PopupReferenceMemoryLeak.java on windows-x64（新建）
-- [#32236](https://github.com/openjdk/jdk/pull/32236) 8348872: jabswitch.cpp: regEnable and regDeleteValue leak reallocated data buffer（新建、6 条评论）
+- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（新建、1 个 Review、7 条评论）
+- [#32252](https://github.com/openjdk/jdk/pull/32252) 8387474: RISCV64: create vectorized mismatch intrinsic with vector extension（新建、5 条评论）
+- [#32246](https://github.com/openjdk/jdk/pull/32246) 8389905: Shenandoah: SBSA::card_table uses own temp registers that clobber obj（新建、1 个 Review、5 条评论）
+- [#32221](https://github.com/openjdk/jdk/pull/32221) 8389734: [Valhalla] _c1_needs_stack_repair is useless and should be removed（已关闭、6 个 Review、5 条评论）
+- [#32192](https://github.com/openjdk/jdk/pull/32192) 8389677: RISC-V: Prefer vmv.v.i to zero vector registers（1 条评论）
+- [#32162](https://github.com/openjdk/jdk/pull/32162) 8389581: RISC-V: building fails with clang toolchain（1 条评论）
+- [#31956](https://github.com/openjdk/jdk/pull/31956) 8388458: RISC-V: Use LSB for conditional card mark in G1 post-write barrier（1 个 Review、3 条评论）
 
-[查看完整日报](reports/2026/2026-08-06.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-07.md) · [浏览全部历史](reports/index.md)

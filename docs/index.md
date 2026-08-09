@@ -4,23 +4,24 @@
 
 ## 最新日报
 
-### [2026-08-07](reports/2026/2026-08-07.md)
+### [2026-08-08](reports/2026/2026-08-08.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 96 |
+| 有活动的 PR | 64 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 7 |
-| 活跃贡献者 | 71 |
+| RISC-V 相关 PR | 3 |
+| 活跃贡献者 | 43 |
 
 ## 今日关注
 
-- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（新建、1 个 Review、7 条评论）
-- [#32252](https://github.com/openjdk/jdk/pull/32252) 8387474: RISCV64: create vectorized mismatch intrinsic with vector extension（新建、5 条评论）
-- [#32246](https://github.com/openjdk/jdk/pull/32246) 8389905: Shenandoah: SBSA::card_table uses own temp registers that clobber obj（新建、1 个 Review、5 条评论）
-- [#32221](https://github.com/openjdk/jdk/pull/32221) 8389734: [Valhalla] _c1_needs_stack_repair is useless and should be removed（已关闭、6 个 Review、5 条评论）
-- [#32192](https://github.com/openjdk/jdk/pull/32192) 8389677: RISC-V: Prefer vmv.v.i to zero vector registers（1 条评论）
-- [#32162](https://github.com/openjdk/jdk/pull/32162) 8389581: RISC-V: building fails with clang toolchain（1 条评论）
-- [#31956](https://github.com/openjdk/jdk/pull/31956) 8388458: RISC-V: Use LSB for conditional card mark in G1 post-write barrier（1 个 Review、3 条评论）
+- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（1 个 Review、1 条评论）
+- [#32246](https://github.com/openjdk/jdk/pull/32246) 8389905: Shenandoah: SBSA::card_table uses own temp registers that clobber obj（已关闭、1 个 Review、3 条评论）
+- [#28541](https://github.com/openjdk/jdk/pull/28541) 8372701: Randomized profile counters（1 条评论）
+- [#32264](https://github.com/openjdk/jdk/pull/32264) 8389573: InputStreamReader.readAllAsString() should override the generic Reader default implementation to avoid unnecessary buffer copies（新建、2 条评论）
+- [#32263](https://github.com/openjdk/jdk/pull/32263) 8390024: WB_ParseCommandLine leaks C-heap memory when parsing STRING arguments（新建、1 个 Review、5 条评论）
+- [#32262](https://github.com/openjdk/jdk/pull/32262) 8390014: TestInstanceKlassSize.java and TestInstanceKlassSizeForInterface.java failed when --enable-preview was passed（新建、1 个 Review、4 条评论）
+- [#32261](https://github.com/openjdk/jdk/pull/32261) 8389988: Shenandoah: Pinned regions with no live data are handled inconsistently（新建、4 条评论）
+- [#32260](https://github.com/openjdk/jdk/pull/32260) 8390002: Windows AArch64 needs an additional yellow stack page (total 3)（新建、6 条评论）
 
-[查看完整日报](reports/2026/2026-08-07.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-08.md) · [浏览全部历史](reports/index.md)

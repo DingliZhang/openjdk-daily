@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-08-08](reports/2026/2026-08-08.md)
+### [2026-08-09](reports/2026/2026-08-09.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 64 |
+| 有活动的 PR | 20 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 3 |
-| 活跃贡献者 | 43 |
+| RISC-V 相关 PR | 2 |
+| 活跃贡献者 | 18 |
 
 ## 今日关注
 
-- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（1 个 Review、1 条评论）
-- [#32246](https://github.com/openjdk/jdk/pull/32246) 8389905: Shenandoah: SBSA::card_table uses own temp registers that clobber obj（已关闭、1 个 Review、3 条评论）
-- [#28541](https://github.com/openjdk/jdk/pull/28541) 8372701: Randomized profile counters（1 条评论）
-- [#32264](https://github.com/openjdk/jdk/pull/32264) 8389573: InputStreamReader.readAllAsString() should override the generic Reader default implementation to avoid unnecessary buffer copies（新建、2 条评论）
-- [#32263](https://github.com/openjdk/jdk/pull/32263) 8390024: WB_ParseCommandLine leaks C-heap memory when parsing STRING arguments（新建、1 个 Review、5 条评论）
-- [#32262](https://github.com/openjdk/jdk/pull/32262) 8390014: TestInstanceKlassSize.java and TestInstanceKlassSizeForInterface.java failed when --enable-preview was passed（新建、1 个 Review、4 条评论）
-- [#32261](https://github.com/openjdk/jdk/pull/32261) 8389988: Shenandoah: Pinned regions with no live data are handled inconsistently（新建、4 条评论）
-- [#32260](https://github.com/openjdk/jdk/pull/32260) 8390002: Windows AArch64 needs an additional yellow stack page (total 3)（新建、6 条评论）
+- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（1 个 Review）
+- [#32192](https://github.com/openjdk/jdk/pull/32192) 8389677: RISC-V: Prefer vmv.v.i to zero vector registers（3 条评论）
+- [#32269](https://github.com/openjdk/jdk/pull/32269) 8390033: Disable stringop-overflow in shenandoahHeap.cpp（新建、4 条评论）
+- [#32268](https://github.com/openjdk/jdk/pull/32268) 8390026: Add UTF-16 fast paths to avoid copies in String（新建、4 条评论）
+- [#32267](https://github.com/openjdk/jdk/pull/32267) 8390031: vmTestbase/nsk/jdb/suspend/suspend001 hangs with virtual test threads after suspend/cont（新建、3 条评论）
+- [#32266](https://github.com/openjdk/jdk/pull/32266) 8355572: Support HTTP Range requests in Simple Web Server（新建、6 条评论）
+- [#32265](https://github.com/openjdk/jdk/pull/32265) 8388417: Support VerifyOops for AOT caching stub and code（新建、7 条评论）
+- [#32264](https://github.com/openjdk/jdk/pull/32264) 8389573: InputStreamReader.readAllAsString() should override the generic Reader default implementation to avoid unnecessary buffer copies（2 个 Review、7 条评论）
 
-[查看完整日报](reports/2026/2026-08-08.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-09.md) · [浏览全部历史](reports/index.md)

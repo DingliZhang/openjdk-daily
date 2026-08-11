@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-08-09](reports/2026/2026-08-09.md)
+### [2026-08-10](reports/2026/2026-08-10.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 20 |
+| 有活动的 PR | 59 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 2 |
-| 活跃贡献者 | 18 |
+| RISC-V 相关 PR | 3 |
+| 活跃贡献者 | 44 |
 
 ## 今日关注
 
-- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（1 个 Review）
-- [#32192](https://github.com/openjdk/jdk/pull/32192) 8389677: RISC-V: Prefer vmv.v.i to zero vector registers（3 条评论）
-- [#32269](https://github.com/openjdk/jdk/pull/32269) 8390033: Disable stringop-overflow in shenandoahHeap.cpp（新建、4 条评论）
-- [#32268](https://github.com/openjdk/jdk/pull/32268) 8390026: Add UTF-16 fast paths to avoid copies in String（新建、4 条评论）
-- [#32267](https://github.com/openjdk/jdk/pull/32267) 8390031: vmTestbase/nsk/jdb/suspend/suspend001 hangs with virtual test threads after suspend/cont（新建、3 条评论）
-- [#32266](https://github.com/openjdk/jdk/pull/32266) 8355572: Support HTTP Range requests in Simple Web Server（新建、6 条评论）
-- [#32265](https://github.com/openjdk/jdk/pull/32265) 8388417: Support VerifyOops for AOT caching stub and code（新建、7 条评论）
-- [#32264](https://github.com/openjdk/jdk/pull/32264) 8389573: InputStreamReader.readAllAsString() should override the generic Reader default implementation to avoid unnecessary buffer copies（2 个 Review、7 条评论）
+- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（3 个 Review）
+- [#32192](https://github.com/openjdk/jdk/pull/32192) 8389677: RISC-V: Prefer vmv.v.i to zero vector registers（1 个 Review、3 条评论）
+- [#32046](https://github.com/openjdk/jdk/pull/32046) 8389108: RISC-V: C2: Optimize identity hash mask extraction with shift pair（1 条评论）
+- [#32280](https://github.com/openjdk/jdk/pull/32280) 8390069: compiler/codegen/ShiftByZero.java fails in release config（新建、3 个 Review、7 条评论）
+- [#32279](https://github.com/openjdk/jdk/pull/32279) 8388490: Assert in VectorUnboxNode::Ideal because value input is TOP（新建、2 个 Review、8 条评论）
+- [#32278](https://github.com/openjdk/jdk/pull/32278) 8371903: HttpClient: improve handling of HTTP/2 GOAWAY frames with error code（新建、2 个 Review、10 条评论）
+- [#32277](https://github.com/openjdk/jdk/pull/32277) 8390062: aarch64: CPU_SB is set only on BSD, not on Linux（新建、5 条评论）
+- [#32276](https://github.com/openjdk/jdk/pull/32276) Merge separate data into one class（新建、3 条评论）
 
-[查看完整日报](reports/2026/2026-08-09.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-10.md) · [浏览全部历史](reports/index.md)

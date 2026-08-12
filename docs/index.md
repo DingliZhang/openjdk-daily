@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-08-10](reports/2026/2026-08-10.md)
+### [2026-08-11](reports/2026/2026-08-11.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 59 |
+| 有活动的 PR | 118 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 3 |
-| 活跃贡献者 | 44 |
+| RISC-V 相关 PR | 7 |
+| 活跃贡献者 | 69 |
 
 ## 今日关注
 
-- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（3 个 Review）
-- [#32192](https://github.com/openjdk/jdk/pull/32192) 8389677: RISC-V: Prefer vmv.v.i to zero vector registers（1 个 Review、3 条评论）
-- [#32046](https://github.com/openjdk/jdk/pull/32046) 8389108: RISC-V: C2: Optimize identity hash mask extraction with shift pair（1 条评论）
-- [#32280](https://github.com/openjdk/jdk/pull/32280) 8390069: compiler/codegen/ShiftByZero.java fails in release config（新建、3 个 Review、7 条评论）
-- [#32279](https://github.com/openjdk/jdk/pull/32279) 8388490: Assert in VectorUnboxNode::Ideal because value input is TOP（新建、2 个 Review、8 条评论）
-- [#32278](https://github.com/openjdk/jdk/pull/32278) 8371903: HttpClient: improve handling of HTTP/2 GOAWAY frames with error code（新建、2 个 Review、10 条评论）
-- [#32277](https://github.com/openjdk/jdk/pull/32277) 8390062: aarch64: CPU_SB is set only on BSD, not on Linux（新建、5 条评论）
-- [#32276](https://github.com/openjdk/jdk/pull/32276) Merge separate data into one class（新建、3 条评论）
+- [#32290](https://github.com/openjdk/jdk/pull/32290) 8390101: RISC-V: Use vmandn.mm for vector mask and-not（新建、5 条评论）
+- [#32289](https://github.com/openjdk/jdk/pull/32289) 8390044: RISC-V: Support vector integer division（新建、5 条评论）
+- [#32257](https://github.com/openjdk/jdk/pull/32257) 8389325: Remove the UseObjectMonitorTable flag and related code（13 个 Review、2 条评论）
+- [#32162](https://github.com/openjdk/jdk/pull/32162) 8389581: RISC-V: building fails with clang toolchain（有更新）
+- [#31988](https://github.com/openjdk/jdk/pull/31988) 8388558: C2: Specify return_addr relative to _old_SP（1 个 Review）
+- [#28164](https://github.com/openjdk/jdk/pull/28164) 8371348: ZGC: Extended heap base（已关闭、1 条评论）
+- [#21164](https://github.com/openjdk/jdk/pull/21164) 8320998: RISC-V: C2 RoundDoubleModeV（有更新）
+- [#32305](https://github.com/openjdk/jdk/pull/32305) 8390133: JFR: OngoingStream reads stale header（新建、4 条评论）
 
-[查看完整日报](reports/2026/2026-08-10.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-11.md) · [浏览全部历史](reports/index.md)

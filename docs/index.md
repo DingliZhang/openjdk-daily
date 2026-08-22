@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-08-20](reports/2026/2026-08-20.md)
+### [2026-08-21](reports/2026/2026-08-21.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 125 |
+| 有活动的 PR | 106 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 18 |
-| 活跃贡献者 | 83 |
+| RISC-V 相关 PR | 16 |
+| 活跃贡献者 | 66 |
 
 ## 今日关注
 
-- [#32472](https://github.com/openjdk/jdk/pull/32472) 8390755: RISC-V: scale AES ECB, CTR and CBC stubs to the vector length with LMUL=2 batching（新建、4 条评论）
-- [#32468](https://github.com/openjdk/jdk/pull/32468) Remove serviceability agent（新建、已关闭、1 条评论）
-- [#32442](https://github.com/openjdk/jdk/pull/32442) 8390631: RISC-V: Optimize String.indexOf(String) for single-character search string（有更新）
-- [#32438](https://github.com/openjdk/jdk/pull/32438) 8390614: RISC-V: Support VerifyOops for AOT caching stub and code（4 个 Review）
-- [#32417](https://github.com/openjdk/jdk/pull/32417) 8390522: RISC-V: Avoid clobbering ra in the nmethod entry barrier（已关闭、5 条评论）
-- [#32416](https://github.com/openjdk/jdk/pull/32416) 8390521: RISC-V: Clean up vector register dispatch in MachSpillCopyNode::implementation（已关闭、1 个 Review、3 条评论）
-- [#32415](https://github.com/openjdk/jdk/pull/32415) 8390603: Remove obsolete thread transition states（5 个 Review、5 条评论）
-- [#32410](https://github.com/openjdk/jdk/pull/32410) 8390450: RISC-V: Add Xuantie vendor feature detection（2 条评论）
+- [#32483](https://github.com/openjdk/jdk/pull/32483) 8390866: [Valhalla] revisit array load profiling（新建）
+- [#32480](https://github.com/openjdk/jdk/pull/32480) 8390826: RISC-V: Use dedicated vector mask logical instructions（新建、5 条评论）
+- [#32472](https://github.com/openjdk/jdk/pull/32472) 8390755: RISC-V: scale AES ECB, CTR and CBC stubs to the vector length with LMUL=2 batching（1 条评论）
+- [#32438](https://github.com/openjdk/jdk/pull/32438) 8390614: RISC-V: Support VerifyOops for AOT caching stub and code（3 个 Review、3 条评论）
+- [#32416](https://github.com/openjdk/jdk/pull/32416) 8390521: RISC-V: Clean up vector register dispatch in MachSpillCopyNode::implementation（2 条评论）
+- [#32415](https://github.com/openjdk/jdk/pull/32415) 8390603: Remove obsolete thread transition states（1 个 Review、3 条评论）
+- [#32309](https://github.com/openjdk/jdk/pull/32309) 8358959: RISC-V: Add Zalasr（3 个 Review、1 条评论）
+- [#32038](https://github.com/openjdk/jdk/pull/32038) 8388926: RISC-V: Skip redundant zext.w in set_narrow_klass when bit 31 is clear（1 条评论）
 
-[查看完整日报](reports/2026/2026-08-20.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-21.md) · [浏览全部历史](reports/index.md)

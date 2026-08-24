@@ -1,0 +1,684 @@
+{
+  "date": "2026-08-23",
+  "generated_at": "2026-08-24T00:58:37.814342+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 32491,
+      "title": "8390914: [leyden] add missing relocations for addresses recorded in AOT code cache",
+      "url": "https://github.com/openjdk/jdk/pull/32491",
+      "author": "vnkozlov",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、6 条评论",
+      "created_at": "2026-08-23T02:35:09Z",
+      "updated_at": "2026-08-23T02:46:37Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 6,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/macroAssembler_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp",
+        "src/hotspot/cpu/riscv/macroAssembler_riscv.cpp",
+        "src/hotspot/cpu/x86/macroAssembler_x86.cpp",
+        "src/hotspot/share/code/aotCodeCache.cpp"
+      ],
+      "body_excerpt": "Add missing relocations for addresses recorded in AOT code cache. Mostly missing in `verify_secondary_supers_table()` code. I have to rewrite the code of x86 to avoid local structure and method. tested: tier1-3,hs-comp-stress,hs-aot-stress --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32474,
+      "title": "8388795: Add --app-resources CLI option to copy files and directories into the application resources directory",
+      "url": "https://github.com/openjdk/jdk/pull/32474",
+      "author": "sashamatveev",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "4 个 Review",
+      "created_at": "2026-08-20T22:20:47Z",
+      "updated_at": "2026-08-22T18:35:53Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "PPC",
+        "macOS",
+        "Windows"
+      ],
+      "comments_today": 0,
+      "reviews_today": 4,
+      "changed_files": [
+        "src/jdk.jpackage/linux/classes/jdk/jpackage/internal/LinuxPackageBuilder.java",
+        "src/jdk.jpackage/linux/classes/jdk/jpackage/internal/LinuxPackagingPipeline.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/MacPackagingPipeline.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/ApplicationBuilder.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/ApplicationImageUtils.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/FromOptions.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/StandardHelpFormatter.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/StandardOption.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/model/Application.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/model/ApplicationLayout.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/model/ApplicationLayoutMixin.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/resources/HelpResources.properties",
+        "src/jdk.jpackage/share/man/jpackage.md",
+        "test/jdk/tools/jpackage/helpers/jdk/jpackage/test/ApplicationLayout.java",
+        "test/jdk/tools/jpackage/helpers/jdk/jpackage/test/JPackageCommand.java",
+        "test/jdk/tools/jpackage/junit/share/jdk.jpackage/jdk/jpackage/internal/AppImageFileTest.java",
+        "test/jdk/tools/jpackage/junit/share/jdk.jpackage/jdk/jpackage/internal/PackagingPipelineTest.java",
+        "test/jdk/tools/jpackage/junit/share/jdk.jpackage/jdk/jpackage/internal/cli/StandardOptionTest.java",
+        "test/jdk/tools/jpackage/junit/share/jdk.jpackage/jdk/jpackage/internal/cli/help-linux.txt",
+        "test/jdk/tools/jpackage/junit/share/jdk.jpackage/jdk/jpackage/internal/cli/help-macos.txt",
+        "test/jdk/tools/jpackage/junit/share/jdk.jpackage/jdk/jpackage/internal/cli/help-windows.txt",
+        "test/jdk/tools/jpackage/junit/share/jdk.jpackage/jdk/jpackage/internal/cli/jpackage-options.md",
+        "test/jdk/tools/jpackage/junit/share/jdk.jpackage/jdk/jpackage/internal/model/ApplicationLayoutTest.java",
+        "test/jdk/tools/jpackage/share/AppContentTest.java",
+        "test/jdk/tools/jpackage/share/AppImageFillOrderTest.java",
+        "test/jdk/tools/jpackage/share/ErrorTest.java",
+        "test/jdk/tools/jpackage/share/InOutPathTest.java"
+      ],
+      "body_excerpt": "- Added `--app-resources`. Specification: ``` --app-resources A File.pathSeparator separated list of paths Additional application files and directories to copy into the application resources directory. This option may be specified multiple times. Destination: Windows: application image root Linux: application image lib directory macOS: Contents/Resources ``` --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> -----"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32459,
+      "title": "8390256: JEP 539: Verifier accepts early_larval_frame whose wrapped base has no uninitializedThis",
+      "url": "https://github.com/openjdk/jdk/pull/32459",
+      "author": "matias9927",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-08-19T22:02:56Z",
+      "updated_at": "2026-08-22T17:24:36Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/classfile/stackMapFrame.cpp",
+        "src/hotspot/share/classfile/stackMapFrame.hpp",
+        "src/hotspot/share/classfile/stackMapTable.cpp",
+        "src/hotspot/share/classfile/stackMapTable.hpp",
+        "src/hotspot/share/classfile/verifier.cpp",
+        "test/hotspot/jtreg/runtime/valhalla/inlinetypes/verifier/EarlyLarvalFrameOrdering.jasm",
+        "test/hotspot/jtreg/runtime/valhalla/inlinetypes/verifier/EarlyLarvalNoUninitThis.jasm",
+        "test/hotspot/jtreg/runtime/valhalla/inlinetypes/verifier/LateOrdinaryStrictFrame.jasm",
+        "test/hotspot/jtreg/runtime/valhalla/inlinetypes/verifier/NoUnsetFieldsSuper.jasm",
+        "test/hotspot/jtreg/runtime/valhalla/inlinetypes/verifier/StrictFieldNoEarlyLarval.jasm",
+        "test/hotspot/jtreg/runtime/valhalla/inlinetypes/verifier/StrictInstanceFieldsTest.java"
+      ],
+      "body_excerpt": "Early_larval frames can only apply to frames with the uninitializeThis flag set, however, this rule was not properly being enforced. Instead, the verifier looked at the state of uninitializedThis for the previous frame, so this patch moves this check until after the nested frame has been parsed. Verified with a new regresson test case and tier 1-5 tests. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> ---------"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32438,
+      "title": "8390614: RISC-V: Support VerifyOops for AOT caching stub and code",
+      "url": "https://github.com/openjdk/jdk/pull/32438",
+      "author": "DingliZhang",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、3 条评论",
+      "created_at": "2026-08-19T06:38:33Z",
+      "updated_at": "2026-08-23T01:12:28Z",
+      "merged_at": null,
+      "closed_at": "2026-08-23T01:12:23Z",
+      "labels": [
+        "integrated",
+        "hotspot",
+        "shenandoah"
+      ],
+      "modules": [
+        "C2 编译器",
+        "GC",
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/gc/shared/barrierSetAssembler_riscv.cpp",
+        "src/hotspot/cpu/riscv/gc/shenandoah/shenandoahBarrierSetAssembler_riscv.cpp",
+        "src/hotspot/cpu/riscv/gc/z/zBarrierSetAssembler_riscv.cpp",
+        "src/hotspot/cpu/riscv/macroAssembler_riscv.cpp"
+      ],
+      "body_excerpt": "Hi, please consider. [JDK-8388417](https://bugs.openjdk.org/browse/JDK-8388417) made the VerifyOops code AOT-safe on x86 and AArch64, but did not update the RISC-V port. With [JDK-8390102](https://bugs.openjdk.org/browse/JDK-8390102) the AOT code cache is now enabled on RISC-V, so the archived verify_oop stub still embeds values that are only valid in the JVM that dumped the cache. The fix follows [JDK-8388417](https://bugs.openjdk.org/browse/JDK-8388417): load the mask and bits from AOTRuntimeConstants while dumping, and preserve the diagnostic strings with AOTCodeCache::add_C_string(), mater"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32365,
+      "title": "8067946: StackYellowPages and StackRedPages have no effect on Windows",
+      "url": "https://github.com/openjdk/jdk/pull/32365",
+      "author": "raneashay",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-08-14T04:22:40Z",
+      "updated_at": "2026-08-23T14:06:05Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "build",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "Windows"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "make/test/JtregNativeHotspot.gmk",
+        "src/hotspot/os/windows/os_windows.cpp",
+        "test/hotspot/jtreg/runtime/StackGuardPages/TestWindowsStackPages.java",
+        "test/hotspot/jtreg/runtime/StackGuardPages/libTestWindowsStackPages.c"
+      ],
+      "body_excerpt": "Prior to this patch, the `StackYellowPages` and `StackRedPages` influenced the total reserved stack memory, but they didn't change the minimum stack size specified as required by HotSpot to Windows. This patch adds the call to `SetThreadStackGuarantee()` to set the minimum stack size. The key change here is that the argument to `SetThreadStackGuarantee()` is set to one less than the total number of yellow pages. The one less page is because Windows uses a guard page (access to which tells Windows to commit more stack pages); in the terminal case, we want the guard page to coincide with the top"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32351,
+      "title": "Fix file associations option scope+add bundling operation to option context",
+      "url": "https://github.com/openjdk/jdk/pull/32351",
+      "author": "alexeysemenyukoracle",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2026-08-13T18:12:57Z",
+      "updated_at": "2026-08-23T09:20:21Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "macOS",
+        "Windows"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.jpackage/linux/classes/jdk/jpackage/internal/LinuxFromOptions.java",
+        "src/jdk.jpackage/linux/classes/jdk/jpackage/internal/LinuxPackageBuilder.java",
+        "src/jdk.jpackage/linux/classes/jdk/jpackage/internal/LinuxPackager.java",
+        "src/jdk.jpackage/linux/classes/jdk/jpackage/internal/LinuxRpmPackager.java",
+        "src/jdk.jpackage/linux/classes/jdk/jpackage/internal/resources/LinuxResources.properties",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/AppImageSigner.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/CFBundleVersion.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/MacApplicationBuilder.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/MacDmgPackageBuilder.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/MacDmgPackager.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/MacFromOptions.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/MacPackagingPipeline.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/MacPkgPackager.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/model/MacApplication.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/model/MacDmgPackageMixin.java",
+        "src/jdk.jpackage/macosx/classes/jdk/jpackage/internal/resources/MacResources.properties",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/AppImageFile.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/ApplicationBuilder.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/ApplicationImageUtils.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/CfgFile.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/FromOptions.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/LauncherBuilder.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/LauncherFromOptions.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/PackageBuilder.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/CannedException.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/CannedFormattedMessage.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/JOptSimpleOptionsBuilder.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/Main.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/MessageFormatUtils.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/OptionsAnalyzer.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/OptionsProcessor.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/StandardAppImageFileOption.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/StandardOption.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/StandardOptionContext.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/StandardValidator.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/StandardValueConverter.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/Utils.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/cli/VersionValidator.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/model/AppImageLayout.java",
+        "src/jdk.jpackage/share/classes/jdk/jpackage/internal/model/Application.java"
+      ],
+      "body_excerpt": "--------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[ \\] Change must not contain extraneous whitespace - \\[ \\] Commit message must refer to an issue ### Reviewing <details><summary>Using <code>git</code></summary> Checkout this PR locally: \\ `$ git fetch https://git"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32336,
+      "title": "8389875: java.lang javadoc should summarize object distinguishability",
+      "url": "https://github.com/openjdk/jdk/pull/32336",
+      "author": "rose00",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-08-13T10:01:00Z",
+      "updated_at": "2026-08-22T23:33:42Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "core-libs",
+        "javadoc"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/java/lang/Class.java",
+        "src/java.base/share/classes/java/lang/IdentityException.java",
+        "src/java.base/share/classes/java/lang/Object.java",
+        "src/java.base/share/classes/java/lang/System.java",
+        "src/java.base/share/classes/java/lang/doc-files/ValueBased.html",
+        "src/java.base/share/classes/java/lang/runtime/ValueObjectMethods.java",
+        "src/java.base/share/classes/java/util/IdentityHashMap.java",
+        "src/java.base/share/classes/java/util/Objects.java",
+        "src/java.base/share/classes/java/util/WeakHashMap.java"
+      ],
+      "body_excerpt": "The core specs were updated ([JDK-8388175](https://bugs.openjdk.org/browse/JDK-8388175) for JLS and [JDK-8388177](https://bugs.openjdk.org/browse/JDK-8388177) for javadoc) to introduce the concept of object indistinguishability. (This replaced an earlier concept of \"statewise equivalence\".) JLS 15.21.3 (\"Object Equality Operators\") now defines when two object references are indistinguishable, allowing for distinctly created value objects to be indistinguishable, virtually the same object. In parallel, the updated JVMS describes the VM-level view of the same concept. These specs describe Valhal"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32081,
+      "title": "8389135: Support TLS 1.2 Extended Master Secret (EMS) derivation in SunPKCS11",
+      "url": "https://github.com/openjdk/jdk/pull/32081",
+      "author": "chmielewskiandreas",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-07-29T07:29:49Z",
+      "updated_at": "2026-08-23T06:52:55Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.crypto.cryptoki/share/classes/sun/security/pkcs11/P11TlsExtendedMasterSecretGenerator.java",
+        "src/jdk.crypto.cryptoki/share/classes/sun/security/pkcs11/SunPKCS11.java",
+        "src/jdk.crypto.cryptoki/share/classes/sun/security/pkcs11/wrapper/CK_MECHANISM.java",
+        "src/jdk.crypto.cryptoki/share/classes/sun/security/pkcs11/wrapper/CK_TLS12_EXTENDED_MASTER_KEY_DERIVE_PARAMS.java",
+        "src/jdk.crypto.cryptoki/share/classes/sun/security/pkcs11/wrapper/Functions.java",
+        "src/jdk.crypto.cryptoki/share/classes/sun/security/pkcs11/wrapper/PKCS11Constants.java",
+        "src/jdk.crypto.cryptoki/share/native/libj2pkcs11/p11_convert.c",
+        "src/jdk.crypto.cryptoki/share/native/libj2pkcs11/p11_keymgmt.c",
+        "src/jdk.crypto.cryptoki/share/native/libj2pkcs11/p11_util.c",
+        "src/jdk.crypto.cryptoki/share/native/libj2pkcs11/pkcs11wrapper.h",
+        "test/jdk/sun/security/pkcs11/tls/TestExtendedMasterSecretHandshake.java",
+        "test/jdk/sun/security/pkcs11/tls/fips/FipsModeTLS.java"
+      ],
+      "body_excerpt": "I want to propose this enhancement. Please see the CSR. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[ \\] Change requires CSR request [JDK-8389137](https://bug"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32068,
+      "title": "8370914: C2: Reimplement Type::meet and Type::join",
+      "url": "https://github.com/openjdk/jdk/pull/32068",
+      "author": "merykitty",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、3 条评论",
+      "created_at": "2026-07-28T11:07:00Z",
+      "updated_at": "2026-08-23T11:00:33Z",
+      "merged_at": null,
+      "closed_at": "2026-08-23T11:00:27Z",
+      "labels": [
+        "integrated",
+        "hotspot",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/addnode.cpp",
+        "src/hotspot/share/opto/castnode.cpp",
+        "src/hotspot/share/opto/compile.cpp",
+        "src/hotspot/share/opto/compile.hpp",
+        "src/hotspot/share/opto/graphKit.cpp",
+        "src/hotspot/share/opto/library_call.cpp",
+        "src/hotspot/share/opto/memnode.cpp",
+        "src/hotspot/share/opto/parse2.cpp",
+        "src/hotspot/share/opto/rangeinference.cpp",
+        "src/hotspot/share/opto/rangeinference.hpp",
+        "src/hotspot/share/opto/subnode.cpp",
+        "src/hotspot/share/opto/type.cpp",
+        "src/hotspot/share/opto/type.hpp",
+        "src/hotspot/share/opto/typejavaptr.hpp",
+        "src/hotspot/share/utilities/globalDefinitions.hpp",
+        "test/hotspot/gtest/opto/test_typejavaptr.cpp",
+        "test/hotspot/jtreg/compiler/types/TestMeetInstanceId.java",
+        "test/hotspot/jtreg/compiler/types/TestSameArrayDifferentViews.java",
+        "test/hotspot/jtreg/compiler/valhalla/inlinetypes/TestNullableArrays.java"
+      ],
+      "body_excerpt": "Hi, This PR reimplements `Type::meet` and `Type::join` so that the implementation is easier to reason about, better accomodate the newly added dimensions from Valhalla, and resolves some Valhalla issues that were uncovered by this change. Currently, the `Type` in the compiler works based on the lattice theory, this is pretty complicated, and it does not interact well with components that do not lie on a lattice, such as `TypeInt` and `TypeInterfaces`. As a result, when an issue arises, the fix is often hard to reason about, and in general, is incorrect. The type lattice is also hard to concept"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32047,
+      "title": "8388706: PolynomialP256Bench::benchAssign regression after JDK-8355216",
+      "url": "https://github.com/openjdk/jdk/pull/32047",
+      "author": "smemery",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review",
+      "created_at": "2026-07-25T21:51:36Z",
+      "updated_at": "2026-08-22T20:23:22Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "test/micro/org/openjdk/bench/javax/crypto/full/PolynomialP256Bench.java"
+      ],
+      "body_excerpt": "This fix allows for more accurate comparisons between intrinsics and Java performance for P256 conditional set operations by emulating production lookup EC operations. Before this fix, benchmarks showed a 53% regression for intrinsics vs. Java due to constant propagation and dead-code removal by C2. After this fix, a 52% performance increase is observed with intrinsics vs. Java. --------- - [X] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edi"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31912,
+      "title": "8388307: SSLEngineService-based tests misuse non-blocking sockets",
+      "url": "https://github.com/openjdk/jdk/pull/31912",
+      "author": "djelinski",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-07-15T11:44:18Z",
+      "updated_at": "2026-08-22T17:21:54Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/javax/net/ssl/SSLEngine/LargePacket.java",
+        "test/jdk/javax/net/ssl/ServerName/SSLEngineExplorer.java",
+        "test/jdk/javax/net/ssl/ServerName/SSLEngineExplorerMatchedSNI.java",
+        "test/jdk/javax/net/ssl/ServerName/SSLEngineExplorerUnmatchedSNI.java",
+        "test/jdk/javax/net/ssl/ServerName/SSLEngineExplorerWithCli.java",
+        "test/jdk/javax/net/ssl/ServerName/SSLEngineExplorerWithSrv.java"
+      ],
+      "body_excerpt": "Change the tests to use blocking sockets instead. This change removes the busy-looping on finishConnect, read, and write. The change is safe because: - finishConnect is no longer necessary, - all uses of write() loop until wither all data is written or an error occurs - read() is only used when additional data is expected. Tier2 still green. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31131,
+      "title": "8384406: TestInheritFD.java fails Timed out waiting for second VM",
+      "url": "https://github.com/openjdk/jdk/pull/31131",
+      "author": "sendaoYan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2026-05-12T08:46:45Z",
+      "updated_at": "2026-08-23T10:07:10Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "oca",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/hotspot/jtreg/runtime/8176717/TestInheritFD.java"
+      ],
+      "body_excerpt": "Hi all, Test test/hotspot/jtreg/runtime/8176717/TestInheritFD.java could fails with TimeoutException when lsof takes many minutes (or appears hung) under a very large RLIMIT_NOFILE, leaving the second VM stuck and the harness waiting on child PIDs. This solution similar to https://bugs.openjdk.org/browse/JDK-8324668 This PR list open paths under user.dir via /proc/<pid>/fd instead of lsof. Other Unix systems keep the existing lsof command. This PR also add `@requires vm.flagless` as this test invoke `createLimitedTestJavaProcessBuilder()` --------- - [x] I confirm that I make this contribution"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 30318,
+      "title": "8381180: GenShen: Account for time required to independently execute each GC phase",
+      "url": "https://github.com/openjdk/jdk/pull/30318",
+      "author": "kdnilsen",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-03-19T17:17:33Z",
+      "updated_at": "2026-08-22T18:12:40Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "merge-conflict",
+        "hotspot-gc",
+        "shenandoah"
+      ],
+      "modules": [
+        "GC"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahAdaptiveHeuristics.cpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahAdaptiveHeuristics.hpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahGenerationalHeuristics.cpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahGlobalHeuristics.cpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahGlobalHeuristics.hpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahHeuristics.cpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahHeuristics.hpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahOldHeuristics.cpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahOldHeuristics.hpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahYoungHeuristics.cpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahYoungHeuristics.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahCollectionSet.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahCollectionSet.inline.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahCollectorPolicy.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahConcurrentGC.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahConcurrentGC.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahDegeneratedGC.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGC.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGeneration.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGeneration.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGenerationalControlThread.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahHeap.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahInPlacePromoter.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahMmuTracker.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahOldGeneration.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahOldGeneration.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahScanRemembered.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahScanRemembered.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahScanRemembered.inline.hpp"
+      ],
+      "body_excerpt": "The purpose of this PR is to individually model the time required to perform each phase of GC, specificially mark, evac, update, and final-roots. This allows us to more accurately predict the time that will be required to perform a GC operation. We maintain the existing mechanisms that predict typical GC times as an average and as a linear trend analysis of recently completed typical GC efforts. We define a typical GC effort as any non-abbreviated single-generation Shenandoah cycle, or as a Generational Shenandoah young cycle that is not a global GC, is not a mixed evacuation, is not an abbrev"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 30212,
+      "title": "8379849: javax/net/ssl/Stapling/HttpsUrlConnClient.java fails Read timed out",
+      "url": "https://github.com/openjdk/jdk/pull/30212",
+      "author": "sendaoYan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2026-03-12T08:56:31Z",
+      "updated_at": "2026-08-23T10:07:24Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "oca",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/javax/net/ssl/Stapling/HttpsUrlConnClient.java"
+      ],
+      "body_excerpt": "Hi all, Test javax/net/ssl/Stapling/HttpsUrlConnClient.java fails \"Read timed out\" intermittently, espically the system is overload. This PR make the several timeout value receive and multiply the jtreg timeout factor. This will make test more robustness. Change has been verified locally by run the test 1000 times simultancely. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Chang"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 26804,
+      "title": "8365608: Test is skipped without skip exception /test/jdk/security/infra/java/security/cert/CertPathValidator/certification/ValidatePathWithParams.java",
+      "url": "https://github.com/openjdk/jdk/pull/26804",
+      "author": "myankelev",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "4 条评论",
+      "created_at": "2025-08-15T17:13:53Z",
+      "updated_at": "2026-08-23T11:11:55Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/CertignaCA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/DTrustCA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/DigicertCSRootG5.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/EmSignRootG2CA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/HaricaCA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/LuxTrustCA.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/SectigoCSRootCAs.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/ValidatePathWithParams.java"
+      ],
+      "body_excerpt": "Replaced skip messages with skip exceptions --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue ### Issue * [JDK-8365608](https://bugs.openjdk.org/browse/JDK-8365608): T"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 21627,
+      "title": "8342769: HotSpot Windows/gcc port is broken",
+      "url": "https://github.com/openjdk/jdk/pull/21627",
+      "author": "TheShermanTanker",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2024-10-22T01:17:01Z",
+      "updated_at": "2026-08-23T04:35:29Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "hotspot"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "Windows"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/os/windows/memMapPrinter_windows.cpp",
+        "src/hotspot/os/windows/os_windows.cpp",
+        "src/hotspot/os/windows/sharedRuntimeRem.cpp",
+        "src/hotspot/share/runtime/sharedRuntime.cpp",
+        "src/hotspot/share/runtime/sharedRuntime.hpp",
+        "test/hotspot/gtest/runtime/test_os.cpp",
+        "test/hotspot/gtest/runtime/test_os_windows.cpp"
+      ],
+      "body_excerpt": "Several areas in HotSpot are broken in the gcc port. These, with the exception of 1 rather big oversight within SharedRuntime::frem and SharedRuntime::drem, are all minor correctness issues within the code. These mostly can be fixed with simple changes to the code. Note that I am not sure whether the SharedRuntime::frem and SharedRuntime::drem fix is correct. It may be that they can be removed entirely <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit messag"
+    }
+  ]
+}

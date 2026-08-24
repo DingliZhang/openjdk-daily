@@ -4,24 +4,22 @@
 
 ## 最新日报
 
-### [2026-08-22](reports/2026/2026-08-22.md)
+### [2026-08-23](reports/2026/2026-08-23.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 76 |
+| 有活动的 PR | 16 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 5 |
-| 活跃贡献者 | 50 |
+| RISC-V 相关 PR | 2 |
+| 活跃贡献者 | 15 |
 
 ## 今日关注
 
-- [#32483](https://github.com/openjdk/jdk/pull/32483) 8390866: [Valhalla] revisit array load profiling（10 条评论）
-- [#32438](https://github.com/openjdk/jdk/pull/32438) 8390614: RISC-V: Support VerifyOops for AOT caching stub and code（2 个 Review、1 条评论）
-- [#32415](https://github.com/openjdk/jdk/pull/32415) 8390603: Remove obsolete thread transition states（2 条评论）
-- [#31527](https://github.com/openjdk/jdk/pull/31527) 8368889: Use if-with-initializer for LogTargets（1 条评论）
-- [#28541](https://github.com/openjdk/jdk/pull/28541) 8372701: Randomized profile counters（3 条评论）
-- [#32490](https://github.com/openjdk/jdk/pull/32490) 8389044: javac crashes with StackOverflowError during type erasure of recursively bounded array type parameter (U extends U[])（新建、4 条评论）
-- [#32489](https://github.com/openjdk/jdk/pull/32489) 8390906: Allow to collect per-test code coverage information（新建、4 条评论）
-- [#32488](https://github.com/openjdk/jdk/pull/32488) 8390907: Genshen: Improve mark loop performance（新建、4 条评论）
+- [#32491](https://github.com/openjdk/jdk/pull/32491) 8390914: [leyden] add missing relocations for addresses recorded in AOT code cache（新建、6 条评论）
+- [#32438](https://github.com/openjdk/jdk/pull/32438) 8390614: RISC-V: Support VerifyOops for AOT caching stub and code（已关闭、3 条评论）
+- [#32474](https://github.com/openjdk/jdk/pull/32474) 8388795: Add --app-resources CLI option to copy files and directories into the application resources directory（4 个 Review）
+- [#32459](https://github.com/openjdk/jdk/pull/32459) 8390256: JEP 539: Verifier accepts early_larval_frame whose wrapped base has no uninitializedThis（1 个 Review）
+- [#32365](https://github.com/openjdk/jdk/pull/32365) 8067946: StackYellowPages and StackRedPages have no effect on Windows（2 条评论）
+- [#32351](https://github.com/openjdk/jdk/pull/32351) Fix file associations option scope+add bundling operation to option context（3 条评论）
 
-[查看完整日报](reports/2026/2026-08-22.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-08-23.md) · [浏览全部历史](reports/index.md)

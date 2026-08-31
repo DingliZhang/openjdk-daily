@@ -1,0 +1,408 @@
+{
+  "date": "2026-08-30",
+  "generated_at": "2026-08-31T01:14:32.932281+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 32592,
+      "title": "8391431: RISC-V: AOTCodeTest.java fails after JDK-8388288 with fastdebug",
+      "url": "https://github.com/openjdk/jdk/pull/32592",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、2 个 Review、5 条评论",
+      "created_at": "2026-08-30T10:27:24Z",
+      "updated_at": "2026-08-30T12:10:18Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "GC",
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86",
+        "PPC"
+      ],
+      "comments_today": 5,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/stubGenerator_riscv.cpp"
+      ],
+      "body_excerpt": "Hi, I ran `make test TEST=\"runtime/cds/appcds/aotCode/AOTCodeTest.java#g1\"` on RISC-V K3 with fastdebug model, and the test failed. In stubGenerator_riscv.cpp, verify_oop_array uses t0 to hold the loop bound computed once before the loop: ``` __ mv(t1, zr); __ slli(t0, count, exact_log2(size)); __ bind(loop); __ bgeu(t1, t0, end); ``` In PR https://github.com/openjdk/jdk/pull/31923, a UseZicond branch was added, which clobbers t0 here, causing the test to fail. https://github.com/openjdk/jdk/blob/7353d1725b93d6caade70440f177e07178d48906/src/hotspot/cpu/riscv/macroAssembler_riscv.cpp#L4069-L408"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32591,
+      "title": "8389968: revert checking ENOPROTOOPT when trying to set IP_MULTICAST_ALL in Net.c",
+      "url": "https://github.com/openjdk/jdk/pull/32591",
+      "author": "mc36",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、6 条评论",
+      "created_at": "2026-08-30T04:49:51Z",
+      "updated_at": "2026-08-30T05:19:18Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "oca-verify",
+        "oca",
+        "nio"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 6,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/unix/native/libnio/ch/Net.c"
+      ],
+      "body_excerpt": "prior 28, the flag was checked and did not threw anything if it got back no-proto-opt from setsockopt ip_multicast_all on regular unicast sockets during new socket()... in 28 that ipv4 part was refactored ( https://github.com/AlanBateman/jdk/commit/3dcc9e750b68f9e841a9ac1ce70d13dce1ce10f8 ) and the check fallen off somehow, whereas for ipv6 sockets right below the code i'm touching here, its still there.... this small patch just readds that missing check... this missing check prevents openjdk running on freebsd and netbsd (probably others) in their linux emulation mode, see below the daily iso"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32590,
+      "title": "8391329: [REDO] Not all --long-options accept space as seperator",
+      "url": "https://github.com/openjdk/jdk/pull/32590",
+      "author": "hgqxjj",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review",
+      "created_at": "2026-08-29T00:23:20Z",
+      "updated_at": "2026-08-30T14:27:25Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-runtime",
+        "core-libs"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/java.base/share/native/libjli/java.c",
+        "test/jdk/java/foreign/enablenativeaccess/TestEnableNativeAccess.java",
+        "test/jdk/java/lang/Object/FinalizationOption.java",
+        "test/jdk/java/lang/Object/InvalidFinalizationOption.java",
+        "test/jdk/java/lang/reflect/Field/mutateFinals/cli/CommandLineTest.java",
+        "test/jdk/sun/misc/UnsafeMemoryAccessWarnings.java",
+        "test/lib/jdk/test/lib/process/ProcessTools.java"
+      ],
+      "body_excerpt": "Please review this \"REDO\" change. Thanks! **Description:** JDK-8387729(PR #31928) added support for whitespace-separated values for several long options. The change was backed out after some tests failed with `JTREG_TEST_THREAD_FACTORY=Virtual`. **Solution:** Add the affected long options to `doubleWordArgs` so that `ProcessTools` correctly handles their whitespace-separated values when `JTREG_TEST_THREAD_FACTORY=Virtual` is used. **Test:** - GHA - Tier1 with `JTREG_TEST_THREAD_FACTORY=Virtual` - The following tests with and without `JTREG_TEST_THREAD_FACTORY=Virtual`: - `test/jdk/java/foreign"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32583,
+      "title": "8391343: [PPC64] Share AES round key sequences between block and CBC stubs",
+      "url": "https://github.com/openjdk/jdk/pull/32583",
+      "author": "suchismith1993",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-08-28T13:59:16Z",
+      "updated_at": "2026-08-30T14:46:33Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "PPC"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/ppc/stubGenerator_ppc.cpp"
+      ],
+      "body_excerpt": "The AES intrinsics on PPC64 currently emit the full unrolled sequence of round key loads and vcipher/vncipher instructions separately in each stub. The CBC stubs already factor this into aes_encrypt_rounds() and aes_decrypt_rounds(). This change makes the single-block stubs call the same helpers, removing the duplication. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32563,
+      "title": "8391075: 'jfr assemble' doesn't handle unfinished files",
+      "url": "https://github.com/openjdk/jdk/pull/32563",
+      "author": "egahlin",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、3 条评论",
+      "created_at": "2026-08-27T18:39:51Z",
+      "updated_at": "2026-08-29T16:19:51Z",
+      "merged_at": null,
+      "closed_at": "2026-08-29T16:19:46Z",
+      "labels": [
+        "integrated",
+        "hotspot-jfr"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.jfr/share/classes/jdk/jfr/internal/consumer/ChunkHeader.java",
+        "src/jdk.jfr/share/classes/jdk/jfr/internal/consumer/RecordingInput.java",
+        "src/jdk.jfr/share/classes/jdk/jfr/internal/tool/Assemble.java",
+        "src/jdk.jfr/share/classes/jdk/jfr/internal/tool/HeaderData.java",
+        "test/jdk/jdk/jfr/tool/TestAssemble.java"
+      ],
+      "body_excerpt": "Could I have a review of a PR that makes the `jfr assemble` command work against unfinished files? **Problem** Users copy chunk files from the JFR repository while the JVM is running. It's not supported, but it happens anyway. This means the last chunk is typically in an unfinished state, or it might even be updating the chunk header.The JDK parser does check if a file is being written to, but `jfr assemble` doesn't, so the output file may become unparsable. My plan is to update ChunkHeader to take a byte[], but that's a larger change. I created the HeaderData class for this PR so the fix can "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32511,
+      "title": "8390604: Speed up native --> Java transitions",
+      "url": "https://github.com/openjdk/jdk/pull/32511",
+      "author": "dean-long",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "6 条评论",
+      "created_at": "2026-08-25T00:24:35Z",
+      "updated_at": "2026-08-30T20:04:48Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64",
+        "x86",
+        "PPC",
+        "s390"
+      ],
+      "comments_today": 6,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/downcallLinker_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/sharedRuntime_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/templateInterpreterGenerator_aarch64.cpp",
+        "src/hotspot/cpu/arm/sharedRuntime_arm.cpp",
+        "src/hotspot/cpu/arm/templateInterpreterGenerator_arm.cpp",
+        "src/hotspot/cpu/ppc/downcallLinker_ppc.cpp",
+        "src/hotspot/cpu/ppc/sharedRuntime_ppc.cpp",
+        "src/hotspot/cpu/ppc/templateInterpreterGenerator_ppc.cpp",
+        "src/hotspot/cpu/riscv/downcallLinker_riscv.cpp",
+        "src/hotspot/cpu/riscv/sharedRuntime_riscv.cpp",
+        "src/hotspot/cpu/riscv/templateInterpreterGenerator_riscv.cpp",
+        "src/hotspot/cpu/s390/downcallLinker_s390.cpp",
+        "src/hotspot/cpu/s390/sharedRuntime_s390.cpp",
+        "src/hotspot/cpu/s390/templateInterpreterGenerator_s390.cpp",
+        "src/hotspot/cpu/x86/downcallLinker_x86_64.cpp",
+        "src/hotspot/cpu/x86/sharedRuntime_x86_64.cpp",
+        "src/hotspot/cpu/x86/templateInterpreterGenerator_x86.cpp",
+        "src/hotspot/cpu/zero/zeroInterpreter_zero.cpp",
+        "src/hotspot/share/runtime/interfaceSupport.inline.hpp",
+        "src/hotspot/share/runtime/javaThread.cpp",
+        "src/hotspot/share/runtime/javaThread.hpp",
+        "src/hotspot/share/runtime/javaThread.inline.hpp",
+        "src/hotspot/share/runtime/sharedRuntime.cpp",
+        "src/hotspot/share/runtime/sharedRuntime.hpp"
+      ],
+      "body_excerpt": "After JDK-8390603 and related cleanups, we no longer have transition states or the need for an intermediate state when changing thread states. The last remaining transition that needs cleanup is natve --> Java, which after JDK-8390603 does _thread_in_native --> _thread_in_vm --> _thread_in_Java. Instead the fast path can go directly from _thread_in_native to _thread_in_Java. However, if we need to take the slow path and process a safepoint, we will still transition to _thread_in_vm during that time. It seemed less risky to keep that behavior for now, because there is still code that assumes it"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32461,
+      "title": "8389968: (dc) DatagramChannel.open() attempts to disable IPPROTO_IPV6/IP_MULTICAST_ALL (lnx)",
+      "url": "https://github.com/openjdk/jdk/pull/32461",
+      "author": "AlanBateman",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "2 条评论",
+      "created_at": "2026-08-20T07:48:59Z",
+      "updated_at": "2026-08-30T20:48:32Z",
+      "merged_at": null,
+      "closed_at": "2026-08-22T06:20:46Z",
+      "labels": [
+        "integrated",
+        "nio"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/unix/native/libnio/ch/Net.c"
+      ],
+      "body_excerpt": "On Linux, DatagramChannel needs to enables the per-socket membership filter so that it doesn't receive multicast datagrams sent to any group that has been joined on the host. When the socket is IPv4 then it should disable IPPROTO_IP/IP_MULTICAST_ALL. When the socket is IPv6 then it should disable IPPROTO_IPV6/IPV6_MULTICAST_ALL, and additionally disable IPPROTO_IP/IP_MULTICAST_ALL when the system has IPv4 enabled too. For the IPv6/dual-stack case, the current code disables IPPROTO_IPV6/IP_MULTICAST_ALL instead IPPROTO_IP/IP_MULTICAST_ALL. In the same code, the setting of IPV6_MULTICAST_HOPS is"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32163,
+      "title": "8389218: C2: assert(false) failed: PhaseCCP not at fixpoint: analysis result may be unsound for CmpU",
+      "url": "https://github.com/openjdk/jdk/pull/32163",
+      "author": "hgqxjj",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-08-02T12:19:48Z",
+      "updated_at": "2026-08-29T16:31:39Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/addnode.cpp",
+        "src/hotspot/share/opto/subnode.cpp",
+        "test/hotspot/jtreg/compiler/ccp/TestCmpUCCPFixpoint.java"
+      ],
+      "body_excerpt": "Please review this change. Thanks! **Description:** The existing overflow handling in `CmpUNode::Value()` only covers cases where exactly one boundary wraps, as shown below: https://github.com/openjdk/jdk/blob/5b2d6991a1279d375f9a3c00c7bcd0bbcc7081d6/src/hotspot/share/opto/subnode.cpp#L848-L851 When both bounds wrap in the same direction, the code does not perform any further range analysis and may conservatively return the bottom comparison type. As a result, `not_bottom_type()` subsequently returns false, preventing the node from being revisited for further value refinement, as shown below: "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32104,
+      "title": "8388329: [lworld] Forward variable access in strict initializers bypass DA",
+      "url": "https://github.com/openjdk/jdk/pull/32104",
+      "author": "mcimadamore",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-07-30T13:43:32Z",
+      "updated_at": "2026-08-29T20:52:41Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/comp/Resolve.java",
+        "test/langtools/tools/javac/SuperInit/EarlyAssignments.java",
+        "test/langtools/tools/javac/SuperInit/EarlyAssignments.out",
+        "test/langtools/tools/javac/SuperInit/SuperInitFails.java",
+        "test/langtools/tools/javac/SuperInit/SuperInitFails.out",
+        "test/langtools/tools/javac/SuperInit/ValueClassSuperInitFails.java",
+        "test/langtools/tools/javac/SuperInit/ValueClassSuperInitFails.out",
+        "test/langtools/tools/javac/SuperInit/ValueClassSuperInitGood.java"
+      ],
+      "body_excerpt": "The new rules that allow field reads from early construction context rely on the fact that access to uninitialized fields will be caught by either DA/DU analysis (JLS chapter 16), or by forward-reference logic (JLS 8.3.3). Unfortunately these two sections have different ideas on what needs to be checked: * DA/DU only concerns with _blank_ final final fields. Moreover, it doesn't track things like `T.this.x`. It only tracks simple names (`x`)` or `this`-qualified names (`this.x`) * Forward reference similarly only protects against simple references (`x`) but not against qualified utterances of "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32087,
+      "title": "8380847: Versioned class loaded from multi-release jar file is not cached",
+      "url": "https://github.com/openjdk/jdk/pull/32087",
+      "author": "matias9927",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-07-29T14:40:52Z",
+      "updated_at": "2026-08-30T08:02:45Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "core-libs"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "PPC"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/cds/aotClassLocation.cpp",
+        "src/hotspot/share/classfile/classLoader.cpp",
+        "src/hotspot/share/classfile/classLoader.hpp",
+        "src/hotspot/share/classfile/vmClassMacros.hpp",
+        "src/hotspot/share/classfile/vmSymbols.hpp",
+        "src/java.base/share/classes/jdk/internal/misc/CDS.java",
+        "test/hotspot/jtreg/runtime/cds/appcds/MultiReleaseJars.java"
+      ],
+      "body_excerpt": "When performing an AOT training run using a multi-release JAR file, the following warning can be encountered: `[warning][aot] class org/example/Foo cannot be archived because it was not defined from <path to mr.jar> as claimed` This warning results from a specific configuration of the JAR file where the class is not in the root directory but is present in the versioned directory `META-INF/version`. To fix this, an upcall to ClassLoader.getResource() is now made in the specific case where a multi-release JAR is being used and the class cannot be found through normal means. Verified with tier 1-"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31546,
+      "title": "8001150: [TEST_BUG] Improve instructions for java/awt/xembed/server/TestXEmbedServerJava.java",
+      "url": "https://github.com/openjdk/jdk/pull/31546",
+      "author": "jyothilek",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-06-17T03:34:45Z",
+      "updated_at": "2026-08-29T17:07:54Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/ProblemList.txt",
+        "test/jdk/java/awt/xembed/server/TestXEmbedServer.java",
+        "test/jdk/java/awt/xembed/server/TestXEmbedServerJava.java"
+      ],
+      "body_excerpt": "Please review this change that updates test instructions and adjusts the ProblemList entry. **Summary:** JDK-8001150: Fixed instruction ambiguity and added clearer test instructions. Tested Platform: Linux - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 rev"
+    }
+  ]
+}

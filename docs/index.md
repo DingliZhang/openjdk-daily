@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-09-01](reports/2026/2026-09-01.md)
+### [2026-09-02](reports/2026/2026-09-02.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 156 |
+| 有活动的 PR | 102 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 18 |
-| 活跃贡献者 | 74 |
+| RISC-V 相关 PR | 14 |
+| 活跃贡献者 | 63 |
 
 ## 今日关注
 
-- [#32624](https://github.com/openjdk/jdk/pull/32624) 8391545: RISC-V: Implement Zibi extension (branch with immediate)（新建、9 条评论）
-- [#32604](https://github.com/openjdk/jdk/pull/32604) 8391466: RISC-V: Remove unreachable non-acquiring CAS/GetAndSet/GetAndAdd match rules（4 个 Review、1 条评论）
-- [#32550](https://github.com/openjdk/jdk/pull/32550) 8391236: RISC-V: Save a jump in string_indexof_char intrinsic（2 个 Review、1 条评论）
-- [#32544](https://github.com/openjdk/jdk/pull/32544) 8391176: Cleanup the markWord locking bits（1 个 Review、4 条评论）
-- [#32518](https://github.com/openjdk/jdk/pull/32518) 8369828: Generalize share/utilities/bytes.hpp（1 条评论）
-- [#32511](https://github.com/openjdk/jdk/pull/32511) 8390604: Speed up native --> Java transitions（9 个 Review、4 条评论）
-- [#32494](https://github.com/openjdk/jdk/pull/32494) 8391041: RISC-V: Fix out-of-bounds read in string_indexof_char intrinsic（有更新）
-- [#32410](https://github.com/openjdk/jdk/pull/32410) 8390450: RISC-V: Add Xuantie vendor feature detection（有更新）
+- [#32644](https://github.com/openjdk/jdk/pull/32644) 8391629: RISC-V: Avoid unnecessary address materialization for loads and stores（新建、5 条评论）
+- [#32643](https://github.com/openjdk/jdk/pull/32643) 8385698: [Valhalla] C1 omits type profiling for null-free types（新建、3 个 Review、8 条评论）
+- [#32639](https://github.com/openjdk/jdk/pull/32639) 8391605: Record jfr stubs to aot code cache（新建、5 条评论）
+- [#32636](https://github.com/openjdk/jdk/pull/32636) 8391601: RISC-V: Add support for sv57（新建、4 条评论）
+- [#32635](https://github.com/openjdk/jdk/pull/32635) 8391177: RISC-V: Optimize conditional arithmetic with Zicond（新建、11 条评论）
+- [#32629](https://github.com/openjdk/jdk/pull/32629) 8391597: RISC-V: Use movptr2 for C2 pointer constants（新建、7 条评论）
+- [#32624](https://github.com/openjdk/jdk/pull/32624) 8391545: RISC-V: Implement Zibi extension (branch with immediate)（已关闭、2 条评论）
+- [#32550](https://github.com/openjdk/jdk/pull/32550) 8391236: RISC-V: Save a jump in string_indexof_char intrinsic（已关闭、3 条评论）
 
-[查看完整日报](reports/2026/2026-09-01.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-02.md) · [浏览全部历史](reports/index.md)

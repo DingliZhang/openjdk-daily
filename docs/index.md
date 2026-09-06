@@ -4,24 +4,23 @@
 
 ## 最新日报
 
-### [2026-09-04](reports/2026/2026-09-04.md)
+### [2026-09-05](reports/2026/2026-09-05.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 101 |
+| 有活动的 PR | 48 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 8 |
-| 活跃贡献者 | 64 |
+| RISC-V 相关 PR | 5 |
+| 活跃贡献者 | 40 |
 
 ## 今日关注
 
-- [#32702](https://github.com/openjdk/jdk/pull/32702) Implement a jump table using branch instructions（新建、4 条评论）
-- [#32693](https://github.com/openjdk/jdk/pull/32693) 8391442: Test compiler/c1/CanonicalizeArrayLength.java is timing out with VerifyOops（新建、已关闭、2 个 Review、10 条评论）
-- [#32673](https://github.com/openjdk/jdk/pull/32673) 8391728: Rename inline klass / type to value klass / type to match Java side of JEP 401（23 个 Review、10 条评论）
-- [#32643](https://github.com/openjdk/jdk/pull/32643) 8385698: [Valhalla] C1 omits type profiling for null-free types（已关闭、3 条评论）
-- [#32639](https://github.com/openjdk/jdk/pull/32639) 8391605: Record jfr stubs to aot code cache（已关闭、1 个 Review、8 条评论）
-- [#32061](https://github.com/openjdk/jdk/pull/32061) 8389223: RISC-V: Implement CRC32C intrinsic using Zbc extension（2 个 Review）
-- [#31955](https://github.com/openjdk/jdk/pull/31955) 8387725: RISC-V: Redundant memory barrier around various CAS instrucions（1 条评论）
+- [#32718](https://github.com/openjdk/jdk/pull/32718) 8391873: RISC-V: Make acquiring and non-acquiring CAS match rules mutually exclusive（新建、4 条评论）
+- [#32673](https://github.com/openjdk/jdk/pull/32673) 8391728: Rename inline klass / type to value klass / type to match Java side of JEP 401（3 个 Review、1 条评论）
+- [#32061](https://github.com/openjdk/jdk/pull/32061) 8389223: RISC-V: Implement CRC32C intrinsic using Zbc extension（1 个 Review）
 - [#31479](https://github.com/openjdk/jdk/pull/31479) 8384135: C2: AArch64: Implement compressed jump table support with relative offsets（1 条评论）
+- [#28541](https://github.com/openjdk/jdk/pull/28541) 8372701: Randomized profile counters（1 条评论）
+- [#32717](https://github.com/openjdk/jdk/pull/32717) 8391871: AArch64: Make acquiring and non-acquiring CAS match rules mutually exclusive（新建、6 条评论）
+- [#32716](https://github.com/openjdk/jdk/pull/32716) 8391789: Collector for ListFormat（新建、6 条评论）
 
-[查看完整日报](reports/2026/2026-09-04.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-05.md) · [浏览全部历史](reports/index.md)

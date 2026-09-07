@@ -1,0 +1,660 @@
+{
+  "date": "2026-09-06",
+  "generated_at": "2026-09-07T01:14:08.662543+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 32720,
+      "title": "8391881: RISC-V: jni_fast_Get<Primitive>Field registers the wrong pc for the speculative load",
+      "url": "https://github.com/openjdk/jdk/pull/32720",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-09-06T13:22:15Z",
+      "updated_at": "2026-09-06T23:04:39Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/jniFastGetField_riscv.cpp"
+      ],
+      "body_excerpt": "Hi, Please help review this small but consequential fix for the RISC-V port. The `jni_fast_Get<Primitive>Field` stubs read the field speculatively, before they can know whether the object is still there. The address may already be unmapped — as the existing comment in `os_linux_riscv.cpp` notes, the stubs \"can trap at certain pc's if a GC kicks in and the heap gets shrunk before the field access\". Each stub therefore registers the address of its speculative load in `speculative_load_pclist[]`, and the signal handler turns a fault at that address into a jump to the slow-case entry. `JNI_FastGet"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32719,
+      "title": "8386318: The Java compiler allows a Pair<Object,?> to be assigned to a Pair<Object,Object>",
+      "url": "https://github.com/openjdk/jdk/pull/32719",
+      "author": "tusharsaini18899",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、4 条评论",
+      "created_at": "2026-09-05T17:23:50Z",
+      "updated_at": "2026-09-05T17:36:00Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/comp/Infer.java",
+        "test/langtools/tools/javac/generics/inference/WildcardChainedInference.java"
+      ],
+      "body_excerpt": "## Problem javac incorrectly accepts chained generic inference that widens a wildcard type argument to a concrete type. **Reproducer:** class Pair<A,B>{ A left; B right; static <X,Y> Pair<X,Y> change(Pair<X,Y> a){ return a; } static <A> Pair<A,?> left(Pair<A,Integer> p){ return p; } public static void main(String[] args){ Pair<Object,Integer> p1 = new Pair<>(); p1.left = \"1\"; p1.right = 2; Pair<Object,Object> p = change(left(p1)); // invalid p.right = p.left; } } `left(p1)` has type `Pair<Object,?>`, but inference for `change(...)` incorrectly instantiates the second type argument as `Object`."
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32718,
+      "title": "8391873: RISC-V: Make acquiring and non-acquiring CAS match rules mutually exclusive",
+      "url": "https://github.com/openjdk/jdk/pull/32718",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-09-05T15:53:52Z",
+      "updated_at": "2026-09-05T16:12:58Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "GC"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/gc/g1/g1_riscv.ad",
+        "src/hotspot/cpu/riscv/riscv.ad"
+      ],
+      "body_excerpt": "Hi, this patch is a ehaviour-preserving cleanup. The non-acquiring `CompareAndExchangeX` and `WeakCompareAndSwapX` match rules carry no `needs_acquiring_load_reserved()` condition, for a sequentially consistent node both they and their `*Acq` counterparts match, and which one is chosen is decided by ADLC rather than by the predicates. This adds the negated condition to the 22 non-acquiring rules, making each pair mutually exclusive. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32717,
+      "title": "8391871: AArch64: Make acquiring and non-acquiring CAS match rules mutually exclusive",
+      "url": "https://github.com/openjdk/jdk/pull/32717",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-09-05T14:40:41Z",
+      "updated_at": "2026-09-05T16:47:10Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "AArch64"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/aarch64_atomic.ad",
+        "src/hotspot/cpu/aarch64/aarch64_atomic_ad.m4"
+      ],
+      "body_excerpt": "Hi, please consider. The non-acquiring `CompareAndExchangeX` and `WeakCompareAndSwapX` match rules carry no `needs_acquiring_load_exclusive()` condition, for a sequentially consistent node both they and their `*Acq` counterparts match and the choice is settled by `ins_cost` (`VOLATILE_REF_COST` vs `2*VOLATILE_REF_COST`). This adds the negated predicate to the 12 non-acquiring rules, making each pair mutually exclusive. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32715,
+      "title": "8250677: ModuleDescriptor.Version parsing treats pre-release identically to build",
+      "url": "https://github.com/openjdk/jdk/pull/32715",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 个 Review、3 条评论",
+      "created_at": "2026-09-05T03:43:23Z",
+      "updated_at": "2026-09-06T17:00:11Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 3,
+      "changed_files": [
+        "src/java.base/share/classes/java/lang/module/ModuleDescriptor.java",
+        "test/jdk/java/lang/module/VersionTest.java"
+      ],
+      "body_excerpt": "Please review this small fix. **Problem:** After parsing the version number, the parser enters the pre-release parsing loop regardless of whether the delimiter was `-` or `+`. As a result, build-only versions such as `1+1` are parsed as pre-release versions, causing `1+1` to compare equal to `1-1`. **Fix:** Record whether the version number ended with `-`, and only parse the pre-release component in that case. If it ended with `+`, proceed directly to the build component. **Testing:** - Added regression cases to `VersionTest.java`. - `make test TEST=test/jdk/java/lang/module`: 17 passed, 0 fai"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32698,
+      "title": "8371851: Build tool GenModuleInfoSource does not report duplicate targets of export",
+      "url": "https://github.com/openjdk/jdk/pull/32698",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-09-04T08:25:47Z",
+      "updated_at": "2026-09-06T16:27:48Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "build",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "make/jdk/src/classes/build/tools/module/GenModuleInfoSource.java",
+        "make/jdk/src/classes/build/tools/module/ModuleInfoExtraTest.java"
+      ],
+      "body_excerpt": "Please review this small fix. **Problem:** `Statement.targets` is a `LinkedHashSet`, so duplicate targets in directives such as `exports p1 to m1, m2, m1;` are silently ignored. As a result, `GenModuleInfoSource` accepts invalid input instead of reporting an error. **Fix:** Use a local `HashSet` while parsing each directive and report an error when `add()` returns `false`. **Testing:** - Added tests for duplicate targets in `exports`, `opens`, and `provides` - `ModuleInfoExtraTest`: passed - `make test-make`: passed --------- - [x] I confirm that I make this contribution in accordance with the"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32346,
+      "title": "8390316: RISC-V: Materialize pointers with fewer instructions on sv39",
+      "url": "https://github.com/openjdk/jdk/pull/32346",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-08-13T14:34:44Z",
+      "updated_at": "2026-09-06T10:08:35Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/gc/shared/barrierSetNMethod_riscv.cpp",
+        "src/hotspot/cpu/riscv/macroAssembler_riscv.cpp",
+        "src/hotspot/cpu/riscv/macroAssembler_riscv.hpp",
+        "src/hotspot/cpu/riscv/nativeInst_riscv.cpp",
+        "src/hotspot/cpu/riscv/nativeInst_riscv.hpp",
+        "src/hotspot/cpu/riscv/riscv.ad",
+        "src/hotspot/cpu/riscv/vm_version_riscv.cpp",
+        "src/hotspot/cpu/riscv/vm_version_riscv.hpp",
+        "src/hotspot/os_cpu/linux_riscv/os_linux_riscv.cpp"
+      ],
+      "body_excerpt": "Hi, please consider. `MacroAssembler::movptr` always materializes patchable addresses assuming a 48-bit virtual address space: movptr1 takes 6 instructions and movptr2 takes 5 (with a temp register). However, much of the RISC-V hardware in the field runs Linux with sv39, where virtual addresses have at most 39 bits. When satp mode is sv39, this patch emits a shorter fixed-length sequence instead: `lui, addi, slli(9) + 9-bit offset in the trailing addi/jalr/load` --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32266,
+      "title": "8355572: Support HTTP Range requests in Simple Web Server",
+      "url": "https://github.com/openjdk/jdk/pull/32266",
+      "author": "PeyaPeyaPeyang",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2026-08-08T19:24:30Z",
+      "updated_at": "2026-09-06T07:32:36Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "rfr",
+        "net"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.httpserver/share/classes/com/sun/net/httpserver/SimpleFileServer.java",
+        "src/jdk.httpserver/share/classes/sun/net/httpserver/Code.java",
+        "src/jdk.httpserver/share/classes/sun/net/httpserver/simpleserver/FileServerHandler.java",
+        "test/jdk/com/sun/net/httpserver/simpleserver/FileServerHandlerTest.java",
+        "test/jdk/com/sun/net/httpserver/simpleserver/SimpleFileServerTest.java"
+      ],
+      "body_excerpt": "Enhances `FileServerHandler` in the jdk.httpserver module to support the `Range` header. This change contains: 1. A new constant `HTTP_RANGE_NOT_SATISFIABLE` to the `Code` to indicate unsatisifiable ranges. 2. `Accept-Ranges: bytes` for all file retrievals. 3. Single `bytes` ranges, returning `206 Partial Content` with `Content-Range`. 4. Multiple `bytes` ranges with `multipart/byteranges`. 5. Sorting and merging of overlapping or adjacent ranges. As discussed in #28021, `If-Range` support is left out of scope for this change. However, as required by [RFC 9110](https://www.rfc-editor.org/rfc/r"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32237,
+      "title": "8389895: RISC-V: Fuse LoadN with DecodeN to eliminate redundant register moves",
+      "url": "https://github.com/openjdk/jdk/pull/32237",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭",
+      "created_at": "2026-08-06T15:18:24Z",
+      "updated_at": "2026-09-06T13:25:11Z",
+      "merged_at": null,
+      "closed_at": "2026-09-06T13:25:11Z",
+      "labels": [
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/riscv.ad"
+      ],
+      "body_excerpt": "Hi, please help review this small C2 match rule optimization for RISC-V. When compressed oops run in zero-based unscaled mode (CompressedOops::base() == nullptr && CompressedOops::shift() == 0, i.e. heap size < 4GB), decoding a narrow oop is just a zero-extension. Since lwu already zero-extends its result, a LoadN followed by a DecodeN can be implemented by a single lwu into the pointer register. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated,"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32049,
+      "title": "8379016: Improve double_keccak() intrinsic on ARM when SHA3 instructions are not available",
+      "url": "https://github.com/openjdk/jdk/pull/32049",
+      "author": "smemery",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-07-26T20:28:13Z",
+      "updated_at": "2026-09-05T21:21:47Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "AArch64"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp"
+      ],
+      "body_excerpt": "This enhancement provides AArch64 GPR intrinsics for doubleKeccak(). Previously, only SIMD (Neon) intrinsics were implemented for doubleKeccak() on AArch64 systems. Performance gains for ML-KEM and ML-DSA benchmarks improve from 2 to 9% with the GPR intrinsics: ML-KEM decapsulation: +2-6% ops/sec ML-KEM encapsulation: +3-8% ops/sec ML-KEM key generation: +4-6% ops/sec ML-DSA signing: +2-4% ops/sec ML-DSA verification: +6-9% ops/sec ML-DSA key generation: +6-8% ops/sec --------- - [X] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31668,
+      "title": "8387067: C2: \"assert(C->live_nodes() <= C->max_node_limit()) failed: Live Node limit exceeded limit\" for large string concats",
+      "url": "https://github.com/openjdk/jdk/pull/31668",
+      "author": "0zzy0sbourne",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-06-25T01:04:55Z",
+      "updated_at": "2026-09-06T14:56:05Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/stringopts.cpp",
+        "src/hotspot/share/opto/stringopts.hpp",
+        "test/hotspot/jtreg/compiler/stringopts/TestLargeIntConcat.java",
+        "test/hotspot/jtreg/compiler/stringopts/TestWorstCaseIntConcat.java"
+      ],
+      "body_excerpt": "When a method has a very large number of `StringBuilder.append(int)` calls (e.g., 500+), C2's `PhaseStringOpts::replace_string_concat()` can exceed the live node limit because each int append expands into ~150 IR nodes (division, modulo, character extraction). Add a node budget check before expanding each concat: if the estimated cost `(num_arguments * 150)` would exceed the remaining node limit, skip the optimization. The method still compiles correctly via the unoptimized StringBuilder path. ### Testing Added `test/hotspot/jtreg/compiler/stringopts/TestLargeIntConcat.java` which exercises a "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31217,
+      "title": "8385070: Compiler should use subtype checks for language rules specified in terms of subtyping",
+      "url": "https://github.com/openjdk/jdk/pull/31217",
+      "author": "biboudis",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-05-20T14:30:07Z",
+      "updated_at": "2026-09-05T19:56:22Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "rfr",
+        "compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/code/Types.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/comp/Attr.java",
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/comp/Check.java",
+        "test/langtools/tools/javac/types/AssignmentConversions.java",
+        "test/langtools/tools/javac/types/AssignmentConversionsRegression.java"
+      ],
+      "body_excerpt": "This PR replaces some direct and indirect calls to `isAssignable` with subtype checks, in javac areas where the JLS specifies subtyping (and not assignment compatibility). This PR preserves assignment conversion for true assignment contexts according to the JLS. The added tests ensure that both the subtype-only checks and the contexts that must continue accepting assignment conversions based on `isAssignable`, retain behaviour. - In AssignmentConversions.java I cover the standalone conditional/switch type inference and true assignment contexts, including raw-to-generic unchecked assignment cas"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31008,
+      "title": "8383724: C2: Implement AddI128T and SubI128T",
+      "url": "https://github.com/openjdk/jdk/pull/31008",
+      "author": "merykitty",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 个 Review、1 条评论",
+      "created_at": "2026-05-01T07:55:36Z",
+      "updated_at": "2026-09-06T05:08:35Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "core-libs",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 3,
+      "changed_files": [
+        "src/hotspot/share/classfile/vmIntrinsics.hpp",
+        "src/hotspot/share/opto/c2compiler.cpp",
+        "src/hotspot/share/opto/classes.cpp",
+        "src/hotspot/share/opto/classes.hpp",
+        "src/hotspot/share/opto/int128tnode.cpp",
+        "src/hotspot/share/opto/int128tnode.hpp",
+        "src/hotspot/share/opto/library_call.cpp",
+        "src/hotspot/share/opto/library_call.hpp",
+        "src/hotspot/share/opto/macro.cpp",
+        "src/hotspot/share/opto/macro.hpp",
+        "src/java.base/share/classes/jdk/internal/math/Int128Math.java",
+        "test/hotspot/jtreg/compiler/intrinsics/TestInt128Math.java",
+        "test/hotspot/jtreg/compiler/lib/ir_framework/IRNode.java"
+      ],
+      "body_excerpt": "Hi, This PR implements addition and subtraction of 128-bit integers in C2. This may have numerous applications: - It helps intrinsification of operations on 128-bit integers when we have one. - It allows computation that may be incorrect at `long` due to overflow, such as loop predication of long range checks. By implementing this separately, we don't need to worry about finalizing a public API, and we can have a better testing coverage. Testing: - [x] tier1-4,hs-comp-stress Please take a look and leave your review, thanks a lot. --------- - [x] I confirm that I make this contribution in accor"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 30926,
+      "title": "8383244: Shared scope closure should only deoptimize if the scope oop is live",
+      "url": "https://github.com/openjdk/jdk/pull/30926",
+      "author": "JornVernee",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-04-24T15:36:37Z",
+      "updated_at": "2026-09-05T22:42:41Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/prims/scopedMemoryAccess.cpp"
+      ],
+      "body_excerpt": "See the JBS issue for the full explanation of the issue. Now that https://github.com/openjdk/jdk/pull/25315 was integrated, we are able to reliably scan for session oops in a frame, and only deoptimize those frames where the oop is live. I ran the `ConcurrentClose` benchmark before and after this patch, and these were the results: ``` Before: Benchmark Mode Cnt Score Error Units ConcurrentClose.sharedClose avgt 10 10.139 ± 0.416 us/op ConcurrentClose.sharedClose:closing avgt 10 29.288 ± 1.257 us/op ConcurrentClose.sharedClose:memorySegmentAccess avgt 10 0.651 ± 0.030 us/op ConcurrentClose.shar"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 30160,
+      "title": "8378626: C2: Move LoadNodes above loops",
+      "url": "https://github.com/openjdk/jdk/pull/30160",
+      "author": "merykitty",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-03-10T10:08:18Z",
+      "updated_at": "2026-09-05T17:35:57Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/loopnode.cpp",
+        "src/hotspot/share/opto/loopnode.hpp",
+        "src/hotspot/share/opto/loopopts.cpp",
+        "src/hotspot/share/opto/memnode.cpp",
+        "test/hotspot/jtreg/compiler/loopopts/TestLoadHoisting.java"
+      ],
+      "body_excerpt": "Hi, Currently, a load can only be scheduled before a loop if all of its inputs are before that loop. In this PR, we try to hoist the load above a loop even when the memory input is not a loop-invariant. To do that, we try to analyze the loop, and if all memory accesses in the loop does not interfere with the load, we rewire the memory input of the load to the memory state at the loop entry. This allows the load to be scheduled before the loop. This transformation is performed during the early placement computation of the graph, right after we have built the `IdealLoopTree`. This helps the foll"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 28465,
+      "title": "Improve DateTimeFormatter performance by unrolling formatting/parsing loops",
+      "url": "https://github.com/openjdk/jdk/pull/28465",
+      "author": "wenshao",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2025-11-22T08:21:22Z",
+      "updated_at": "2026-09-05T20:10:09Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "build",
+        "core-libs",
+        "i18n"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "make/ToolsJdk.gmk",
+        "make/jdk/src/classes/build/tools/dtpfactorygenerator/DateTimePrinterParserFactoryGenerator.java",
+        "make/modules/java.base/Gensrc.gmk",
+        "src/java.base/share/classes/java/time/format/DateTimeFormatterBuilder.java",
+        "src/java.base/share/classes/java/time/format/DateTimePrinterParserFactory.java.template",
+        "test/micro/org/openjdk/bench/java/time/format/DateTimeFormatterParse.java"
+      ],
+      "body_excerpt": "This PR optimizes the performance of java.time.format.DateTimeFormatter by unrolling loops in the formatting and parsing operations. When we run the format and parse of java.time.DateTimeFormatter using `-XX:+UnlockDiagnosticVMOptions -XX:+PrintInlining`, we can see the following output: ``` @ 40 j.t.f.DTFB$CompositePrinterParser::format (116 bytes) inline (hot) @ 1 f.l.StringBuilder::length (5 bytes) inline (hot) @ 1 j.l.AbstractStringBuilder::length (5 bytes) accessor @ 48 f.t.f.DTFB$DateTimePrinterParser::format (0 bytes) failed to inline: virtual call ``` ``` @ 37 j.t.f.DTFB$CompositePrint"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 27989,
+      "title": "8368695: Support 101 switching protocol in jdk.httpserver",
+      "url": "https://github.com/openjdk/jdk/pull/27989",
+      "author": "SentryMan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2025-10-25T16:02:05Z",
+      "updated_at": "2026-09-06T00:46:13Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "net"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.httpserver/share/classes/sun/net/httpserver/ExchangeImpl.java",
+        "src/jdk.httpserver/share/classes/sun/net/httpserver/UpgradeInputStream.java",
+        "src/jdk.httpserver/share/classes/sun/net/httpserver/UpgradeOutputStream.java",
+        "test/jdk/com/sun/net/httpserver/SwitchingProtocolTest.java"
+      ],
+      "body_excerpt": "Remaking the PR since I messed up the upstream merge on the other one. See (https://github.com/openjdk/jdk/pull/27751) for the bulk of the previous discussion - adds a flag to ExchangeImpl to signal whether the current request is a GET Upgrade request - Adds a new `UpgradeInputStream`/`UpgradeOutputStream` to ensure that the server keeps track of when the upgraded request is closed - on 101 response codes, `sendResponseHeaders` will not immediately close the output stream - on 101 response codes, `sendResponseHeaders` will use an `UpgradeInputStream` - [x] I confirm that I make this contributi"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 26461,
+      "title": "8364007: Add no-argument codePointCount method to String",
+      "url": "https://github.com/openjdk/jdk/pull/26461",
+      "author": "tats-u",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2025-07-24T14:50:07Z",
+      "updated_at": "2026-09-06T14:58:04Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "nio",
+        "core-libs",
+        "i18n"
+      ],
+      "modules": [
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.base/share/classes/java/lang/String.java",
+        "src/java.base/share/classes/java/util/regex/Pattern.java",
+        "test/jdk/java/lang/String/Supplementary.java"
+      ],
+      "body_excerpt": "Adds `codePointCount()` overloads to `String`, `Character`, `(Abstract)StringBuilder`, and `StringBuffer` to make it possible to conveniently retrieve the length of a string as code points without extra boundary checks. ```java if (superTremendouslyLongExpressionYieldingAString().codePointCount() > limit) { throw new Exception(\"exceeding length\"); } ``` Is a CSR required to this change? - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 22919,
+      "title": "8347009: Speed ​​up parseInt and parseLong",
+      "url": "https://github.com/openjdk/jdk/pull/22919",
+      "author": "wenshao",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、4 条评论",
+      "created_at": "2025-01-04T10:24:15Z",
+      "updated_at": "2026-09-05T19:57:14Z",
+      "merged_at": null,
+      "closed_at": "2026-09-05T19:39:00Z",
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/java/lang/Integer.java",
+        "src/java.base/share/classes/java/lang/Long.java",
+        "src/java.base/share/classes/java/lang/NumberFormatException.java",
+        "src/java.base/share/classes/jdk/internal/util/DecimalDigits.java",
+        "test/jdk/com/sun/jdi/JdbExprTest.java",
+        "test/micro/org/openjdk/bench/java/lang/Longs.java"
+      ],
+      "body_excerpt": "This is an optimization for decimal Integer.parseInt and Long.parseLong, which improves performance by about 10%. The optimization includes: 1. Improve performance by parsing 2 numbers at a time, which has performance improvements for numbers with length >= 3. 2. It uses charAt(0) for the first number. Assuming that the optimization can eliminate boundary checks, this will be more friendly to parsing numbers with length 1. 3. It removes the reliance on the Character.digit method and eliminates the reliance on the CharacterDataLatin1#DIGITS cache array, which avoids performance degradation caus"
+    }
+  ]
+}

@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-09-08](reports/2026/2026-09-08.md)
+### [2026-09-09](reports/2026/2026-09-09.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 109 |
+| 有活动的 PR | 138 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 20 |
-| 活跃贡献者 | 58 |
+| RISC-V 相关 PR | 15 |
+| 活跃贡献者 | 75 |
 
 ## 今日关注
 
-- [#32755](https://github.com/openjdk/jdk/pull/32755) 8391950: Clean out leftovers from inline to value rename（新建、2 个 Review、7 条评论）
-- [#32748](https://github.com/openjdk/jdk/pull/32748) 8391946: RISC-V: optimize SHA-1 intrinsic（新建、6 条评论）
-- [#32747](https://github.com/openjdk/jdk/pull/32747) 8391945: RISC-V: Add floating-point vector multiplication reduction rules（新建、6 条评论）
-- [#32746](https://github.com/openjdk/jdk/pull/32746) 8391943: RISC-V: Use Zba instructions for additions with zero-extended int values（新建、6 条评论）
-- [#32745](https://github.com/openjdk/jdk/pull/32745) 8391942: RISC-V: Remove redundant null checks in needs_acquiring_load_reserved()（新建、1 个 Review、5 条评论）
-- [#32739](https://github.com/openjdk/jdk/pull/32739) 8391921: RISC-V: Add C2 vector support for CompressBitsV and ExpandBitsV（新建、7 条评论）
-- [#32734](https://github.com/openjdk/jdk/pull/32734) 8391910: RISC-V: Add CMoveP/CMoveN C2 match rules（2 条评论）
-- [#32732](https://github.com/openjdk/jdk/pull/32732) 8391902: RISC-V: Add MulAddS2I and MulAddVS2VI rules（2 条评论）
+- [#32792](https://github.com/openjdk/jdk/pull/32792) 8392080: RISC-V: Remove unnecessary restrictions on CAS membar elision（新建、4 条评论）
+- [#32785](https://github.com/openjdk/jdk/pull/32785) 8392041: RISC-V: TestFloat16ScalarOperations.java fails after JDK-8391717 with fastdebug（新建、2 个 Review、5 条评论）
+- [#32780](https://github.com/openjdk/jdk/pull/32780) 8391598: RISC-V: Add Ziccid（新建、5 条评论）
+- [#32776](https://github.com/openjdk/jdk/pull/32776) 8392015: Remove broken and untested VerifyStackAtCalls debug flag（新建、4 个 Review、7 条评论）
+- [#32775](https://github.com/openjdk/jdk/pull/32775) 8392016: RISC-V: Use Zawrs to reduce power consumption under frequent lock（新建、6 条评论）
+- [#32755](https://github.com/openjdk/jdk/pull/32755) 8391950: Clean out leftovers from inline to value rename（1 个 Review）
+- [#32747](https://github.com/openjdk/jdk/pull/32747) 8391945: RISC-V: Add floating-point vector multiplication reduction rules（1 条评论）
+- [#32745](https://github.com/openjdk/jdk/pull/32745) 8391942: RISC-V: Remove redundant null checks in needs_acquiring_load_reserved()（已关闭、1 个 Review、5 条评论）
 
-[查看完整日报](reports/2026/2026-09-08.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-09.md) · [浏览全部历史](reports/index.md)

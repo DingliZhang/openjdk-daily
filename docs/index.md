@@ -4,23 +4,23 @@
 
 ## 最新日报
 
-### [2026-09-12](reports/2026/2026-09-12.md)
+### [2026-09-13](reports/2026/2026-09-13.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 58 |
+| 有活动的 PR | 26 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 5 |
-| 活跃贡献者 | 48 |
+| RISC-V 相关 PR | 4 |
+| 活跃贡献者 | 24 |
 
 ## 今日关注
 
-- [#32850](https://github.com/openjdk/jdk/pull/32850) 8382486: Assert failed in frame::sender（新建、5 条评论）
-- [#32821](https://github.com/openjdk/jdk/pull/32821) 8392175: Remove VtableStub::receiver_location（2 个 Review）
+- [#32852](https://github.com/openjdk/jdk/pull/32852) 8392322: RISC-V: Elide memory barriers in C++ atomics under Ztso（新建、5 条评论）
+- [#32850](https://github.com/openjdk/jdk/pull/32850) 8382486: Assert failed in frame::sender（2 个 Review）
+- [#32780](https://github.com/openjdk/jdk/pull/32780) 8391598: RISC-V: Add Ziccid（1 个 Review）
 - [#32747](https://github.com/openjdk/jdk/pull/32747) 8391945: RISC-V: Add floating-point vector multiplication reduction rules（1 个 Review）
-- [#32746](https://github.com/openjdk/jdk/pull/32746) 8391943: RISC-V: Use Zba instructions for additions with zero-extended int values（4 个 Review）
-- [#32027](https://github.com/openjdk/jdk/pull/32027) 8384415: Shenandoah: Hotpatch GC state checks（2 个 Review）
-- [#32851](https://github.com/openjdk/jdk/pull/32851) 8373730: Missing identity optimization in arithmetic Or（新建、5 条评论）
-- [#32849](https://github.com/openjdk/jdk/pull/32849) 8381336: SA FlatArray support is incomplete（新建、5 条评论）
+- [#32854](https://github.com/openjdk/jdk/pull/32854) 8066259: [macosx] Possible regression: test/java/awt/Modal/ModalDialogOrderingTest/ModalDialogOrderingTest.java failure（新建、5 条评论）
+- [#32853](https://github.com/openjdk/jdk/pull/32853) 8392325: JFR parser reads empty string as null（新建、4 条评论）
+- [#32851](https://github.com/openjdk/jdk/pull/32851) 8373730: Missing identity optimization in arithmetic Or（2 个 Review、3 条评论）
 
-[查看完整日报](reports/2026/2026-09-12.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-13.md) · [浏览全部历史](reports/index.md)

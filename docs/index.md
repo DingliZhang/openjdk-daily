@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-09-17](reports/2026/2026-09-17.md)
+### [2026-09-18](reports/2026/2026-09-18.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 124 |
+| 有活动的 PR | 122 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 20 |
-| 活跃贡献者 | 78 |
+| RISC-V 相关 PR | 19 |
+| 活跃贡献者 | 77 |
 
 ## 今日关注
 
-- [#32922](https://github.com/openjdk/jdk/pull/32922) 8392532: [Valhalla] C1: Reduce register clobbering for flat array stubs（新建、6 条评论）
-- [#32916](https://github.com/openjdk/jdk/pull/32916) 8392529: Take into account trampoline stub size and its relocations on RISC-V（新建、3 个 Review、5 条评论）
-- [#32900](https://github.com/openjdk/jdk/pull/32900) 8392467: RISC-V: Enable several extensions in Xuantie vendor at product mode（已关闭、5 个 Review、4 条评论）
-- [#32899](https://github.com/openjdk/jdk/pull/32899) 8392466: Add scalar Zbc (carry-less multiply) fast path for CRC32 intrinsic（有更新）
-- [#32893](https://github.com/openjdk/jdk/pull/32893) 8389895: RISC-V: Fuse LoadN with DecodeN to eliminate redundant register moves（1 个 Review）
-- [#32856](https://github.com/openjdk/jdk/pull/32856) 8392321: RISC-V: Enable Zabha extension（已关闭、3 个 Review、3 条评论）
-- [#32850](https://github.com/openjdk/jdk/pull/32850) 8382486: Assert failed in frame::sender（5 条评论）
-- [#32785](https://github.com/openjdk/jdk/pull/32785) 8392041: RISC-V: TestFloat16ScalarOperations.java fails after JDK-8391717 with fastdebug（有更新）
+- [#32954](https://github.com/openjdk/jdk/pull/32954) 8392661: [ppc] [riscv] Incorrectly attempt to reserve address space for compressed classes using unscaled encoding instead of below 4GiB（新建、4 条评论）
+- [#32935](https://github.com/openjdk/jdk/pull/32935) 8392545: C1: Clean up some unused arguments and methods in LIRGenerator（新建、2 个 Review、9 条评论）
+- [#32922](https://github.com/openjdk/jdk/pull/32922) 8392532: [Valhalla] C1: Reduce register clobbering for flat array stubs（3 个 Review、4 条评论）
+- [#32916](https://github.com/openjdk/jdk/pull/32916) 8392529: Take into account trampoline stub size and its relocations on RISC-V（已关闭、3 条评论）
+- [#32875](https://github.com/openjdk/jdk/pull/32875) 8392387: RISC-V: Use Zvbb rotate for ChaCha20（1 条评论）
+- [#32874](https://github.com/openjdk/jdk/pull/32874) 8392388: RISC-V: Optimize ADC instructions in BigInteger multiplication（1 条评论）
+- [#32850](https://github.com/openjdk/jdk/pull/32850) 8382486: Assert failed in frame::sender（2 个 Review）
+- [#32775](https://github.com/openjdk/jdk/pull/32775) 8392016: RISC-V: Use Zawrs to reduce power consumption under frequent lock（2 条评论）
 
-[查看完整日报](reports/2026/2026-09-17.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-18.md) · [浏览全部历史](reports/index.md)

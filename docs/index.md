@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-09-21](reports/2026/2026-09-21.md)
+### [2026-09-22](reports/2026/2026-09-22.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 99 |
+| 有活动的 PR | 106 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 20 |
-| 活跃贡献者 | 63 |
+| RISC-V 相关 PR | 16 |
+| 活跃贡献者 | 68 |
 
 ## 今日关注
 
-- [#32982](https://github.com/openjdk/jdk/pull/32982) 8392766: RISC-V: Remove redundant la in TemplateTable::fast_binaryswitch（新建、4 条评论）
-- [#32974](https://github.com/openjdk/jdk/pull/32974) 8392749: RISC-V: Correct misleading macro parameter names（新建、3 个 Review、6 条评论）
-- [#32973](https://github.com/openjdk/jdk/pull/32973) 8392333: RISC-V: Use RVV to improve indexof intrinsic（新建、5 条评论）
-- [#32971](https://github.com/openjdk/jdk/pull/32971) 8392747: RISC-V: Add SHA3 GPR intrinsic（3 条评论）
-- [#32968](https://github.com/openjdk/jdk/pull/32968) 8392738: RISC-V: Implement Float16 conversion intrinsics in the template interpreter and C1（1 条评论）
-- [#32967](https://github.com/openjdk/jdk/pull/32967) 8392737: RISC-V: Implement CRC32 intrinsic entries in the template interpreter（2 条评论）
-- [#32954](https://github.com/openjdk/jdk/pull/32954) 8392661: [s390x] [riscv] Incorrectly attempt to reserve address space for compressed classes using unscaled encoding instead of below 4GiB（有更新）
-- [#32935](https://github.com/openjdk/jdk/pull/32935) 8392545: C1: Clean up some unused arguments and methods in LIRGenerator（已关闭、4 条评论）
+- [#33017](https://github.com/openjdk/jdk/pull/33017) 8392609: Remove default argument from os::strdup mem_tag parameter（新建、5 条评论）
+- [#33016](https://github.com/openjdk/jdk/pull/33016) 8392856: RISC-V: Remove redundant register copy in narrow-value Zacas cmpxchg（新建、5 条评论）
+- [#33008](https://github.com/openjdk/jdk/pull/33008) 8392845: RISC-V: Fix unaligned instruction access in MacroAssembler::is_srli_at（新建、5 条评论）
+- [#32974](https://github.com/openjdk/jdk/pull/32974) 8392749: RISC-V: Correct misleading macro parameter names（已关闭、5 条评论）
+- [#32935](https://github.com/openjdk/jdk/pull/32935) 8392545: C1: Clean up some unused arguments and methods in LIRGenerator（有更新）
+- [#32893](https://github.com/openjdk/jdk/pull/32893) 8389895: RISC-V: Fuse LoadN with DecodeN to eliminate redundant register moves（2 个 Review）
+- [#32746](https://github.com/openjdk/jdk/pull/32746) 8391943: RISC-V: Use Zba add.uw for additions with zero-extended 32-bit values（已关闭、2 个 Review、3 条评论）
+- [#32569](https://github.com/openjdk/jdk/pull/32569) 8390921: RISC-V: Enable arraycopy partial inlining with RVV（1 条评论）
 
-[查看完整日报](reports/2026/2026-09-21.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-22.md) · [浏览全部历史](reports/index.md)

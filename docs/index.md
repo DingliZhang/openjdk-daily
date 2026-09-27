@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-09-25](reports/2026/2026-09-25.md)
+### [2026-09-26](reports/2026/2026-09-26.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 75 |
+| 有活动的 PR | 91 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 6 |
+| RISC-V 相关 PR | 18 |
 | 活跃贡献者 | 48 |
 
 ## 今日关注
 
-- [#33035](https://github.com/openjdk/jdk/pull/33035) 8392935: Obsolete OptoBundling（已关闭、3 条评论）
-- [#32934](https://github.com/openjdk/jdk/pull/32934) Shenandoah: Increase concurrent worker threads within a phase（已关闭）
-- [#32775](https://github.com/openjdk/jdk/pull/32775) 8392016: RISC-V: C2: Add Zawrs-assisted retry for contended monitor acquisition（1 个 Review）
-- [#32067](https://github.com/openjdk/jdk/pull/32067) 8389239: RISC-V: Optimize copy_memory_v by reducing LMUL and hoisting vsetvli out of loop（1 条评论）
-- [#31367](https://github.com/openjdk/jdk/pull/31367) 8384407: AArch64: Replace DMB + ST + DMB with STLR for C1 volatile field stores（2 条评论）
-- [#29067](https://github.com/openjdk/jdk/pull/29067) 8373578: JVMTI replacement for AsyncGetCallTrace（1 条评论）
-- [#33070](https://github.com/openjdk/jdk/pull/33070) 8392967: NTLMAuthSequence potential memory leak in getCredentialsHandle（新建、4 条评论）
-- [#33069](https://github.com/openjdk/jdk/pull/33069) 8393015: JFR: ResizeableHashTable only resizes if you ask kindly（新建、1 个 Review、4 条评论）
+- [#33016](https://github.com/openjdk/jdk/pull/33016) 8392856: RISC-V: Remove redundant register copy in narrow-value Zacas cmpxchg（2 个 Review）
+- [#32893](https://github.com/openjdk/jdk/pull/32893) 8389895: RISC-V: Fuse LoadN with DecodeN to eliminate redundant register moves（已关闭、2 个 Review、10 条评论）
+- [#32775](https://github.com/openjdk/jdk/pull/32775) 8392016: RISC-V: C2: Add Zawrs-assisted retry for contended monitor acquisition（已关闭、3 个 Review、5 条评论）
+- [#32569](https://github.com/openjdk/jdk/pull/32569) 8390921: RISC-V: Enable arraycopy partial inlining with RVV（1 条评论）
+- [#32442](https://github.com/openjdk/jdk/pull/32442) 8390631: RISC-V: Optimize String.indexOf(String) for single-character search string（1 条评论）
+- [#32346](https://github.com/openjdk/jdk/pull/32346) 8390316: RISC-V: Materialize pointers with fewer instructions on sv39（4 个 Review）
+- [#32205](https://github.com/openjdk/jdk/pull/32205) 8389749: RISC-V: Optimize RVV string/array comparison with tiered approach（有更新）
+- [#32067](https://github.com/openjdk/jdk/pull/32067) 8389239: RISC-V: Optimize copy_memory_v by reducing LMUL and hoisting vsetvli out of loop（有更新）
 
-[查看完整日报](reports/2026/2026-09-25.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-26.md) · [浏览全部历史](reports/index.md)

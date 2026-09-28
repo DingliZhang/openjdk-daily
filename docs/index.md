@@ -4,24 +4,23 @@
 
 ## 最新日报
 
-### [2026-09-26](reports/2026/2026-09-26.md)
+### [2026-09-27](reports/2026/2026-09-27.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 91 |
+| 有活动的 PR | 37 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 18 |
-| 活跃贡献者 | 48 |
+| RISC-V 相关 PR | 3 |
+| 活跃贡献者 | 13 |
 
 ## 今日关注
 
-- [#33016](https://github.com/openjdk/jdk/pull/33016) 8392856: RISC-V: Remove redundant register copy in narrow-value Zacas cmpxchg（2 个 Review）
-- [#32893](https://github.com/openjdk/jdk/pull/32893) 8389895: RISC-V: Fuse LoadN with DecodeN to eliminate redundant register moves（已关闭、2 个 Review、10 条评论）
-- [#32775](https://github.com/openjdk/jdk/pull/32775) 8392016: RISC-V: C2: Add Zawrs-assisted retry for contended monitor acquisition（已关闭、3 个 Review、5 条评论）
-- [#32569](https://github.com/openjdk/jdk/pull/32569) 8390921: RISC-V: Enable arraycopy partial inlining with RVV（1 条评论）
-- [#32442](https://github.com/openjdk/jdk/pull/32442) 8390631: RISC-V: Optimize String.indexOf(String) for single-character search string（1 条评论）
-- [#32346](https://github.com/openjdk/jdk/pull/32346) 8390316: RISC-V: Materialize pointers with fewer instructions on sv39（4 个 Review）
-- [#32205](https://github.com/openjdk/jdk/pull/32205) 8389749: RISC-V: Optimize RVV string/array comparison with tiered approach（有更新）
-- [#32067](https://github.com/openjdk/jdk/pull/32067) 8389239: RISC-V: Optimize copy_memory_v by reducing LMUL and hoisting vsetvli out of loop（有更新）
+- [#33082](https://github.com/openjdk/jdk/pull/33082) 8393054: RISC-V: TestLoadN2PUnscaled fails with user-specified heap options（新建、5 条评论）
+- [#30106](https://github.com/openjdk/jdk/pull/30106) 8379260: C2: Separate volatile barrier and full barrier（有更新）
+- [#21414](https://github.com/openjdk/jdk/pull/21414) 8341784: Refactor TypeVect to use a BasicType instead of a const Type*（有更新）
+- [#33079](https://github.com/openjdk/jdk/pull/33079) 8393048: HijrahDate.withVariant fails when the target Hijrah variant has a shorter month（有更新）
+- [#33064](https://github.com/openjdk/jdk/pull/33064) 8392966: Improve the error message from "java -jar" for JAR files without a manifest（有更新）
+- [#33063](https://github.com/openjdk/jdk/pull/33063) DRAFT: SwissTable（5 个 Review）
+- [#33059](https://github.com/openjdk/jdk/pull/33059) 8392993: Null pointer dereferences in screencast code（3 个 Review）
 
-[查看完整日报](reports/2026/2026-09-26.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-27.md) · [浏览全部历史](reports/index.md)

@@ -4,23 +4,24 @@
 
 ## 最新日报
 
-### [2026-09-27](reports/2026/2026-09-27.md)
+### [2026-09-28](reports/2026/2026-09-28.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 37 |
+| 有活动的 PR | 92 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 3 |
-| 活跃贡献者 | 13 |
+| RISC-V 相关 PR | 12 |
+| 活跃贡献者 | 59 |
 
 ## 今日关注
 
-- [#33082](https://github.com/openjdk/jdk/pull/33082) 8393054: RISC-V: TestLoadN2PUnscaled fails with user-specified heap options（新建、5 条评论）
-- [#30106](https://github.com/openjdk/jdk/pull/30106) 8379260: C2: Separate volatile barrier and full barrier（有更新）
-- [#21414](https://github.com/openjdk/jdk/pull/21414) 8341784: Refactor TypeVect to use a BasicType instead of a const Type*（有更新）
-- [#33079](https://github.com/openjdk/jdk/pull/33079) 8393048: HijrahDate.withVariant fails when the target Hijrah variant has a shorter month（有更新）
-- [#33064](https://github.com/openjdk/jdk/pull/33064) 8392966: Improve the error message from "java -jar" for JAR files without a manifest（有更新）
-- [#33063](https://github.com/openjdk/jdk/pull/33063) DRAFT: SwissTable（5 个 Review）
-- [#33059](https://github.com/openjdk/jdk/pull/33059) 8392993: Null pointer dereferences in screencast code（3 个 Review）
+- [#33082](https://github.com/openjdk/jdk/pull/33082) 8393054: RISC-V: TestLoadN2PUnscaled fails with user-specified heap options（2 个 Review、1 条评论）
+- [#33051](https://github.com/openjdk/jdk/pull/33051) 8392347: RISC-V: Use 32-byte code entry alignment on Xuantie（2 个 Review）
+- [#33025](https://github.com/openjdk/jdk/pull/33025) 8392926: RISC-V: Use DWARF in mixed jstack on Linux（有更新）
+- [#33016](https://github.com/openjdk/jdk/pull/33016) 8392856: RISC-V: Remove redundant register copy in narrow-value Zacas cmpxchg（1 个 Review）
+- [#32967](https://github.com/openjdk/jdk/pull/32967) 8392737: RISC-V: Implement CRC32 intrinsic entries in the template interpreter（有更新）
+- [#32780](https://github.com/openjdk/jdk/pull/32780) 8391598: RISC-V: Avoid call-patching I-cache flushes with Ziccid（2 个 Review、2 条评论）
+- [#32483](https://github.com/openjdk/jdk/pull/32483) 8390866: [Valhalla] revisit array load profiling（有更新）
+- [#32346](https://github.com/openjdk/jdk/pull/32346) 8390316: RISC-V: Materialize pointers with fewer instructions on sv39（2 条评论）
 
-[查看完整日报](reports/2026/2026-09-27.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-09-28.md) · [浏览全部历史](reports/index.md)

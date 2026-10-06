@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-04](reports/2026/2026-10-04.md)
+### [2026-10-05](reports/2026/2026-10-05.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 18 |
+| 有活动的 PR | 74 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 4 |
-| 活跃贡献者 | 15 |
+| RISC-V 相关 PR | 9 |
+| 活跃贡献者 | 53 |
 
 ## 今日关注
 
-- [#33182](https://github.com/openjdk/jdk/pull/33182) 8393488: RISC-V: Make float16ToFloat ignore upper argument bits（已关闭、3 条评论）
-- [#32973](https://github.com/openjdk/jdk/pull/32973) 8392333: RISC-V: Use RVV to improve indexof intrinsic（1 个 Review）
-- [#32001](https://github.com/openjdk/jdk/pull/32001) 8388474: RISC-V: Relax satp mode check for sv57（4 条评论）
-- [#30778](https://github.com/openjdk/jdk/pull/30778) 8380476: Implement JEP 544: Ahead-of-Time Code Compilation（1 条评论）
-- [#33196](https://github.com/openjdk/jdk/pull/33196) 8393500: Parallel: Simplify Full GC compaction state transitions（新建、5 条评论）
-- [#33195](https://github.com/openjdk/jdk/pull/33195) 8393492: C2: Missed anti-dependence computation on memory access intrinsics（新建、7 条评论）
-- [#33194](https://github.com/openjdk/jdk/pull/33194) 8392942: C2: Missed Ideal optimization opportunity for ConvL2I（新建、5 条评论）
-- [#33193](https://github.com/openjdk/jdk/pull/33193) 8393432: P-384 field operations should utilize larger limb sizes（新建、3 条评论）
+- [#33206](https://github.com/openjdk/jdk/pull/33206) 8393533: RISC-V: Eliminate redundant vsetvli instructions（新建、4 条评论）
+- [#33205](https://github.com/openjdk/jdk/pull/33205) 8393530: RISC-V: Fix TestImplicitNullChecks with Zalasr enabled（新建、2 个 Review、5 条评论）
+- [#33180](https://github.com/openjdk/jdk/pull/33180) 8393458: Fix various include guard inconsistencies（1 个 Review、2 条评论）
+- [#33029](https://github.com/openjdk/jdk/pull/33029) 8392927: RISC-V: explicitly narrow unsigned subword types in extract_v（3 条评论）
+- [#33025](https://github.com/openjdk/jdk/pull/33025) 8392926: RISC-V: Use DWARF in mixed jstack on Linux（有更新）
+- [#32954](https://github.com/openjdk/jdk/pull/32954) 8392661: [s390x] [riscv] Incorrectly attempt to reserve address space for compressed classes using unscaled encoding instead of below 4GiB（已关闭、5 条评论）
+- [#32001](https://github.com/openjdk/jdk/pull/32001) 8388474: RISC-V: Relax satp mode check for sv57（已关闭、2 个 Review、3 条评论）
+- [#30778](https://github.com/openjdk/jdk/pull/30778) 8380476: Implement JEP 544: Ahead-of-Time Code Compilation（3 个 Review）
 
-[查看完整日报](reports/2026/2026-10-04.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-05.md) · [浏览全部历史](reports/index.md)

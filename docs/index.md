@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-07](reports/2026/2026-10-07.md)
+### [2026-10-08](reports/2026/2026-10-08.md)
 
 | 指标 | 数量 |
 |---|---:|
 | 有活动的 PR | 111 |
 | 已合并 PR | 0 |
 | RISC-V 相关 PR | 8 |
-| 活跃贡献者 | 73 |
+| 活跃贡献者 | 76 |
 
 ## 今日关注
 
-- [#33240](https://github.com/openjdk/jdk/pull/33240) 8393707: Simplify interpreter write_flat_field and supporting code（新建、1 个 Review、5 条评论）
-- [#33219](https://github.com/openjdk/jdk/pull/33219) 8393570: RISC-V: replicate_imm5 passes byte size instead of element count to vsetvli_helper（已关闭、3 条评论）
-- [#33206](https://github.com/openjdk/jdk/pull/33206) 8393533: RISC-V: Eliminate redundant vsetvli instructions（有更新）
-- [#33179](https://github.com/openjdk/jdk/pull/33179) 8393454: Rename ValueFieldLayoutInfo to ValueFieldInfo（已关闭、1 个 Review、3 条评论）
+- [#33260](https://github.com/openjdk/jdk/pull/33260) 8393854: RISC-V: Use Zalasr store-release instructions for C1 volatile field stores（新建、5 条评论）
+- [#33240](https://github.com/openjdk/jdk/pull/33240) 8393707: Simplify interpreter write_flat_field and supporting code（已关闭、2 个 Review、3 条评论）
+- [#33051](https://github.com/openjdk/jdk/pull/33051) 8392347: RISC-V: Use 32-byte code entry alignment on Xuantie（2 条评论）
+- [#32780](https://github.com/openjdk/jdk/pull/32780) 8391598: RISC-V: Avoid call-patching I-cache flushes with Ziccid（1 个 Review、1 条评论）
 - [#32346](https://github.com/openjdk/jdk/pull/32346) 8390316: RISC-V: Materialize pointers with fewer instructions on sv39（1 条评论）
-- [#32000](https://github.com/openjdk/jdk/pull/32000) 8388479: RISC-V: compiler/vectorapi/TestMaskedNotAllOnes.java fails after JDK-8386163（已关闭、2 个 Review、3 条评论）
-- [#31367](https://github.com/openjdk/jdk/pull/31367) 8384407: AArch64: Replace DMB + ST + DMB with STLR for C1 volatile field stores（已关闭、6 条评论）
-- [#30778](https://github.com/openjdk/jdk/pull/30778) 8380476: Implement JEP 544: Ahead-of-Time Code Compilation（有更新）
+- [#31960](https://github.com/openjdk/jdk/pull/31960) 8387967: RISC-V: Optimize compare-to-int with branch-free implementation（1 条评论）
+- [#31774](https://github.com/openjdk/jdk/pull/31774) 8388924: RISC-V: Add Zbb xnor instruction selection rules（已关闭、2 条评论）
+- [#17750](https://github.com/openjdk/jdk/pull/17750) 8324124: RISC-V: implement _vectorizedMismatch intrinsic（有更新）
 
-[查看完整日报](reports/2026/2026-10-07.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-08.md) · [浏览全部历史](reports/index.md)

@@ -1,0 +1,613 @@
+{
+  "date": "2026-10-11",
+  "generated_at": "2026-10-12T01:28:10.759393+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 33300,
+      "title": "8387719: Building the JDK: running `bash configure` does not detect musl",
+      "url": "https://github.com/openjdk/jdk/pull/33300",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、4 条评论",
+      "created_at": "2026-10-11T06:15:10Z",
+      "updated_at": "2026-10-11T06:30:12Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "build"
+      ],
+      "modules": [
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "make/autoconf/platform.m4",
+        "test/make/autoconf/test.m4"
+      ],
+      "body_excerpt": "Please review this small build fix. `configure` reports `default` instead of `musl` for targets ending in `linux-musleabi` or `linux-musleabihf`. **Fix:** `PLATFORM_EXTRACT_VARS_FROM_LIBC` now uses `*linux*-musl*` instead of `*linux*-musl` to accept the ABI suffix. **Testing:** - `make test-make`: passed. - Added libc detection coverage to the existing Autoconf tests (`linux-musl`, `linux-musleabi`, `linux-musleabihf`, `linux-gnu`). - ARM32 musl cross-configure with an explicit `--openjdk-target=armv7l-unknown-linux-musleabihf`: reported `musl` after the fix. --------- - [x] I confirm that I m"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33299,
+      "title": "8394229: Add missing @Override annotations in \"sun.print\" package part 2",
+      "url": "https://github.com/openjdk/jdk/pull/33299",
+      "author": "mrserb",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-10-11T01:36:11Z",
+      "updated_at": "2026-10-11T07:16:20Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.desktop/share/classes/sun/print/PSPathGraphics.java",
+        "src/java.desktop/share/classes/sun/print/PSPrinterJob.java",
+        "src/java.desktop/share/classes/sun/print/PSStreamPrintJob.java",
+        "src/java.desktop/share/classes/sun/print/PSStreamPrintService.java",
+        "src/java.desktop/share/classes/sun/print/PSStreamPrinterFactory.java",
+        "src/java.desktop/share/classes/sun/print/ProxyGraphics2D.java",
+        "src/java.desktop/share/classes/sun/print/ProxyPrintGraphics.java",
+        "src/java.desktop/share/classes/sun/print/RasterPrinterJob.java",
+        "src/java.desktop/share/classes/sun/print/ServiceDialog.java",
+        "src/java.desktop/share/classes/sun/print/ServiceNotifier.java",
+        "src/java.desktop/share/classes/sun/print/SunAlternateMedia.java",
+        "src/java.desktop/share/classes/sun/print/SunMinMaxPage.java",
+        "src/java.desktop/share/classes/sun/print/SunPageSelection.java"
+      ],
+      "body_excerpt": "This patch adds missing `@Override` annotations to methods in the `sun.print` package that override methods from a superclass or interface. Since the package is large the fix has been split, this is the second/last part. Only source annotations are added; there are no behavioral changes. The previous patch for `com.sun.beans` can be found here: https://github.com/openjdk/jdk/pull/27887. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33298,
+      "title": "8318110: [jmh] the test CharBufferAppend.java failed with 2 active threads",
+      "url": "https://github.com/openjdk/jdk/pull/33298",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、4 条评论",
+      "created_at": "2026-10-10T17:27:54Z",
+      "updated_at": "2026-10-10T17:55:41Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "nio"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/micro/org/openjdk/bench/java/nio/CharBufferAppend.java"
+      ],
+      "body_excerpt": "Please review this small benchmark fix. `CharBufferAppend` fails with `BufferOverflowException` when run with `-t 2`, because the JMH workers share the same static buffers. ```txt java.nio.BufferOverflowException at java.base/java.nio.CharBuffer.put(CharBuffer.java:1051) at java.base/java.nio.CharBuffer.append(CharBuffer.java:2099) at java.base/java.nio.DirectCharBufferS.append(DirectCharBufferS.java:480) at org.openjdk.bench.java.nio.CharBufferAppend.appendDirectToDirect(CharBufferAppend.java:82) at org.openjdk.bench.java.nio.jmh_generated.CharBufferAppend_appendDirectToDirect_jmhTest.appendD"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33296,
+      "title": "8394216: RISC-V: Elide the leading membar of an LR/SC based CAS",
+      "url": "https://github.com/openjdk/jdk/pull/33296",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review、3 条评论",
+      "created_at": "2026-10-10T09:11:42Z",
+      "updated_at": "2026-10-12T01:20:22Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/macroAssembler_riscv.cpp",
+        "src/hotspot/cpu/riscv/macroAssembler_riscv.hpp",
+        "src/hotspot/cpu/riscv/riscv.ad"
+      ],
+      "body_excerpt": "Hi, please consider. unnecessary_release() currently reuses cas_membar_elidable() to decide whether the leading MemBarRelease of a volatile CAS idiom can be dropped. That predicate is the right condition for the trailing MemBarAcquire, but it is stronger than what the leading membar actually needs, so the leading fence rw,w is kept on the LR/SC path even though the rl annotation on the sc already covers it. This change gives the leading membar its own, weaker predicate. For a cas matched c2 code: ``` fence rw, w // MemBarRelease lr.w.aq t0, (a0) bne t0, a1, 2f sc.w.rl t0, a2, (a0) bnez t0, 1b "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33284,
+      "title": "8394082: RISC-V: Remove redundant membar from C1 compareAndSet",
+      "url": "https://github.com/openjdk/jdk/pull/33284",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-09T13:11:13Z",
+      "updated_at": "2026-10-11T06:59:44Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/c1_LIRAssembler_riscv.cpp"
+      ],
+      "body_excerpt": "Hi, please consider. In C1, do_CompareAndSwap and do_UnsafeGetAndSet resolve through LIRGenerator::access_atomic_cmpxchg_at / access_atomic_xchg_at, which default to the MO_SEQ_CST decorator. So casw/caswu/casl (cas_int/uint/long) and atomic_op (lir_xadd/lir_xchg) all require MO_SEQ_CST. On RISC-V, MacroAssembler::cmpxchg is already emitted with acquire (on the load) and release (on the store), and the atomic_op path uses atomic_addal/atomic_xchgal, i.e. amoadd.aqrl / amoswap.aqrl. Each of these is then followed by an unconditional membar(AnyAny) (fence rw,rw). This change removes that trailin"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33262,
+      "title": "8387577: [s390x] TestSharedCloseJFR.java failure due to null pc",
+      "url": "https://github.com/openjdk/jdk/pull/33262",
+      "author": "vpa1977",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review",
+      "created_at": "2026-10-08T04:21:22Z",
+      "updated_at": "2026-10-11T19:17:44Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "core-libs"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "s390"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/cpu/s390/frame_s390.cpp",
+        "src/hotspot/cpu/s390/frame_s390.hpp",
+        "src/hotspot/cpu/s390/interp_masm_s390.cpp",
+        "src/hotspot/cpu/s390/sharedRuntime_s390.cpp",
+        "src/hotspot/os_cpu/linux_s390/javaThread_linux_s390.cpp",
+        "test/jdk/java/foreign/sharedclosejfr/TestSharedCloseJFR.java"
+      ],
+      "body_excerpt": "Implement suggestions in https://bugs.openjdk.org/browse/JDK-8387577. This PR uses \"approximate\" pc that matches the registration offset of oops map. Testing - tier1 and tier2 test run ``` make test TEST=\":tier1 :tier2\" CONF=linux-s390x-server-fastdebug ============================== Test summary ============================== TEST TOTAL PASS FAIL ERROR SKIP >> jtreg:test/hotspot/jtreg:tier1 3887 3411 8 0 468 << jtreg:test/jdk:tier1 2656 2605 0 0 51 jtreg:test/langtools:tier1 4775 4763 0 0 12 jtreg:test/jaxp:tier1 0 0 0 0 0 jtreg:test/lib-test:tier1 41 41 0 0 0 >> jtreg:test/hotspot/jtreg:tier"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33172,
+      "title": "8389460: JVMTI IterateThroughHeap class filter skips flattened value objects",
+      "url": "https://github.com/openjdk/jdk/pull/33172",
+      "author": "sspitsyn",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review、3 条评论",
+      "created_at": "2026-10-01T23:08:42Z",
+      "updated_at": "2026-10-11T12:05:37Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "serviceability",
+        "hotspot"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 3,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/prims/jvmtiTagMap.cpp",
+        "test/hotspot/jtreg/serviceability/jvmti/valhalla/Heapwalking/FlatClassFilterTest.java",
+        "test/hotspot/jtreg/serviceability/jvmti/valhalla/Heapwalking/libFlatClassFilterTest.cpp"
+      ],
+      "body_excerpt": "When the JVMTI `IterateThroughHeap` has a class filter then the flattened value objects contained in the fields of filtered class objects are not reported. The fix is: - If the object has flattened fields, visit and report them as heap objects even though this object was not reported. The update adds new test with a needed coverage: `test/hotspot/jtreg/serviceability/jvmti/valhalla/Heapwalking/FlatClassFilterTest.java` Testing: - check new test is failing without fix and is passing with the fix - TBD: run mach5 tiers 1-6 --------- - [x] I confirm that I make this contribution in accordance wit"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33159,
+      "title": "8393199: Add missing @Override annotations in \"sun.print\" package part 1",
+      "url": "https://github.com/openjdk/jdk/pull/33159",
+      "author": "mrserb",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、3 条评论",
+      "created_at": "2026-10-01T05:15:31Z",
+      "updated_at": "2026-10-10T22:48:12Z",
+      "merged_at": null,
+      "closed_at": "2026-10-10T22:45:49Z",
+      "labels": [
+        "integrated",
+        "client"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.desktop/share/classes/sun/print/CustomMediaSizeName.java",
+        "src/java.desktop/share/classes/sun/print/CustomMediaTray.java",
+        "src/java.desktop/share/classes/sun/print/ImagePrinter.java",
+        "src/java.desktop/share/classes/sun/print/OpenBook.java",
+        "src/java.desktop/share/classes/sun/print/PageableDoc.java",
+        "src/java.desktop/share/classes/sun/print/PathGraphics.java",
+        "src/java.desktop/share/classes/sun/print/PeekGraphics.java",
+        "src/java.desktop/share/classes/sun/print/PrintJob2D.java",
+        "src/java.desktop/share/classes/sun/print/PrintJobAttributeException.java",
+        "src/java.desktop/share/classes/sun/print/PrintJobDelegate.java",
+        "src/java.desktop/share/classes/sun/print/PrintJobFlavorException.java",
+        "src/java.desktop/share/classes/sun/print/PrinterJobWrapper.java",
+        "src/java.desktop/share/classes/sun/print/ProxyGraphics.java"
+      ],
+      "body_excerpt": "This patch adds missing `@Override` annotations to methods in the `sun.print` package that override methods from a superclass or interface. Since the package is large the fix has been split, this is the first part. Only source annotations are added; there are no behavioral changes. The previous patch for `com.sun.beans` can be found here: https://github.com/openjdk/jdk/pull/27887. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not e"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33144,
+      "title": "8390358: HotCodeCollector can relocate never-sampled nmethod",
+      "url": "https://github.com/openjdk/jdk/pull/33144",
+      "author": "eastig",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review、1 条评论",
+      "created_at": "2026-09-30T12:14:32Z",
+      "updated_at": "2026-10-10T18:04:23Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/runtime/hotCodeCollector.cpp",
+        "src/hotspot/share/runtime/hotCodeCollector.hpp",
+        "src/hotspot/share/runtime/hotCodeSampler.cpp",
+        "src/hotspot/share/runtime/hotCodeSampler.hpp"
+      ],
+      "body_excerpt": "HotCodeCollector stores `nmethod*` pointers during sampling. Code blobs can be freed and reused for other nmethods in between sampling and relocation. As a result we can relocate never-sampled nmethod. I managed to create a test which reproduces the issue. However the test is not reliable to be added to jtreg tests. It depends on a host and OS is being run on. To avoid the issue, I use compile ids to distinguish nmethods. We need to dereference nmethod pointer during sampling without holding locks. We can do this because we run sampling in JavaThread and no safepoint can happen during sampling"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33129,
+      "title": "8392686: Don't attempt to reserve address space for compressed classes as unscaled or zero-based encoding with COH enabled",
+      "url": "https://github.com/openjdk/jdk/pull/33129",
+      "author": "fthevenet",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-09-29T17:29:35Z",
+      "updated_at": "2026-10-11T04:01:08Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/memory/metaspace.cpp",
+        "test/hotspot/jtreg/runtime/CompressedOops/CompressedCPUSpecificClassSpaceReservation.java"
+      ],
+      "body_excerpt": "When Compressed Object Headers are enabled, we don't benefit from the base for the encoding range for compressed classes being equal to `nullptr`, so there is no point in attempting to reserve a range that is optimized for that. This is, in effect, means that when reserving address space when COH are enabled, we should follow the same code path as when a CDS archive is used, as it doesn't attempt such optimization either. To verify this change, I have extended `test/hotspot/jtreg/runtime/CompressedOops/CompressedCPUSpecificClassSpaceReservation.java` to also run with COH enabled. **Tests:** In"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32766,
+      "title": "8391909: Improve ConfinedSegmentPool Performance",
+      "url": "https://github.com/openjdk/jdk/pull/32766",
+      "author": "minborg",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-09-08T14:20:12Z",
+      "updated_at": "2026-10-11T05:18:33Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/jdk/internal/foreign/ArenaImpl.java",
+        "src/java.base/share/classes/jdk/internal/foreign/ConfinedSegmentPool.java",
+        "test/jdk/java/foreign/TestConfinedSegmentPool.java",
+        "test/jdk/java/foreign/TestConfinedSegmentPoolDefensiveRelease.java"
+      ],
+      "body_excerpt": "This PR proposes to improve the performance of the newly integrated confined arena cache. Confined arenas now remember the platform pool array and the pool array index used for pool acquisition. Upon closing the arena, the pool can be returned (in most cases) directly to the correct index in the confined arena cache. If the opportunistic pool index is occupied, the logic falls back to the regular path, which scans the array for an empty slot. The PR additionally proposes to add a test to make sure the unusual release path works correctly. --------- - [x] I confirm that I make this contribution"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32747,
+      "title": "8391945: RISC-V: Add floating-point vector multiplication reduction rules",
+      "url": "https://github.com/openjdk/jdk/pull/32747",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-09-08T02:33:34Z",
+      "updated_at": "2026-10-11T02:44:02Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/c2_MacroAssembler_riscv.cpp",
+        "src/hotspot/cpu/riscv/c2_MacroAssembler_riscv.hpp",
+        "src/hotspot/cpu/riscv/riscv_v.ad"
+      ],
+      "body_excerpt": "This patch adds C2 matching rules for floating-point vector multiplication reductions on RISC-V: ``` MulReductionVF MulReductionVD ``` RVV does not provide a dedicated floating-point multiplication reduction instruction. The reduction is therefore implemented as a tree reduction using `vslidedown` and `vfmul`, followed by multiplying the reduced value with the scalar accumulator. ### performance test jmh test case: https://bugs.openjdk.org/secure/attachment/122219/FloatMulReductionBenchmark.java before this patch: ``` Benchmark Mode Cnt Score Error Units FloatMulReductionBenchmark.double128 av"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32736,
+      "title": "8391914: x86: Optimize StringUTF16.compress intrinsic with AVX2",
+      "url": "https://github.com/openjdk/jdk/pull/32736",
+      "author": "0382",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-09-07T13:26:35Z",
+      "updated_at": "2026-10-11T12:34:41Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/x86/macroAssembler_x86.cpp"
+      ],
+      "body_excerpt": "Currently the StringUTF16.compress intrinsic (MacroAssembler::char_array_compress) intrinsic only has an AVX-512 path (gated by UseAVX > 2 && supports_avx512vlbw() && supports_bmi2()) and an SSE4.2 16-char path. Machines with AVX2 but no AVX-512 (or with AVX3Threshold > 0) fall back to the slower SSE4.2 path. This change adds a 32-char AVX2 loop for such CPUs. Benchmarked with the following jmh test (AMD EPYC 9754, 3.1GHz) ```java import org.openjdk.jmh.annotations.*; import org.openjdk.jmh.infra.Blackhole; import java.util.Random; import java.util.concurrent.TimeUnit; @BenchmarkMode(Mode.Thro"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32373,
+      "title": "8390049: Zero-copy vector alternative to a scalar loop over charAt",
+      "url": "https://github.com/openjdk/jdk/pull/32373",
+      "author": "cushon",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2026-08-14T11:04:41Z",
+      "updated_at": "2026-10-11T19:17:28Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "Vector API",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/java/lang/String.java",
+        "src/java.base/share/classes/java/lang/System.java",
+        "src/java.base/share/classes/jdk/internal/access/JavaLangAccess.java",
+        "src/java.base/share/classes/jdk/internal/foreign/SegmentFactories.java",
+        "src/java.base/share/classes/jdk/internal/foreign/StringSupport.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ByteVector.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ShortVector.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/X-Vector.java.template",
+        "test/jdk/jdk/incubator/vector/StringLoadTest.java",
+        "test/micro/org/openjdk/bench/jdk/incubator/vector/StringLoadBenchmark.java"
+      ],
+      "body_excerpt": "See * [panama-dev@ thread 'String processing and Vector APIs'](https://mail.openjdk.org/archives/list/panama-dev@openjdk.org/thread/YSPX3TBXZTZEFZNXWDYOZCWLUQPC62P6/) * [JDK-8390049: Immutable zero-copy String views of a String's code units](https://bugs.openjdk.org/browse/JDK-8390049) ``` Benchmark (size) Mode Cnt Score Error Units StringLoadBenchmark.fromArray 1024 avgt 30 15.885 ± 0.024 ns/op StringLoadBenchmark.fromString 1024 avgt 30 15.886 ± 0.028 ns/op StringLoadBenchmark.getBytesFromArray 1024 avgt 30 29.056 ± 0.183 ns/op StringLoadBenchmark.scalar 1024 avgt 30 128.030 ± 1.462 ns/op St"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 30712,
+      "title": "8375322: Improve DomainKeyStore.java coverage",
+      "url": "https://github.com/openjdk/jdk/pull/30712",
+      "author": "myankelev",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2026-04-13T15:57:45Z",
+      "updated_at": "2026-10-11T11:21:38Z",
+      "merged_at": null,
+      "closed_at": "2026-10-11T11:21:38Z",
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/sun/security/provider/KeyStore/DKSSystemPropertiesTest.java",
+        "test/jdk/sun/security/provider/KeyStore/DKSTest.java"
+      ],
+      "body_excerpt": "* Improving the coverage of the `DomainKeyStore.java` * converting existing tests to junit in order to make logs easier to read * Further coverage for `DomainKeyStore.java` would be required, but should be done as a separate [ticket](https://bugs.openjdk.org/browse/JDK-8382096) --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, wit"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 26600,
+      "title": "8364588: Export the NPE backtracking functionality to general null-checking APIs",
+      "url": "https://github.com/openjdk/jdk/pull/26600",
+      "author": "liach",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2025-08-01T15:49:57Z",
+      "updated_at": "2026-10-11T12:27:55Z",
+      "merged_at": null,
+      "closed_at": "2026-10-11T12:27:55Z",
+      "labels": [
+        "merge-conflict",
+        "hotspot",
+        "core-libs",
+        "security"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/classfile/javaClasses.cpp",
+        "src/hotspot/share/classfile/javaClasses.hpp",
+        "src/hotspot/share/include/jvm.h",
+        "src/hotspot/share/interpreter/bytecodeUtils.cpp",
+        "src/hotspot/share/interpreter/bytecodeUtils.hpp",
+        "src/hotspot/share/prims/jvm.cpp",
+        "src/java.base/share/classes/java/lang/NullPointerException.java",
+        "src/java.base/share/classes/java/lang/System.java",
+        "src/java.base/share/classes/jdk/internal/access/JavaLangAccess.java",
+        "src/java.base/share/native/libjava/NullPointerException.c",
+        "test/hotspot/jtreg/runtime/exceptionMsgs/NullPointerException/MethodParametersTest.java",
+        "test/hotspot/jtreg/runtime/exceptionMsgs/NullPointerException/NullCheckAPITest.java"
+      ],
+      "body_excerpt": "Provide a general facility for our null check APIs like Objects::requireNonNull or future Checks::nullCheck (void), converting the existing infrastructure to start tracking from a given stack site (depth offset) and a given stack slot (offset value). This is a necessary prerequisite for https://bugs.openjdk.org/browse/JDK-8233268, which proposes enhanced null messages to `Objects::requireNonNull`. <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message mus"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 21656,
+      "title": "8342870: Errors related to unused code on Windows after 8339120 in accessibility",
+      "url": "https://github.com/openjdk/jdk/pull/21656",
+      "author": "TheShermanTanker",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2024-10-23T05:17:33Z",
+      "updated_at": "2026-10-11T13:20:38Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "merge-conflict",
+        "client"
+      ],
+      "modules": [
+        "其他"
+      ],
+      "architectures": [
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.accessibility/windows/native/bridge/AccessBridgeCalls.c",
+        "src/jdk.accessibility/windows/native/jabswitch/jabswitch.cpp",
+        "src/jdk.accessibility/windows/native/jaccessinspector/jaccessinspector.cpp",
+        "src/jdk.accessibility/windows/native/jaccesswalker/jaccesswalker.cpp",
+        "src/jdk.accessibility/windows/native/libjavaaccessbridge/AccessBridgeATInstance.cpp",
+        "src/jdk.accessibility/windows/native/libjavaaccessbridge/AccessBridgeJavaEntryPoints.cpp",
+        "src/jdk.accessibility/windows/native/libjavaaccessbridge/JavaAccessBridge.cpp",
+        "src/jdk.accessibility/windows/native/libwindowsaccessbridge/AccessBridgeEventHandler.cpp",
+        "src/jdk.accessibility/windows/native/libwindowsaccessbridge/AccessBridgeJavaVMInstance.cpp"
+      ],
+      "body_excerpt": "After 8339120, gcc began catching many different instances of unused code in the Windows specific codebase. Some of these seem to be bugs. I've taken the effort to mark out all the relevant globals and locals that trigger the unused warnings and addressed all of them by commenting out the code as appropriate. I am confident that in many cases this simplistic approach of commenting out code does not fix the underlying issue, and the warning actually found a bug that should be fixed. In these instances, I will be aiming to fix these bugs with help from reviewers, so I recommend anyone reviewing "
+    }
+  ]
+}

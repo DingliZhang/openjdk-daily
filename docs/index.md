@@ -4,22 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-11](reports/2026/2026-10-11.md)
+### [2026-10-12](reports/2026/2026-10-12.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 17 |
+| 有活动的 PR | 92 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 3 |
-| 活跃贡献者 | 13 |
+| RISC-V 相关 PR | 14 |
+| 活跃贡献者 | 53 |
 
 ## 今日关注
 
-- [#33296](https://github.com/openjdk/jdk/pull/33296) 8394216: RISC-V: Elide the leading membar of an LR/SC based CAS（2 个 Review、3 条评论）
-- [#33284](https://github.com/openjdk/jdk/pull/33284) 8394082: RISC-V: Remove redundant membar from C1 compareAndSet（1 个 Review）
-- [#32747](https://github.com/openjdk/jdk/pull/32747) 8391945: RISC-V: Add floating-point vector multiplication reduction rules（1 个 Review）
-- [#33300](https://github.com/openjdk/jdk/pull/33300) 8387719: Building the JDK: running `bash configure` does not detect musl（新建、4 条评论）
-- [#33299](https://github.com/openjdk/jdk/pull/33299) 8394229: Add missing @Override annotations in "sun.print" package part 2（新建、5 条评论）
-- [#33298](https://github.com/openjdk/jdk/pull/33298) 8318110: [jmh] the test CharBufferAppend.java failed with 2 active threads（新建、4 条评论）
+- [#33321](https://github.com/openjdk/jdk/pull/33321) 8394303: RISC-V: Simplify C1 compare-and-swap result handling（新建、5 条评论）
+- [#33305](https://github.com/openjdk/jdk/pull/33305) 8394236: RISC-V: Fix StoreLoad ordering for sequentially consistent CAS（新建、4 个 Review、9 条评论）
+- [#33303](https://github.com/openjdk/jdk/pull/33303) 8394234: RISC-V: Remove unreachable non-acquiring CAS match rules（新建、2 个 Review、7 条评论）
+- [#33296](https://github.com/openjdk/jdk/pull/33296) 8394216: RISC-V: Elide the leading membar of an LR/SC based CAS（已关闭、1 个 Review、4 条评论）
+- [#33287](https://github.com/openjdk/jdk/pull/33287) 8394182: Move oopCast.inline.hpp functions to oop.inline.hpp（5 个 Review）
+- [#33284](https://github.com/openjdk/jdk/pull/33284) 8394082: RISC-V: Remove redundant membar from C1 compareAndSet（已关闭、2 条评论）
+- [#32973](https://github.com/openjdk/jdk/pull/32973) 8392333: RISC-V: Use RVV to improve indexof intrinsic（6 个 Review）
+- [#32792](https://github.com/openjdk/jdk/pull/32792) 8392080: RISC-V: Remove unnecessary restrictions on CAS membar elision（已关闭、1 条评论）
 
-[查看完整日报](reports/2026/2026-10-11.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-12.md) · [浏览全部历史](reports/index.md)

@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-15](reports/2026/2026-10-15.md)
+### [2026-10-16](reports/2026/2026-10-16.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 97 |
+| 有活动的 PR | 112 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 15 |
-| 活跃贡献者 | 68 |
+| RISC-V 相关 PR | 12 |
+| 活跃贡献者 | 71 |
 
 ## 今日关注
 
-- [#33381](https://github.com/openjdk/jdk/pull/33381) 8394633: Shenandoah: C1 keep-alive barriers load without implicit null-check（新建、5 条评论）
-- [#33379](https://github.com/openjdk/jdk/pull/33379) 8394622: [BACKOUT] RISC-V: Use movptr2 for C2 pointer constants（新建、已关闭、2 个 Review、8 条评论）
-- [#33374](https://github.com/openjdk/jdk/pull/33374) 8391637: On the RISC-V platform, TestJhsdbJstackMixed has a certain probability of failure（新建、5 个 Review、10 条评论）
-- [#33363](https://github.com/openjdk/jdk/pull/33363) 8394561: Introduce a dedicated address-stub relocation for RISC-V（3 个 Review、6 条评论）
-- [#33358](https://github.com/openjdk/jdk/pull/33358) 8391637: On the RISC-V platform, TestJhsdbJstackMixed has a certain probability of failure（已关闭、1 条评论）
-- [#33354](https://github.com/openjdk/jdk/pull/33354) 8394493: RISC-V: Enable RVV IR checks in compiler gallery tests（已关闭、4 条评论）
-- [#33346](https://github.com/openjdk/jdk/pull/33346) 8389595: [Valhalla] Add is_valhalla_enabled asserts to Valhalla specific methods（4 个 Review、10 条评论）
-- [#33206](https://github.com/openjdk/jdk/pull/33206) 8393533: RISC-V: C2: Eliminate redundant vsetvli instructions（1 条评论）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（新建、2 条评论）
+- [#33381](https://github.com/openjdk/jdk/pull/33381) 8394633: Shenandoah: C1 keep-alive barriers load without implicit null-check（已关闭、3 个 Review、3 条评论）
+- [#33374](https://github.com/openjdk/jdk/pull/33374) 8391637: RISC-V: Use DWARF in jstack to unwind native frames on Linux（3 个 Review、1 条评论）
+- [#33346](https://github.com/openjdk/jdk/pull/33346) 8389595: [Valhalla] Add is_valhalla_enabled asserts to Valhalla specific methods（2 个 Review、2 条评论）
+- [#33206](https://github.com/openjdk/jdk/pull/33206) 8393533: RISC-V: C2: Eliminate redundant vsetvli instructions（6 个 Review）
+- [#33119](https://github.com/openjdk/jdk/pull/33119) 8393085: AArch64: implement compact uncommon trap sequence（1 条评论）
+- [#32875](https://github.com/openjdk/jdk/pull/32875) 8392387: RISC-V: Use Zvbb rotate for ChaCha20（2 个 Review、1 条评论）
+- [#32635](https://github.com/openjdk/jdk/pull/32635) 8391177: RISC-V: Optimize conditional arithmetic with Zicond（2 条评论）
 
-[查看完整日报](reports/2026/2026-10-15.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-16.md) · [浏览全部历史](reports/index.md)

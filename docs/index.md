@@ -4,23 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-18](reports/2026/2026-10-18.md)
+### [2026-10-19](reports/2026/2026-10-19.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 19 |
+| 有活动的 PR | 74 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 3 |
-| 活跃贡献者 | 17 |
+| RISC-V 相关 PR | 12 |
+| 活跃贡献者 | 52 |
 
 ## 今日关注
 
-- [#33374](https://github.com/openjdk/jdk/pull/33374) 8391637: RISC-V: Use DWARF in jstack to unwind native frames on Linux（1 个 Review、2 条评论）
-- [#33206](https://github.com/openjdk/jdk/pull/33206) 8393533: RISC-V: C2: Eliminate redundant vsetvli instructions（1 条评论）
-- [#32067](https://github.com/openjdk/jdk/pull/32067) 8389239: RISC-V: Optimize copy_memory_v by reducing LMUL and hoisting vsetvli out of loop（1 条评论）
-- [#33424](https://github.com/openjdk/jdk/pull/33424) 8282988: nsk/jdb and com/sun/jdi tests do not run jdb or debuggee with specified JVM args（新建、4 条评论）
-- [#33423](https://github.com/openjdk/jdk/pull/33423) 8394802: Unsafe reference Acquire/Release ops don't use acquire/release intrinsics（新建、4 条评论）
-- [#33422](https://github.com/openjdk/jdk/pull/33422) 8329260: C2 fails to inline memory access API due to "unloaded signature classes"（新建、5 条评论）
-- [#33401](https://github.com/openjdk/jdk/pull/33401) 8394737: FileInputStream.readNBytes dead code（3 条评论）
+- [#33442](https://github.com/openjdk/jdk/pull/33442) 8394862: RISC-V: Select arraycopy LMUL based on VLEN（新建、4 条评论）
+- [#33430](https://github.com/openjdk/jdk/pull/33430) 8394822: RISC-V: Sign-extend CRC32 and CRC32C intrinsic results（新建、3 个 Review、5 条评论）
+- [#33421](https://github.com/openjdk/jdk/pull/33421) 8394791: RISC-V: IR Framework Add "zbb" to verified CPU features（已关闭、1 个 Review、3 条评论）
+- [#33374](https://github.com/openjdk/jdk/pull/33374) 8391637: RISC-V: Use DWARF in jstack to unwind native frames on Linux（3 条评论）
+- [#33346](https://github.com/openjdk/jdk/pull/33346) 8389595: [Valhalla] Add is_valhalla_enabled asserts to Valhalla specific methods（已关闭、3 条评论）
+- [#32971](https://github.com/openjdk/jdk/pull/32971) 8392747: RISC-V: Add SHA3 GPR intrinsic（3 条评论）
+- [#32968](https://github.com/openjdk/jdk/pull/32968) 8392738: RISC-V: Implement Float16 conversion intrinsics in the template interpreter and C1（2 个 Review）
+- [#32967](https://github.com/openjdk/jdk/pull/32967) 8392737: RISC-V: Implement CRC32 intrinsic entries in the template interpreter（1 个 Review、1 条评论）
 
-[查看完整日报](reports/2026/2026-10-18.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-19.md) · [浏览全部历史](reports/index.md)

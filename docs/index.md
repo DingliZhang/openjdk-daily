@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-19](reports/2026/2026-10-19.md)
+### [2026-10-20](reports/2026/2026-10-20.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 74 |
+| 有活动的 PR | 130 |
 | 已合并 PR | 0 |
 | RISC-V 相关 PR | 12 |
-| 活跃贡献者 | 52 |
+| 活跃贡献者 | 82 |
 
 ## 今日关注
 
-- [#33442](https://github.com/openjdk/jdk/pull/33442) 8394862: RISC-V: Select arraycopy LMUL based on VLEN（新建、4 条评论）
-- [#33430](https://github.com/openjdk/jdk/pull/33430) 8394822: RISC-V: Sign-extend CRC32 and CRC32C intrinsic results（新建、3 个 Review、5 条评论）
-- [#33421](https://github.com/openjdk/jdk/pull/33421) 8394791: RISC-V: IR Framework Add "zbb" to verified CPU features（已关闭、1 个 Review、3 条评论）
-- [#33374](https://github.com/openjdk/jdk/pull/33374) 8391637: RISC-V: Use DWARF in jstack to unwind native frames on Linux（3 条评论）
-- [#33346](https://github.com/openjdk/jdk/pull/33346) 8389595: [Valhalla] Add is_valhalla_enabled asserts to Valhalla specific methods（已关闭、3 条评论）
-- [#32971](https://github.com/openjdk/jdk/pull/32971) 8392747: RISC-V: Add SHA3 GPR intrinsic（3 条评论）
-- [#32968](https://github.com/openjdk/jdk/pull/32968) 8392738: RISC-V: Implement Float16 conversion intrinsics in the template interpreter and C1（2 个 Review）
-- [#32967](https://github.com/openjdk/jdk/pull/32967) 8392737: RISC-V: Implement CRC32 intrinsic entries in the template interpreter（1 个 Review、1 条评论）
+- [#33469](https://github.com/openjdk/jdk/pull/33469) 8394923: RISC-V: Use slli+bgez for the ZGC load barrier（新建、4 条评论）
+- [#33458](https://github.com/openjdk/jdk/pull/33458) 8394902: RISC-V: Add vector rearrange support for small lane count vectors（新建、3 个 Review、5 条评论）
+- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（新建、6 个 Review、6 条评论）
+- [#33430](https://github.com/openjdk/jdk/pull/33430) 8394822: RISC-V: CRC32/CRC32C intrinsic results are not sign-extended（4 个 Review、2 条评论）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（3 条评论）
+- [#33206](https://github.com/openjdk/jdk/pull/33206) 8393533: RISC-V: C2: Eliminate redundant vsetvli instructions（1 条评论）
+- [#33119](https://github.com/openjdk/jdk/pull/33119) 8393085: AArch64: implement compact uncommon trap sequence（3 个 Review、2 条评论）
+- [#32982](https://github.com/openjdk/jdk/pull/32982) 8392766: RISC-V: Remove redundant la in TemplateTable::fast_binaryswitch（2 个 Review、1 条评论）
 
-[查看完整日报](reports/2026/2026-10-19.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-20.md) · [浏览全部历史](reports/index.md)

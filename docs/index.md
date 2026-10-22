@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-20](reports/2026/2026-10-20.md)
+### [2026-10-21](reports/2026/2026-10-21.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 130 |
-| 已合并 PR | 0 |
-| RISC-V 相关 PR | 12 |
-| 活跃贡献者 | 82 |
+| 有活动的 PR | 121 |
+| 已合并 PR | 1 |
+| RISC-V 相关 PR | 17 |
+| 活跃贡献者 | 73 |
 
 ## 今日关注
 
-- [#33469](https://github.com/openjdk/jdk/pull/33469) 8394923: RISC-V: Use slli+bgez for the ZGC load barrier（新建、4 条评论）
-- [#33458](https://github.com/openjdk/jdk/pull/33458) 8394902: RISC-V: Add vector rearrange support for small lane count vectors（新建、3 个 Review、5 条评论）
-- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（新建、6 个 Review、6 条评论）
-- [#33430](https://github.com/openjdk/jdk/pull/33430) 8394822: RISC-V: CRC32/CRC32C intrinsic results are not sign-extended（4 个 Review、2 条评论）
-- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（3 条评论）
-- [#33206](https://github.com/openjdk/jdk/pull/33206) 8393533: RISC-V: C2: Eliminate redundant vsetvli instructions（1 条评论）
-- [#33119](https://github.com/openjdk/jdk/pull/33119) 8393085: AArch64: implement compact uncommon trap sequence（3 个 Review、2 条评论）
-- [#32982](https://github.com/openjdk/jdk/pull/32982) 8392766: RISC-V: Remove redundant la in TemplateTable::fast_binaryswitch（2 个 Review、1 条评论）
+- [#33492](https://github.com/openjdk/jdk/pull/33492) 8395368: RISC-V: Remove redundant la before external-address loads（新建、5 条评论）
+- [#33485](https://github.com/openjdk/jdk/pull/33485) 8395341: RISC-V: C2 crashes with "bad AD file" for CMove with VectorTest condition（新建、16 个 Review、7 条评论）
+- [#33478](https://github.com/openjdk/jdk/pull/33478) Merge 624e4263a16082fe6d217d87eb5f91ef42c2c0c0（新建、已合并、2 个 Review、7 条评论）
+- [#33469](https://github.com/openjdk/jdk/pull/33469) 8394923: RISC-V: Use slli+bgez for the ZGC load barrier（有更新）
+- [#33458](https://github.com/openjdk/jdk/pull/33458) 8394902: RISC-V: Add vector rearrange support for small lane count vectors（已关闭、4 个 Review、3 条评论）
+- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（7 个 Review、1 条评论）
+- [#33430](https://github.com/openjdk/jdk/pull/33430) 8394822: RISC-V: CRC32/CRC32C intrinsic results are not sign-extended（已关闭、1 个 Review、3 条评论）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（1 个 Review、1 条评论）
 
-[查看完整日报](reports/2026/2026-10-20.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-21.md) · [浏览全部历史](reports/index.md)

@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-21](reports/2026/2026-10-21.md)
+### [2026-10-22](reports/2026/2026-10-22.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 121 |
+| 有活动的 PR | 101 |
 | 已合并 PR | 1 |
-| RISC-V 相关 PR | 17 |
-| 活跃贡献者 | 73 |
+| RISC-V 相关 PR | 15 |
+| 活跃贡献者 | 66 |
 
 ## 今日关注
 
-- [#33492](https://github.com/openjdk/jdk/pull/33492) 8395368: RISC-V: Remove redundant la before external-address loads（新建、5 条评论）
-- [#33485](https://github.com/openjdk/jdk/pull/33485) 8395341: RISC-V: C2 crashes with "bad AD file" for CMove with VectorTest condition（新建、16 个 Review、7 条评论）
-- [#33478](https://github.com/openjdk/jdk/pull/33478) Merge 624e4263a16082fe6d217d87eb5f91ef42c2c0c0（新建、已合并、2 个 Review、7 条评论）
-- [#33469](https://github.com/openjdk/jdk/pull/33469) 8394923: RISC-V: Use slli+bgez for the ZGC load barrier（有更新）
-- [#33458](https://github.com/openjdk/jdk/pull/33458) 8394902: RISC-V: Add vector rearrange support for small lane count vectors（已关闭、4 个 Review、3 条评论）
-- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（7 个 Review、1 条评论）
-- [#33430](https://github.com/openjdk/jdk/pull/33430) 8394822: RISC-V: CRC32/CRC32C intrinsic results are not sign-extended（已关闭、1 个 Review、3 条评论）
-- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（1 个 Review、1 条评论）
+- [#33516](https://github.com/openjdk/jdk/pull/33516) 8395620: RISC-V: Add RVV intrinsics for ML-KEM（新建、5 条评论）
+- [#33510](https://github.com/openjdk/jdk/pull/33510) 8395608: RISC-V: Remove unreachable SubI/SubL register-immediate match rules（新建、5 条评论）
+- [#33504](https://github.com/openjdk/jdk/pull/33504) 8395600: RISC-V: Detect Zicbop via Linux hwprobe（新建、2 个 Review、7 条评论）
+- [#33492](https://github.com/openjdk/jdk/pull/33492) 8395368: RISC-V: Remove redundant la before external-address loads（已关闭、3 个 Review、3 条评论）
+- [#33485](https://github.com/openjdk/jdk/pull/33485) 8395341: RISC-V: C2 crashes with "bad AD file" for CMove with VectorTest condition（已关闭、2 个 Review、3 条评论）
+- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（1 个 Review）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（2 条评论）
+- [#33374](https://github.com/openjdk/jdk/pull/33374) 8391637: RISC-V: Use DWARF in jstack to unwind native frames on Linux（2 个 Review）
 
-[查看完整日报](reports/2026/2026-10-21.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-22.md) · [浏览全部历史](reports/index.md)

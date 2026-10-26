@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-24](reports/2026/2026-10-24.md)
+### [2026-10-25](reports/2026/2026-10-25.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 50 |
-| 已合并 PR | 0 |
-| RISC-V 相关 PR | 10 |
-| 活跃贡献者 | 42 |
+| 有活动的 PR | 19 |
+| 已合并 PR | 1 |
+| RISC-V 相关 PR | 6 |
+| 活跃贡献者 | 13 |
 
 ## 今日关注
 
-- [#33546](https://github.com/openjdk/jdk/pull/33546) 8394660: [Valhalla] C1 detection of unloaded array klasses must be updated（新建、5 条评论）
-- [#33538](https://github.com/openjdk/jdk/pull/33538) 8395359: RISC-V: Add C2 VectorSlice support（有更新）
-- [#33531](https://github.com/openjdk/jdk/pull/33531) 8395709: RISC-V: Consolidate C2 scalar CMove match rules（1 条评论）
-- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（1 条评论）
-- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（1 个 Review、1 条评论）
-- [#33374](https://github.com/openjdk/jdk/pull/33374) 8391637: RISC-V: Use DWARF in jstack to unwind native frames on Linux（2 条评论）
-- [#33363](https://github.com/openjdk/jdk/pull/33363) 8394561: Introduce a dedicated address-stub relocation for RISC-V（有更新）
-- [#32635](https://github.com/openjdk/jdk/pull/32635) 8391177: RISC-V: Optimize conditional arithmetic with Zicond（1 条评论）
+- [#33531](https://github.com/openjdk/jdk/pull/33531) 8395709: RISC-V: Consolidate C2 scalar CMove match rules（1 个 Review）
+- [#32722](https://github.com/openjdk/jdk/pull/32722) 8318233: RISC-V: C2 OverflowAdd/Sub/Mul I/L（已关闭）
+- [#32569](https://github.com/openjdk/jdk/pull/32569) 8390921: RISC-V: Enable arraycopy partial inlining with RVV（已关闭、1 条评论）
+- [#32472](https://github.com/openjdk/jdk/pull/32472) 8391052: RISC-V: Add electronicCodeBook (ECB) AES stubs scaled to the vector length（1 个 Review）
+- [#32442](https://github.com/openjdk/jdk/pull/32442) 8390631: RISC-V: Optimize String.indexOf(String) for single-character search string（已关闭、1 条评论）
+- [#27642](https://github.com/openjdk/jdk/pull/27642) 8367717: Cleanup atomic_copy64（2 个 Review、1 条评论）
+- [#33554](https://github.com/openjdk/jdk/pull/33554) Merge 8e492bf50b8ef7b61090178c905c70ddaae8328f（新建、已合并、4 个 Review、10 条评论）
+- [#33557](https://github.com/openjdk/jdk/pull/33557) 8395815: AArch64: Add support for AtomicAccess::PlatformXchg<1> on Linux（新建、5 条评论）
 
-[查看完整日报](reports/2026/2026-10-24.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-25.md) · [浏览全部历史](reports/index.md)

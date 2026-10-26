@@ -1,0 +1,731 @@
+{
+  "date": "2026-10-25",
+  "generated_at": "2026-10-26T01:13:21.217716+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 33557,
+      "title": "8395815: AArch64: Add support for AtomicAccess::PlatformXchg<1> on Linux",
+      "url": "https://github.com/openjdk/jdk/pull/33557",
+      "author": "jsikstro",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-10-25T11:11:44Z",
+      "updated_at": "2026-10-25T21:14:04Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/assembler_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/atomic_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/stubDeclarations_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp",
+        "src/hotspot/os_cpu/linux_aarch64/atomicAccess_linux_aarch64.hpp",
+        "src/hotspot/os_cpu/linux_aarch64/atomic_linux_aarch64.S"
+      ],
+      "body_excerpt": "Hello, [JDK-8372528](https://bugs.openjdk.org/browse/JDK-8372528) unified the supported operand sizes for AtomicAccess compare-and-exchange (cmpxchg) and exchange (xchg) operations by introducing 1-byte exchange support through AtomicAccess::XchgUsingCmpxchg for AtomicAccess::xchg. As a follow-up, we should specialize AtomicAccess::PlatformXchg<1> on Linux by adding predefined and JIT-compiled stubs, selected depending on LSE support. This allows byte-sized exchanges to use a single atomic read-modify-write instruction when LSE is available, avoiding the CAS retry loop. The stub for `aarch64_a"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33556,
+      "title": "8393699: C2: PrintInlining missing newlines for callee changed messages",
+      "url": "https://github.com/openjdk/jdk/pull/33556",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-10-25T06:28:31Z",
+      "updated_at": "2026-10-25T06:49:39Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/printinlining.cpp",
+        "src/hotspot/share/opto/printinlining.hpp",
+        "test/hotspot/jtreg/compiler/ciReplay/InliningBase.java",
+        "test/hotspot/jtreg/compiler/inlining/TestDuplicatedLateInliningOutput.java"
+      ],
+      "body_excerpt": "please review this diagnostic output enhancement `IPInlineSite::dump()` prints all messages recorded for a call site on one line. With multiple inlining attempts, such as during late inlining, the line can become very long. **fix**：Print each callee changed to record on a new indented line in IPInlineSite::dump(), keeping the following inlining results on the same line. **test**： - `compiler/ciReplay/InliningBase.java`: Keep parsing `@` lines as call sites, and treat continuation lines without `@` as part of the preceding call site rather than counting them again. - `compiler/inlining/TestDupl"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33555,
+      "title": "8394468: Compiler Bug \"Invalid pool entry\"",
+      "url": "https://github.com/openjdk/jdk/pull/33555",
+      "author": "dev-jonghoonpark",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、4 条评论",
+      "created_at": "2026-10-25T01:02:33Z",
+      "updated_at": "2026-10-25T01:18:51Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.compiler/share/classes/com/sun/tools/javac/comp/Lower.java",
+        "test/langtools/tools/javac/conditional/8394468/T8394468.java"
+      ],
+      "body_excerpt": "This PR fixes a bug caused by the workaround introduced in JDK-6587674. ## Problem When a constant conditional expression is folded and the remaining expression (the `null` literal) has type `BOT`, `convert()` skips the cast because of the BOT check added in JDK-6587674. As a result, the static type of the conditional expression (`String`) is lost. ## Fix The workaround in JDK-6587674 was meant to avoid `convert()` casting to the type of a discarded class. That case no longer occurs after JDK-8314621: noClassDefIn prevents a constant condition from being folded when the discarded branch contai"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33554,
+      "title": "Merge 8e492bf50b8ef7b61090178c905c70ddaae8328f",
+      "url": "https://github.com/openjdk/jdk/pull/33554",
+      "author": "bchristi-git",
+      "vendor": "未归属",
+      "state": "已合并",
+      "activity": "新建、已合并、4 个 Review、10 条评论",
+      "created_at": "2026-10-24T16:58:54Z",
+      "updated_at": "2026-10-25T12:39:28Z",
+      "merged_at": "2026-10-24T17:34:34Z",
+      "closed_at": "2026-10-24T17:34:34Z",
+      "labels": [
+        "integrated",
+        "security",
+        "clean"
+      ],
+      "modules": [
+        "GC",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 10,
+      "reviews_today": 4,
+      "changed_files": [
+        "src/java.base/share/data/cacerts/comodoaaaca",
+        "src/java.base/share/data/cacerts/emsigneccrootcag3",
+        "src/java.base/share/data/cacerts/emsignrootcag1",
+        "src/java.base/share/data/cacerts/emsignrootcag2",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/CAInterop.java",
+        "test/jdk/security/infra/java/security/cert/CertPathValidator/certification/EmSignRootG2CA.java",
+        "test/jdk/sun/security/lib/cacerts/VerifyCACerts.java"
+      ],
+      "body_excerpt": "This brings in change for 8395690: CA certificate improvements --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue ### Reviewers * [Rajan Halade](https://openjdk.org/cen"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33541,
+      "title": "8394507: G1: Huge values of MinHeapDeltaBytes may cause the number of regions to expand become 0",
+      "url": "https://github.com/openjdk/jdk/pull/33541",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-10-23T13:54:37Z",
+      "updated_at": "2026-10-26T00:48:51Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-gc"
+      ],
+      "modules": [
+        "GC",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/gc/g1/g1CollectedHeap.cpp",
+        "src/hotspot/share/gc/shared/gcArguments.cpp",
+        "test/hotspot/jtreg/gc/g1/TestMinHeapDeltaBytes.java"
+      ],
+      "body_excerpt": "Please review this small G1 bugfix. With a large `MinHeapDeltaBytes`, G1 can truncate the region count when converting it to `uint`, passing an incorrect count to `expand_by()`. **Fix:** - Keep the calculated region count as `size_t` - Use `MIN2<size_t>(num_regions_to_expand, num_non_active_regions())` to limit the request to the number of regions available for expansion - Limit MinHeapDeltaBytes to MaxHeapSize at startup, with a warning for oversized command-line values **Testing:** - Added `test/hotspot/jtreg/gc/g1/TestMinHeapDeltaBytes.java`. - `gc/g1`: 81 passed, 0 failed (fastdebug). - `g"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33533,
+      "title": "8391900: G1: Make G1CardSetGroup owner of card set state",
+      "url": "https://github.com/openjdk/jdk/pull/33533",
+      "author": "tschatzl",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-23T08:29:15Z",
+      "updated_at": "2026-10-25T03:39:51Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-gc"
+      ],
+      "modules": [
+        "GC",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/gc/g1/g1CardSetGroup.cpp",
+        "src/hotspot/share/gc/g1/g1CardSetGroup.hpp",
+        "src/hotspot/share/gc/g1/g1CardSetGroup.inline.hpp",
+        "src/hotspot/share/gc/g1/g1CollectedHeap.cpp",
+        "src/hotspot/share/gc/g1/g1CollectedHeap.hpp",
+        "src/hotspot/share/gc/g1/g1CollectedHeap.inline.hpp",
+        "src/hotspot/share/gc/g1/g1CollectionSet.cpp",
+        "src/hotspot/share/gc/g1/g1CollectionSet.hpp",
+        "src/hotspot/share/gc/g1/g1CollectionSetCandidates.cpp",
+        "src/hotspot/share/gc/g1/g1CollectionSetCandidates.hpp",
+        "src/hotspot/share/gc/g1/g1CollectionSetCandidates.inline.hpp",
+        "src/hotspot/share/gc/g1/g1ConcurrentMark.cpp",
+        "src/hotspot/share/gc/g1/g1ConcurrentMarkRemarkTasks.cpp",
+        "src/hotspot/share/gc/g1/g1ConcurrentMarkRemarkTasks.hpp",
+        "src/hotspot/share/gc/g1/g1FullGCResetMetadataTask.cpp",
+        "src/hotspot/share/gc/g1/g1HeapRegion.cpp",
+        "src/hotspot/share/gc/g1/g1HeapRegion.hpp",
+        "src/hotspot/share/gc/g1/g1HeapRegionRemSet.cpp",
+        "src/hotspot/share/gc/g1/g1HeapRegionRemSet.hpp",
+        "src/hotspot/share/gc/g1/g1HeapRegionRemSet.inline.hpp",
+        "src/hotspot/share/gc/g1/g1HeapVerifier.cpp",
+        "src/hotspot/share/gc/g1/g1HumongousCardSetGroups.cpp",
+        "src/hotspot/share/gc/g1/g1HumongousCardSetGroups.hpp",
+        "src/hotspot/share/gc/g1/g1HumongousCardSetGroups.inline.hpp",
+        "src/hotspot/share/gc/g1/g1Policy.cpp",
+        "src/hotspot/share/gc/g1/g1RemSet.cpp",
+        "src/hotspot/share/gc/g1/g1RemSetSummary.cpp",
+        "src/hotspot/share/gc/g1/g1RemSetTrackingPolicy.cpp",
+        "src/hotspot/share/gc/g1/g1RemSetTrackingPolicy.hpp",
+        "src/hotspot/share/gc/g1/g1YoungCollector.cpp",
+        "src/hotspot/share/gc/g1/g1YoungGCPostEvacuateTasks.cpp",
+        "test/hotspot/jtreg/gc/g1/TestMixedGCLiveThreshold.java"
+      ],
+      "body_excerpt": "Hi all, please review this change that puts the card set group state into G1CardSetGroup instead of replicating the state through all regions in that G1CardSetGroup. Next to being a lot cleaner, it gives opportunity to iterate just over the card set groups instead of all regions in the entire heap to find e.g. all humongous card set groups. Main change apart from moving stuff is related to using the information in determining the set of regions to update before rebuilding card sets, and afterwards. Note that there is a follow-up to clean up the g1RemSetSummary class wrt to naming. It would add"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33531,
+      "title": "8395709: RISC-V: Consolidate C2 scalar CMove match rules",
+      "url": "https://github.com/openjdk/jdk/pull/33531",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-23T05:56:37Z",
+      "updated_at": "2026-10-25T23:53:07Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/riscv.ad"
+      ],
+      "body_excerpt": "Hi, please consider. This patch cleanup of the scalar CMove{I,L,F,D} C2 match rules in riscv.ad. The CMove match rules currently spell out one instruct per compare type (CmpI, CmpL, CmpU, CmpUL, CmpN, CmpP), even when several of them emit byte-for-byte identical code. This patch consolidates those rules by grouping compares that share the same encoding under a single instruct with a shared operand class, following the pattern already used by the recently added CMoveP/CMoveN rules (JDK-8391910) ### Correctness Testing - [x] Run tier1 test with fastdebug on K3 --------- - [x] I confirm that I ma"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33468,
+      "title": "8394922: Remove unused macros from jdk native libs",
+      "url": "https://github.com/openjdk/jdk/pull/33468",
+      "author": "MBaesken",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-10-20T14:59:57Z",
+      "updated_at": "2026-10-24T19:06:14Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "serviceability",
+        "core-libs",
+        "client"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/native/libverify/check_code.c",
+        "src/java.base/unix/native/libjli/java_md.c",
+        "src/java.base/unix/native/libjli/java_md_common.c",
+        "src/java.desktop/share/native/common/java2d/opengl/OGLContext.c",
+        "src/java.desktop/share/native/common/java2d/opengl/OGLPaints.c",
+        "src/java.desktop/share/native/libawt/awt/image/cvutils/img_colors.c",
+        "src/java.desktop/share/native/libawt/awt/medialib/awt_ImagingLib.c",
+        "src/java.desktop/share/native/libawt/java2d/loops/ProcessPath.c",
+        "src/java.desktop/share/native/libfontmanager/freetypeScaler.c",
+        "src/java.desktop/share/native/libjavajpeg/imageioJPEG.c",
+        "src/java.desktop/share/native/libmlib_image/mlib_ImageConv_16nw.c",
+        "src/java.desktop/share/native/libmlib_image/mlib_ImageConv_32nw.c",
+        "src/java.desktop/share/native/libmlib_image/mlib_ImageConv_8nw.c",
+        "src/java.desktop/share/native/libmlib_image/mlib_ImageConv_u16nw.c",
+        "src/java.desktop/share/native/libmlib_image/mlib_c_ImageAffine_BL.c",
+        "src/java.desktop/share/native/libmlib_image/mlib_c_ImageAffine_BL_S16.c",
+        "src/java.desktop/share/native/libmlib_image/mlib_c_ImageAffine_BL_U16.c",
+        "src/java.desktop/share/native/libsplashscreen/splashscreen_gif.c",
+        "src/java.desktop/unix/native/common/awt/fontpath.c",
+        "src/java.desktop/unix/native/common/java2d/x11/X11TextRenderer_md.c",
+        "src/java.desktop/unix/native/libawt/awt/awt_LoadLibrary.c",
+        "src/java.desktop/unix/native/libawt_xawt/awt/awt_GraphicsEnv.c",
+        "src/java.desktop/unix/native/libawt_xawt/awt/multiVis.c",
+        "src/java.desktop/unix/native/libawt_xawt/xawt/XToolkit.c",
+        "src/java.desktop/unix/native/libawt_xawt/xawt/XWindow.c",
+        "src/java.management/share/native/libmanagement/management.c",
+        "src/jdk.hotspot.agent/linux/native/libsaproc/ps_proc.c",
+        "src/jdk.hotspot.agent/share/native/libsaproc/sadis.c",
+        "src/jdk.jdwp.agent/share/native/libdt_socket/socketTransport.c",
+        "src/jdk.jdwp.agent/share/native/libjdwp/inStream.c",
+        "src/jdk.jdwp.agent/share/native/libjdwp/log_messages.c",
+        "src/jdk.jpackage/share/native/common/app.cpp",
+        "src/jdk.management/share/native/libmanagement_ext/management_ext.c",
+        "src/jdk.management/unix/native/libmanagement_ext/OperatingSystemImpl.c"
+      ],
+      "body_excerpt": "When testing the gcc flag '-Wunused-macros' to warn about unused macros, a couple of unused macros have been reported by the compiler, that could be removed. https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-macros --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[ \\] "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33239,
+      "title": "8350907: [JMH] test ThreadStartJoin failed for 2 threads config",
+      "url": "https://github.com/openjdk/jdk/pull/33239",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-10-07T07:24:14Z",
+      "updated_at": "2026-10-25T07:22:27Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/micro/org/openjdk/bench/java/lang/ThreadStartJoin.java"
+      ],
+      "body_excerpt": "Please review this small benchmark fix. Running `ThreadStartJoin` with two workers can fail: `java -jar benchmarks.jar -t 2 ThreadStartJoin` ```text # Warmup Iteration 1: <failure> java.lang.IllegalThreadStateException at java.base/java.lang.Thread.start(Thread.java:1494) at org.openjdk.bench.java.lang.ThreadStartJoin.test(ThreadStartJoin.java:62) at org.openjdk.bench.java.lang.jmh_generated.ThreadStartJoin_test_jmhTest.test_avgt_jmhStub(ThreadStartJoin_test_jmhTest.java:238) at org.openjdk.bench.java.lang.jmh_generated.ThreadStartJoin_test_jmhTest.test_AverageTime(ThreadStartJoin_test_jmhTest"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33193,
+      "title": "8393432: P-384 field operations should utilize larger limb sizes",
+      "url": "https://github.com/openjdk/jdk/pull/33193",
+      "author": "smemery",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-10-04T06:40:15Z",
+      "updated_at": "2026-10-25T07:39:39Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "build",
+        "security",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "核心类库",
+        "构建与工具链"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "make/jdk/src/classes/build/tools/intpoly/FieldGen.java",
+        "src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp",
+        "src/hotspot/cpu/x86/stubGenerator_x86_64_poly_mont.cpp",
+        "src/java.base/share/classes/sun/security/util/math/intpoly/IntegerPolynomialP384.java"
+      ],
+      "body_excerpt": "Currently, P-384 field operations use 14x28-bit limbs. The efficiency of these operations vastly improve by using a 7x55-bit limb configuration. Performance gains yield 32% to 54% for Java alone: AArch64: Key pair generation - P-384: +53% Key agreement - P-384: +54% Key pair generation - secP384r1MLKEM1024: +52% KEM decapsulation - secP384r1MLKEM1024: +52% KEM encapsulation - secP384r1MLKEM1024: +53% x86_64: Key pair generation - P-384: +35% Key agreement - P-384: +35% Key pair generation - secP384r1MLKEM1024: +33% KEM decapsulation - secP384r1MLKEM1024: +32% KEM encapsulation - secP384r1MLKEM"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32722,
+      "title": "8318233: RISC-V: C2 OverflowAdd/Sub/Mul I/L",
+      "url": "https://github.com/openjdk/jdk/pull/32722",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭",
+      "created_at": "2026-09-07T06:55:51Z",
+      "updated_at": "2026-10-25T07:24:46Z",
+      "merged_at": null,
+      "closed_at": "2026-10-25T07:24:46Z",
+      "labels": [
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/c2_MacroAssembler_riscv.cpp",
+        "src/hotspot/cpu/riscv/riscv.ad"
+      ],
+      "body_excerpt": "Hi, please consider. This change adds RISC-V C2 match rules for detecting signed arithmetic overflow for int and long operations. The new rules cover: * OverflowAddI and OverflowAddL * OverflowSubI and OverflowSubL, including exact negation * OverflowMulI and OverflowMulL RISC-V has no arithmetic overflow flags, so overflow is detected explicitly. For int operations, operands are sign-extended and the full-width result is compared with the sign extension of its low 32 bits. For long addition and subtraction, overflow is detected using the sign bits of the operands and result. For long multipli"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32685,
+      "title": "8391765: C2: allow KILL effect with non bound registers in ad file",
+      "url": "https://github.com/openjdk/jdk/pull/32685",
+      "author": "rwestrel",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-09-03T13:54:53Z",
+      "updated_at": "2026-10-25T14:09:52Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/aarch64.ad",
+        "src/hotspot/cpu/x86/x86.ad",
+        "src/hotspot/share/adlc/archDesc.hpp",
+        "src/hotspot/share/adlc/formssel.cpp",
+        "src/hotspot/share/adlc/formssel.hpp",
+        "src/hotspot/share/adlc/output_c.cpp",
+        "src/hotspot/share/adlc/output_h.cpp",
+        "src/hotspot/share/opto/chaitin.cpp",
+        "src/hotspot/share/opto/chaitin.hpp",
+        "src/hotspot/share/opto/ifg.cpp",
+        "src/hotspot/share/opto/machnode.hpp",
+        "src/hotspot/share/opto/postaloc.cpp",
+        "src/hotspot/share/opto/reg_split.cpp"
+      ],
+      "body_excerpt": "If the implementation of a `MachNode` kills one of its inputs, that input must be a bound register. This change removes that constraint and allows the use of non bound registers. It's implemented with a couple new methods of `MachNode` to test for killed inputs (they are defined by `adlc` when the ad files are turned into c++ files) and some tweaks to the register allocator so it spills a live range if it's killed at a `MachNode` and to guarantee that coalescing and copy removal doesn't remove spills that are required. The change includes with a few instructs on x86 and aarch64 that are modifi"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32569,
+      "title": "8390921: RISC-V: Enable arraycopy partial inlining with RVV",
+      "url": "https://github.com/openjdk/jdk/pull/32569",
+      "author": "tanghaoth90",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2026-08-28T08:32:39Z",
+      "updated_at": "2026-10-24T18:06:14Z",
+      "merged_at": null,
+      "closed_at": "2026-10-24T18:06:14Z",
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/vm_version_riscv.cpp"
+      ],
+      "body_excerpt": "--------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 reviews required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer), 1 [Author](https://openjdk.org/bylaws#author)) ### Issue * [JDK-8390921](https://bugs.openjdk.org/browse/JDK-8390921"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32472,
+      "title": "8391052: RISC-V: Add electronicCodeBook (ECB) AES stubs scaled to the vector length",
+      "url": "https://github.com/openjdk/jdk/pull/32472",
+      "author": "zny666",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-08-20T15:21:42Z",
+      "updated_at": "2026-10-25T11:45:31Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/assembler_riscv.hpp",
+        "src/hotspot/cpu/riscv/stubGenerator_riscv.cpp"
+      ],
+      "body_excerpt": "There is currently no electronicCodeBook (ECB) AES stub on RISC-V, so ElectronicCodeBook falls back to a Java loop over the per-block intrinsic: `implECBEncrypt`/`implECBDecrypt` call `embeddedCipher.encryptBlock`/`decryptBlock` once per 16-byte block, and each per-block stub call reloads all round keys (11-15 x `vle32` + `vrev8`) before doing the 10-14 rounds. This patch adds the two missing ECB stubs only. The existing single-block, CBC and CTR stubs are not touched. * The ECB loops scale to the vector length with LMUL=1: the bulk loop runs m1/e32 with VL = VLMAX (register form `vsetvli`), s"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32442,
+      "title": "8390631: RISC-V: Optimize String.indexOf(String) for single-character search string",
+      "url": "https://github.com/openjdk/jdk/pull/32442",
+      "author": "tanghaoth90",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2026-08-19T09:15:53Z",
+      "updated_at": "2026-10-24T18:33:05Z",
+      "merged_at": null,
+      "closed_at": "2026-10-24T18:33:05Z",
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "GC"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/c2_MacroAssembler_riscv.cpp"
+      ],
+      "body_excerpt": "The RISC-V C2 intrinsic for String.indexOf(String) currently scans one character at a time when the needle length is 1. This is slower than necessary for cases such as: string16Long.indexOf(searchString16) where searchString16 is a single UTF-16 character. AArch64 already has a word-at-a-time fast path for this case. RISC-V could use a similar approach in string_indexof_linearscan DO1: (1) broadcast the search character; (2) load 8 bytes per iteration; (3) check multiple Latin1 or UTF-16 lanes in parallel; (4) keep the existing scalar loop as fallback for short strings or platforms where unali"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32062,
+      "title": "8388845: [VectorAPI] Intrinsify Float16Vector.compare operations on AVX512-FP16 targets",
+      "url": "https://github.com/openjdk/jdk/pull/32062",
+      "author": "jatin-bhateja",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-07-28T05:44:54Z",
+      "updated_at": "2026-10-24T19:47:22Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "Vector API",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/x86/x86.ad",
+        "src/hotspot/share/opto/classes.hpp",
+        "src/hotspot/share/opto/matcher.cpp",
+        "src/hotspot/share/opto/vectorIntrinsics.cpp",
+        "src/hotspot/share/opto/vectornode.hpp",
+        "test/hotspot/jtreg/compiler/lib/ir_framework/IRNode.java",
+        "test/hotspot/jtreg/compiler/vectorapi/TestFloat16VectorCompare.java"
+      ],
+      "body_excerpt": "Hi All, Currently Float16Vector comparisons are not intrinsified and is executed through fallback implementation. x86 AVX512-FP16 targets supports direct instructions \"vcmpph\" to compare float16 vectors. This patch adds intrinsification support for float16 vector comparisons encompassing following tasks :- - C2 middle end IR extensions. - Inline expander extensions. - x86 backend implementation. - IR verification test to check for existence of newly create IR node. Kindly review and share your feedback. Best Regards, Jatin --------- - [x] I confirm that I make this contribution in accordance w"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32004,
+      "title": "8386957: C2 VectorAPI: Predicated operation support for intrinsified Float16Vector unary/binary/ternary operations on AVX512-FP16 targets",
+      "url": "https://github.com/openjdk/jdk/pull/32004",
+      "author": "jatin-bhateja",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-07-22T08:00:13Z",
+      "updated_at": "2026-10-24T20:09:12Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "core-libs",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "Vector API",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/x86/assembler_x86.cpp",
+        "src/hotspot/cpu/x86/assembler_x86.hpp",
+        "src/hotspot/cpu/x86/c2_MacroAssembler_x86.cpp",
+        "src/hotspot/cpu/x86/c2_MacroAssembler_x86.hpp",
+        "src/hotspot/cpu/x86/x86.ad",
+        "src/hotspot/share/opto/vectorIntrinsics.cpp",
+        "test/hotspot/jtreg/compiler/vectorapi/TestFloat16MaskedVectorOperations.java",
+        "test/micro/org/openjdk/bench/jdk/incubator/vector/Float16MaskedVectorOperationsBenchmark.java"
+      ],
+      "body_excerpt": "- Currently for masked Float16 intrinsified vector operation we emit a sequence of BLEND instruction which merges the result of complete vector operation with passthrough vector under the influence of mask. - Targets supporting AVX512-FP16 feature offers direct predicated instructions. - This patch adds the support to infer predicated vector ADD/SUB/MUL/DIV/FMA/SQRT/MIN/MAX operation on AVX512-FP16 targets Following are the performance numbers of benchmark included with the patch on AVX512-FP16 target (Intel Granite Rapids) <img width=\"1497\" height=\"857\" alt=\"image\" src=\"https://github.com/use"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31714,
+      "title": "8383823: C2: Meet not symmetric for TypeAryKlassPtr types",
+      "url": "https://github.com/openjdk/jdk/pull/31714",
+      "author": "hgqxjj",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2026-06-29T14:37:55Z",
+      "updated_at": "2026-10-24T20:49:54Z",
+      "merged_at": null,
+      "closed_at": "2026-10-24T20:49:54Z",
+      "labels": [
+        "merge-conflict",
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/type.cpp"
+      ],
+      "body_excerpt": "**Description:** While working on another C2 type-analysis PR (https://github.com/openjdk/jdk/pull/30690), I used `TypeKlassPtr::filter()`. This exposed a `Meet Not Symmetric` assert in some GHA test jobs involving `TypeAryKlassPtr`. The issue is in `TypeAryKlassPtr::xmeet()`. `meet_aryptr()` may widen the outer array klass pointer from Constant to NotNull, but the element klass pointer may still keep the more precise type computed before that widening.The resulting `TypeAryKlassPtr` can then fail the meet/dual symmetry check and trigger the `Meet Not Symmetric` assert. **Solution:** When `mee"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 27642,
+      "title": "8367717: Cleanup atomic_copy64",
+      "url": "https://github.com/openjdk/jdk/pull/27642",
+      "author": "dev-jonghoonpark",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review、1 条评论",
+      "created_at": "2025-10-06T04:58:16Z",
+      "updated_at": "2026-10-25T05:10:04Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64"
+      ],
+      "comments_today": 1,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/os_cpu/bsd_aarch64/os_bsd_aarch64.cpp",
+        "src/hotspot/os_cpu/bsd_zero/atomicAccess_bsd_zero.hpp",
+        "src/hotspot/os_cpu/bsd_zero/os_bsd_zero.cpp",
+        "src/hotspot/os_cpu/linux_aarch64/os_linux_aarch64.cpp",
+        "src/hotspot/os_cpu/linux_riscv/os_linux_riscv.cpp",
+        "src/hotspot/os_cpu/linux_zero/atomicAccess_linux_zero.hpp",
+        "src/hotspot/os_cpu/linux_zero/os_linux_zero.cpp"
+      ],
+      "body_excerpt": "related jira issue: https://bugs.openjdk.org/browse/JDK-8367717 ## Changes - deleted all definitions of atomic_copy64 - replaced all calls to `atomic_copy64` with `AtomicAccess::store(dst, AtomicAccess::load(src))` ## Verification - Verified by running: - `make run-test TEST=\"gtest:StubRoutines*\"` - `make run-test TEST=\"gtest:AtomicAccess*\"` Please let me know if there are any additional or more appropriate verification steps I should perform. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything "
+    }
+  ]
+}

@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-25](reports/2026/2026-10-25.md)
+### [2026-10-26](reports/2026/2026-10-26.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 19 |
+| 有活动的 PR | 79 |
 | 已合并 PR | 1 |
-| RISC-V 相关 PR | 6 |
-| 活跃贡献者 | 13 |
+| RISC-V 相关 PR | 18 |
+| 活跃贡献者 | 46 |
 
 ## 今日关注
 
-- [#33531](https://github.com/openjdk/jdk/pull/33531) 8395709: RISC-V: Consolidate C2 scalar CMove match rules（1 个 Review）
-- [#32722](https://github.com/openjdk/jdk/pull/32722) 8318233: RISC-V: C2 OverflowAdd/Sub/Mul I/L（已关闭）
-- [#32569](https://github.com/openjdk/jdk/pull/32569) 8390921: RISC-V: Enable arraycopy partial inlining with RVV（已关闭、1 条评论）
-- [#32472](https://github.com/openjdk/jdk/pull/32472) 8391052: RISC-V: Add electronicCodeBook (ECB) AES stubs scaled to the vector length（1 个 Review）
-- [#32442](https://github.com/openjdk/jdk/pull/32442) 8390631: RISC-V: Optimize String.indexOf(String) for single-character search string（已关闭、1 条评论）
-- [#27642](https://github.com/openjdk/jdk/pull/27642) 8367717: Cleanup atomic_copy64（2 个 Review、1 条评论）
-- [#33554](https://github.com/openjdk/jdk/pull/33554) Merge 8e492bf50b8ef7b61090178c905c70ddaae8328f（新建、已合并、4 个 Review、10 条评论）
-- [#33557](https://github.com/openjdk/jdk/pull/33557) 8395815: AArch64: Add support for AtomicAccess::PlatformXchg<1> on Linux（新建、5 条评论）
+- [#33570](https://github.com/openjdk/jdk/pull/33570) RISC-V: Auto-enable Zicbop extension features（新建）
+- [#33562](https://github.com/openjdk/jdk/pull/33562) 8307498: Specialize atomic bitset functions for linux-riscv（新建、5 条评论）
+- [#33560](https://github.com/openjdk/jdk/pull/33560) 8395824: RISC-V: Adler32 intrinsic result is not sign-extended（新建、5 条评论）
+- [#33558](https://github.com/openjdk/jdk/pull/33558) 8395819: RISC-V: Implement compact uncommon trap sequences（新建、4 条评论）
+- [#33546](https://github.com/openjdk/jdk/pull/33546) 8394660: [Valhalla] C1 detection of unloaded array klasses must be updated（4 个 Review）
+- [#33538](https://github.com/openjdk/jdk/pull/33538) 8395359: RISC-V: Add C2 VectorSlice support（5 个 Review、1 条评论）
+- [#33531](https://github.com/openjdk/jdk/pull/33531) 8395709: RISC-V: Consolidate C2 scalar CMove match rules（已关闭、1 个 Review、3 条评论）
+- [#33529](https://github.com/openjdk/jdk/pull/33529) 8395706: RISC-V: Avoid redundant copies when converting long values to pointers（已关闭、1 个 Review、3 条评论）
 
-[查看完整日报](reports/2026/2026-10-25.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-26.md) · [浏览全部历史](reports/index.md)

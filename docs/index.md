@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-26](reports/2026/2026-10-26.md)
+### [2026-10-27](reports/2026/2026-10-27.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 79 |
-| 已合并 PR | 1 |
-| RISC-V 相关 PR | 18 |
-| 活跃贡献者 | 46 |
+| 有活动的 PR | 104 |
+| 已合并 PR | 0 |
+| RISC-V 相关 PR | 12 |
+| 活跃贡献者 | 72 |
 
 ## 今日关注
 
-- [#33570](https://github.com/openjdk/jdk/pull/33570) RISC-V: Auto-enable Zicbop extension features（新建）
-- [#33562](https://github.com/openjdk/jdk/pull/33562) 8307498: Specialize atomic bitset functions for linux-riscv（新建、5 条评论）
-- [#33560](https://github.com/openjdk/jdk/pull/33560) 8395824: RISC-V: Adler32 intrinsic result is not sign-extended（新建、5 条评论）
-- [#33558](https://github.com/openjdk/jdk/pull/33558) 8395819: RISC-V: Implement compact uncommon trap sequences（新建、4 条评论）
-- [#33546](https://github.com/openjdk/jdk/pull/33546) 8394660: [Valhalla] C1 detection of unloaded array klasses must be updated（4 个 Review）
-- [#33538](https://github.com/openjdk/jdk/pull/33538) 8395359: RISC-V: Add C2 VectorSlice support（5 个 Review、1 条评论）
-- [#33531](https://github.com/openjdk/jdk/pull/33531) 8395709: RISC-V: Consolidate C2 scalar CMove match rules（已关闭、1 个 Review、3 条评论）
-- [#33529](https://github.com/openjdk/jdk/pull/33529) 8395706: RISC-V: Avoid redundant copies when converting long values to pointers（已关闭、1 个 Review、3 条评论）
+- [#33580](https://github.com/openjdk/jdk/pull/33580) 8395869: RISC-V: Remove Zicboz-based block zeroing（新建、9 条评论）
+- [#33570](https://github.com/openjdk/jdk/pull/33570) 8395860: RISC-V: Auto-enable Zicbop extension features（2 个 Review、16 条评论）
+- [#33562](https://github.com/openjdk/jdk/pull/33562) 8307498: Specialize atomic bitset functions for linux-riscv（2 个 Review）
+- [#33546](https://github.com/openjdk/jdk/pull/33546) 8394660: [Valhalla] C1 detection of unloaded array klasses must be updated（已关闭、3 条评论）
+- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（1 条评论）
+- [#33442](https://github.com/openjdk/jdk/pull/33442) 8394862: RISC-V: Select arraycopy LMUL based on VLEN（7 个 Review、6 条评论）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（1 条评论）
+- [#33363](https://github.com/openjdk/jdk/pull/33363) 8394561: Introduce a dedicated address-stub relocation for RISC-V（1 个 Review、2 条评论）
 
-[查看完整日报](reports/2026/2026-10-26.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-27.md) · [浏览全部历史](reports/index.md)

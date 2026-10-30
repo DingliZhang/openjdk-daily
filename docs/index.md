@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-10-28](reports/2026/2026-10-28.md)
+### [2026-10-29](reports/2026/2026-10-29.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 95 |
+| 有活动的 PR | 119 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 14 |
-| 活跃贡献者 | 59 |
+| RISC-V 相关 PR | 10 |
+| 活跃贡献者 | 76 |
 
 ## 今日关注
 
-- [#33599](https://github.com/openjdk/jdk/pull/33599) 8396020: RISC-V: C1: fix assertion failure when c1 compiling a large index array access（新建、7 个 Review、5 条评论）
-- [#33597](https://github.com/openjdk/jdk/pull/33597) 8396014: RISC-V: Normalize immediate operand names in AD files（新建、5 个 Review、5 条评论）
-- [#33580](https://github.com/openjdk/jdk/pull/33580) 8395869: RISC-V: Remove Zicboz-based block zeroing（已关闭、4 个 Review、3 条评论）
-- [#33570](https://github.com/openjdk/jdk/pull/33570) 8395860: RISC-V: Auto-enable Zicbop extension features（已关闭、3 条评论）
-- [#33562](https://github.com/openjdk/jdk/pull/33562) 8307498: Specialize atomic bitset functions for linux-riscv（1 个 Review）
-- [#33560](https://github.com/openjdk/jdk/pull/33560) 8395824: RISC-V: Adler32 intrinsic result is not sign-extended（3 个 Review）
-- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（4 个 Review、4 条评论）
-- [#33206](https://github.com/openjdk/jdk/pull/33206) 8393533: RISC-V: C2: Eliminate redundant vsetvli instructions（4 条评论）
+- [#33599](https://github.com/openjdk/jdk/pull/33599) 8396020: RISC-V: C1: fix assertion failure when c1 compiling a large index array access（已关闭、5 条评论）
+- [#33597](https://github.com/openjdk/jdk/pull/33597) 8396014: RISC-V: Normalize immediate operand names in AD files（已关闭、2 个 Review、3 条评论）
+- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（2 条评论）
+- [#33442](https://github.com/openjdk/jdk/pull/33442) 8394862: RISC-V: Select arraycopy LMUL based on VLEN（1 条评论）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Consider adding sign information to value layouts（6 个 Review、1 条评论）
+- [#33018](https://github.com/openjdk/jdk/pull/33018) 8392810: RISC-V: Support for Zacas/Zabha atomics C++ HotSpot code（1 个 Review、1 条评论）
+- [#32346](https://github.com/openjdk/jdk/pull/32346) 8390316: RISC-V: Materialize pointers with fewer instructions on sv39（有更新）
+- [#32252](https://github.com/openjdk/jdk/pull/32252) 8387474: RISC-V: create vectorized mismatch intrinsic with vector extension（1 条评论）
 
-[查看完整日报](reports/2026/2026-10-28.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-10-29.md) · [浏览全部历史](reports/index.md)

@@ -1,0 +1,1983 @@
+{
+  "date": "2026-10-31",
+  "generated_at": "2026-11-01T00:55:00.459550+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 33659,
+      "title": "8394915: Thread dump improvements",
+      "url": "https://github.com/openjdk/jdk/pull/33659",
+      "author": "AlanBateman",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、3 条评论",
+      "created_at": "2026-10-31T14:37:51Z",
+      "updated_at": "2026-10-31T14:43:29Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "serviceability",
+        "core-libs"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/java/util/concurrent/StructuredTaskScopeImpl.java",
+        "src/java.base/share/classes/jdk/internal/misc/ThreadFlock.java",
+        "src/java.base/share/classes/jdk/internal/vm/ThreadDumper.java",
+        "src/jdk.management/share/classes/com/sun/management/doc-files/threadDump.html",
+        "test/jdk/com/sun/management/HotSpotDiagnosticMXBean/DumpThreads.java",
+        "test/jdk/jdk/internal/misc/ThreadFlock/ThreadFlockTest.java",
+        "test/lib/jdk/test/lib/threaddump/ThreadDump.java"
+      ],
+      "body_excerpt": "TBD --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue ### Issue * [JDK-8394915](https://bugs.openjdk.org/browse/JDK-8394915): Thread dump improvements (**Enhancement**"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33658,
+      "title": "8396267: os_windows.large_page_init_decide_size gtest fails when the lock memory privilege is granted",
+      "url": "https://github.com/openjdk/jdk/pull/33658",
+      "author": "aprilivy",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、6 条评论",
+      "created_at": "2026-10-31T11:52:47Z",
+      "updated_at": "2026-10-31T12:05:35Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 6,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/hotspot/gtest/runtime/test_os_windows.cpp"
+      ],
+      "body_excerpt": "`os_windows.large_page_init_decide_size` sets `LargePageSizeInBytes` to 5M and to `5 * min_size + 1`. Both violate the power-of-two constraint from JDK-8358748, so `FLAG_SET_CMDLINE` rejects them, the flag keeps the previous 1M, and the test gets 2M instead of 0. The test only runs when the user has the \"Lock pages in memory\" right, so CI doesn't see it. The AMD64 check now uses 8M, a power of two above the 4M limit. The last check is removed: a power of two that isn't a multiple of the 2M minimum is smaller than it, which the 1M case already covers. Testing: `os_windows` gtests and the GTestW"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33657,
+      "title": "8395930: [macos] Accessible returning null from getAccessibleContext leads to a NullPointerException after JDK-8381236",
+      "url": "https://github.com/openjdk/jdk/pull/33657",
+      "author": "mickleness",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-10-31T06:48:35Z",
+      "updated_at": "2026-10-31T07:02:21Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "macOS"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.desktop/macosx/classes/sun/lwawt/macosx/CAccessible.java",
+        "test/jdk/javax/accessibility/8381236/VoiceOverHierarchyChangeTest.java"
+      ],
+      "body_excerpt": "This resolves the NPE reported in 8395930, and it enhances the preexisting test for JDK-8381236 to cover this case. The failing use case involves an Accessible object where `axObj.getAccessibleContext() == null`. Having a `null` AccessibleContext is an atypical case, but it is explicitly identified/allowed in the contract for `Accessible.getAccessibleContext()`. Prior to [8381236 changes](https://github.com/openjdk/jdk/pull/30578/changes), calling CAccessible.getCAccessible(ax) would also fail with a NPE. So in this PR I'm proposing preserving that behavior (and documenting it), and moving the"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33656,
+      "title": "8396232: TestJhsdbJstackWithVirtualThread.java reports UnalignedAddressException silently",
+      "url": "https://github.com/openjdk/jdk/pull/33656",
+      "author": "YaSuenag",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、7 条评论",
+      "created_at": "2026-10-31T02:14:18Z",
+      "updated_at": "2026-10-31T04:12:00Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "serviceability"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 7,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/runtime/aarch64/AARCH64Frame.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/runtime/amd64/AMD64Frame.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/runtime/riscv64/RISCV64Frame.java"
+      ],
+      "body_excerpt": "test/hotspot/jtreg/serviceability/sa/TestJhsdbJstackWithVirtualThread.java checks whether `jhsdb jstack` for VirtualThread works, and it seems to pass so far. However .jtr file includes following lines. It would not trigger the test failure. ``` \"ForkJoinPool-1-worker-1\" #24 daemon prio=5 tid=0x00007f9b0c4fb3e0 nid=91489 runnable [0x00007f9af18ff000] java.lang.Thread.State: RUNNABLE JavaThread state: _thread_in_native - java.lang.invoke.LambdaForm$MH+0x0000000070047800.invoke(java.lang.Object, long, int) @bci=10 (Interpreted frame) - java.lang.invoke.LambdaForm$MH+0x000000007004d400.invokeExac"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33655,
+      "title": "8396188: Problemlist certain TrayIcon tests because of JDK-8394530",
+      "url": "https://github.com/openjdk/jdk/pull/33655",
+      "author": "azuev-java",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、1 个 Review、9 条评论",
+      "created_at": "2026-10-30T20:17:00Z",
+      "updated_at": "2026-10-30T22:06:57Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 9,
+      "reviews_today": 1,
+      "changed_files": [
+        "test/jdk/ProblemList.txt"
+      ],
+      "body_excerpt": "Add affected tests into the Problemlist.txt --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 reviews required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer), 1 [Author](https://openjdk.org/bylaws#author)) ### Issue * [JDK-8396188]"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33654,
+      "title": "8396140: PrintSharedArchiveAndExit flag is broken",
+      "url": "https://github.com/openjdk/jdk/pull/33654",
+      "author": "vnkozlov",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "新建、已关闭、2 个 Review、9 条评论",
+      "created_at": "2026-10-30T19:26:47Z",
+      "updated_at": "2026-10-31T04:00:02Z",
+      "merged_at": null,
+      "closed_at": "2026-10-31T03:23:21Z",
+      "labels": [
+        "integrated",
+        "hotspot"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "PPC"
+      ],
+      "comments_today": 9,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/share/code/aotCodeCache.cpp",
+        "test/hotspot/jtreg/runtime/cds/appcds/aotFlags/AOTFlags.java"
+      ],
+      "body_excerpt": "[JDK-8394834](https://bugs.openjdk.org/browse/JDK-8394834) added assert to make sure `AOTCodeEntry::comp_level()` is called only for AOT nmethod. `AOTCodeCache::print_on()` calls it for all kinds of entries which cause this failure when `PrintSharedArchiveAndExit` is used. I separated printing of AOT nmethod entries from other kinds in `AOTCodeCache::print_on()`. I also added printing `comp_id` for nmethods. Added new `PrintSharedArchiveAndExit` case to `AOTFlags.java` test and `* @bug` line to list bug fixes which use this test. Tested tier1-2 --------- - [x] I confirm that I make this contri"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33653,
+      "title": "8395825: MetaspaceSize and MaxMetaspaceSize flags should be checked \"AtParse\" instead of \"AfterErgo\"",
+      "url": "https://github.com/openjdk/jdk/pull/33653",
+      "author": "dcubed-ojdk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、12 条评论",
+      "created_at": "2026-10-30T16:53:10Z",
+      "updated_at": "2026-10-30T17:24:22Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-runtime",
+        "hotspot-gc"
+      ],
+      "modules": [
+        "GC",
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 12,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/gc/shared/jvmFlagConstraintsGC.cpp",
+        "src/hotspot/share/runtime/globals.hpp",
+        "test/hotspot/jtreg/gc/metaspace/TestMetaspaceSizeFlags.java"
+      ],
+      "body_excerpt": "The MetaspaceSize and MaxMetaspaceSize flags have constraint functions specified in src/hotspot/share/runtime/globals.hpp as \"AfterErgo\". The constraint functions should be specified as \"AtParse\" so that we can get reasonable diagnostic messages for misconfigurations, e.g.: $ java -XX:MaxMetaspaceSize=8m -XX:MetaspaceSize=16m -version MetaspaceSize (16777216) must be less than or equal to MaxMetaspaceSize (8388608) Improperly specified VM option 'MetaspaceSize=16m' Error: Could not create the Java Virtual Machine. Error: A fatal exception has occurred. Program will exit. --------- - [x] I conf"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33652,
+      "title": "8396172: ZGC: MADV_COLLAPSE huge pages disabled when OS has no explicit huge pages",
+      "url": "https://github.com/openjdk/jdk/pull/33652",
+      "author": "stefank",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-30T14:49:12Z",
+      "updated_at": "2026-10-30T16:17:19Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "GC",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/os/linux/gc/z/zLargePages_linux.cpp",
+        "src/hotspot/os/linux/hugepages.cpp",
+        "src/hotspot/os/linux/hugepages.hpp",
+        "src/hotspot/os/linux/os_linux.cpp",
+        "src/hotspot/os/linux/os_linux.hpp"
+      ],
+      "body_excerpt": "As a part of [JDK-8380289](https://bugs.openjdk.org/browse/JDK-8380289) ZGC was enhanced with the capability to turn on huge pages for the heap even without the previously required OS configurations. See: https://openjdk.org/jeps/545. In the ZGC large pages initialization code there's check against the flag UseLargePages. That check checks both if the user has set the flag and the value of the flag. The crux is that the value of the flag can be changed by the GC-agnostic large pages initialization code, so it is not certain that the value was given by the user. The effect is that if you are ru"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33651,
+      "title": "8396013: JFR: Changing CPU-time sampling period can crash JVM",
+      "url": "https://github.com/openjdk/jdk/pull/33651",
+      "author": "apangin",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-10-30T14:41:01Z",
+      "updated_at": "2026-10-30T20:31:18Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-jfr"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/jfr/periodic/sampling/jfrCPUTimeThreadSampler.cpp",
+        "src/hotspot/share/jfr/periodic/sampling/jfrCPUTimeThreadSampler.hpp",
+        "src/hotspot/share/jfr/periodic/sampling/jfrThreadSampling.cpp",
+        "src/hotspot/share/jfr/support/jfrThreadLocal.cpp",
+        "src/hotspot/share/jfr/support/jfrThreadLocal.hpp",
+        "test/jdk/jdk/jfr/event/profiling/TestCPUTimeSamplingPeriodChange.java",
+        "test/jdk/jdk/jfr/event/profiling/TestCPUTimeSamplingStop.java",
+        "test/jdk/jdk/jfr/event/profiling/TestCPUTimeSamplingTimerLeak.java"
+      ],
+      "body_excerpt": "While working on CPU-time profiler enhancements, I found several flaws in the existing implementation that may lead to JVM crashes, resource leaks, and misreported JFR events. In this PR, I aim to fix the whole class of such data races by refactoring the per-thread structures used for CPU-time sampling. I believe the updated design is more robust and consistent. Key changes: 1. Per-thread CPU timer is moved from `JfrThreadLocal` to `JfrCPUSamplerState` (former `JfrCPUTimeTraceQueue`). It is now protected by the same lock as the request queue and shares the same lifecycle. The queue and the tim"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33648,
+      "title": "8396139: [Valhalla] C1: GC post barrier does not decode narrow flat field values",
+      "url": "https://github.com/openjdk/jdk/pull/33648",
+      "author": "TobiHartmann",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-10-30T13:01:57Z",
+      "updated_at": "2026-10-31T01:32:09Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "C1 编译器",
+        "GC",
+        "测试",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64",
+        "x86",
+        "PPC",
+        "s390"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/c1_LIRAssembler_aarch64.cpp",
+        "src/hotspot/cpu/arm/c1_LIRAssembler_arm.cpp",
+        "src/hotspot/cpu/ppc/c1_LIRAssembler_ppc.cpp",
+        "src/hotspot/cpu/riscv/c1_LIRAssembler_riscv.cpp",
+        "src/hotspot/cpu/s390/c1_LIRAssembler_s390.cpp",
+        "src/hotspot/cpu/x86/c1_LIRAssembler_x86.cpp",
+        "src/hotspot/share/c1/c1_LIR.cpp",
+        "src/hotspot/share/c1/c1_LIR.hpp",
+        "src/hotspot/share/c1/c1_LIRAssembler.cpp",
+        "src/hotspot/share/c1/c1_LIRAssembler.hpp",
+        "src/hotspot/share/gc/shared/c1/cardTableBarrierSetC1.cpp",
+        "test/hotspot/jtreg/compiler/valhalla/valuetypes/TestLongShiftInBarrier.java"
+      ],
+      "body_excerpt": "Originally reported by @benjaminp - thank you again! When C1 extracts compressed oops from atomic flat-field stores to pass them to the GC post barrier, it needs to decode them first. I extended the test from https://github.com/openjdk/jdk/pull/33603 to cover this case as well. It reliably fails like this: ``` [0.708s][error][gc,verify] GC(1) ---------- [0.708s][error][gc,verify] GC(1) Field 0x000000002481671c of obj 0x0000000024816710 in region 0:(O)[0x0000000024800000,0x0000000024816778,0x0000000024a00000] [0.708s][error][gc,verify] GC(1) compiler.c1.TestLongShiftInBarrier [0.708s][error][gc"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33647,
+      "title": "8394750: Double NULL checks in X11GD_CreateDisplayMode (awt_GraphicsEnv.c)",
+      "url": "https://github.com/openjdk/jdk/pull/33647",
+      "author": "MBaesken",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-30T11:46:14Z",
+      "updated_at": "2026-10-30T17:24:18Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.desktop/unix/native/libawt_xawt/awt/awt_GraphicsEnv.c"
+      ],
+      "body_excerpt": "In X11GD_CreateDisplayMode we check for NULL after GetMethodID and FindClass which is probably a good thing. https://github.com/openjdk/jdk/blob/8e8e30d71cc8f77d81170205a4627191e5201568/src/java.desktop/unix/native/libawt_xawt/awt/awt_GraphicsEnv.c#L1638 https://github.com/openjdk/jdk/blob/8e8e30d71cc8f77d81170205a4627191e5201568/src/java.desktop/unix/native/libawt_xawt/awt/awt_GraphicsEnv.c#L1646 But we do it twice (!) which is most likely not needed. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33646,
+      "title": "8365796: Remove QuicPacketNumbersTest.java",
+      "url": "https://github.com/openjdk/jdk/pull/33646",
+      "author": "djelinski",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review",
+      "created_at": "2026-10-30T11:20:17Z",
+      "updated_at": "2026-10-30T17:16:52Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "net"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "test/jdk/java/net/httpclient/quic/PacketNumbersTest.java",
+        "test/jdk/jdk/internal/net/http/quic/packets/QuicPacketNumbersTest.java"
+      ],
+      "body_excerpt": "The test covers the same RFC-provided cases as the [PacketNumbersTest](https://github.com/openjdk/jdk/blob/2d9c668378b9cf6450100464e7a6c6fadfd42dc0/test/jdk/java/net/httpclient/quic/PacketNumbersTest.java), see RFC 9000 appendix A.2 and A.3. It's also the only test in its subdirectory, and is not listed in any test groups. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change mus"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33642,
+      "title": "8396154: Incorporate review feedback after JDK-8329548",
+      "url": "https://github.com/openjdk/jdk/pull/33642",
+      "author": "jerboaa",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-30T08:04:47Z",
+      "updated_at": "2026-10-31T18:50:46Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.base/share/classes/sun/security/ssl/SSLCipher.java",
+        "test/jdk/sun/security/ssl/SSLEngineImpl/KeyUpdateOnce.java"
+      ],
+      "body_excerpt": "Could I get a review of these trivial clean-ups, please? They were all pointed out in an old mainline review here: https://git.openjdk.org/jdk/pull/30288 I'd like to get this cleaned up. **Testing:** - [x] GHA (still running, though) - [x] `tier2_part1`, which includes the touched `KeyUpdateOnce.java` test from https://bugs.openjdk.org/browse/JDK-8329548, still passes. Thoughts? --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edi"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33639,
+      "title": "8395714: Excessive PreparedStatement creation in CachedRowSetWriter",
+      "url": "https://github.com/openjdk/jdk/pull/33639",
+      "author": "justin-curtis-lu",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-29T21:58:22Z",
+      "updated_at": "2026-10-30T20:25:31Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.sql.rowset/share/classes/com/sun/rowset/internal/CachedRowSetWriter.java"
+      ],
+      "body_excerpt": "Within `writeData`, an insert statement is being created for every inserted row. This is redundant because the insertion statement remains the same between inserted rows. (i.e., all columns are included and the values are supplied in `insertNewRow`). What is problematic is that the final insert statement is the only one being closed. Additionally, if the code throws an exception, then this final insert statement does not get closed as well. This PR - Ensures the statement is created only once (and closed) - Ensures that if the code throws an exception, the statement is still closed. And in the"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33638,
+      "title": "8293451: Specify `Properties.load` behavior for duplicate entries",
+      "url": "https://github.com/openjdk/jdk/pull/33638",
+      "author": "bchristi-git",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "4 个 Review、1 条评论",
+      "created_at": "2026-10-29T19:22:13Z",
+      "updated_at": "2026-10-31T16:34:00Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 4,
+      "changed_files": [
+        "src/java.base/share/classes/java/util/Properties.java",
+        "test/jdk/java/util/Properties/LoadDup.java"
+      ],
+      "body_excerpt": "Per the bug report, this change specifies the current behavior for `Properties.load()` when a key/value mapping is `load()`-ed for which the Properties already contains a mapping, or a key/value mapping occurs more than once in the `load()`-ed property list. CSR is here: https://bugs.openjdk.org/browse/JDK-8396202 --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be prop"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33636,
+      "title": "8396122: Use narrow_subword_type() in remaining AArch64 compare-and-exchange instructions",
+      "url": "https://github.com/openjdk/jdk/pull/33636",
+      "author": "chmielewskiandreas",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-10-29T15:43:20Z",
+      "updated_at": "2026-10-30T20:17:10Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/aarch64_atomic.ad",
+        "src/hotspot/cpu/aarch64/aarch64_atomic_ad.m4"
+      ],
+      "body_excerpt": "Please review following changes: Following JDK-8390400 and JDK-8364465, replace the remaining manual subword narrowing operations in aarch64_atomic.ad with narrow_subword_type(). This cleanup removes open-coded sxtbw/sxthw sequences and aligns the implementation with the existing aarch64 convention of using narrow_subword_type(). Testing: No tests from the JDK test suite were executed locally. I adapted private reproducers that I originally developed for JDK-8390400 and JDK-8364465. The generated aarch64 assembly was inspected and verified to be unchanged. Thanks, Andreas --------- - [x] I con"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33635,
+      "title": "8396024: C2: assert(res == nullptr) failed: unexpected memory producer in MachNode::verify_adr_type",
+      "url": "https://github.com/openjdk/jdk/pull/33635",
+      "author": "merykitty",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-29T15:28:19Z",
+      "updated_at": "2026-10-30T23:30:22Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/opto/machnode.cpp",
+        "test/hotspot/jtreg/compiler/c2/TestVerifyMachAdrType.java"
+      ],
+      "body_excerpt": "Hi, The assert is too strong because the memory output `Proj` can be dead if the following node is a `Halt` which does not consume memory. I tried refining `produce_memory` when the `bottom_type` is a `TypeTuple` with a memory element, but it does not work, because nodes such as `CallLeafPure` still reports that it has a memory element, which is incorrect. For this PR, I just removes the assert, as well as avoids verifying while `Node::in_dump`. Please take a look and leave your reviews, thanks a lot. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Inter"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33634,
+      "title": "8394658: ByteBuffer.wrap should use Preconditions to validate its input",
+      "url": "https://github.com/openjdk/jdk/pull/33634",
+      "author": "vy",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-29T12:48:19Z",
+      "updated_at": "2026-10-30T16:29:10Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "nio"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.base/share/classes/java/nio/Buffer.java",
+        "src/java.base/share/classes/java/nio/StringCharBuffer.java",
+        "src/java.base/share/classes/java/nio/X-Buffer.java.template",
+        "test/jdk/java/nio/Buffer/Basic-X.java.template",
+        "test/jdk/java/nio/Buffer/Basic.java",
+        "test/jdk/java/nio/Buffer/BasicByte.java",
+        "test/jdk/java/nio/Buffer/BasicChar.java",
+        "test/jdk/java/nio/Buffer/BasicDouble.java",
+        "test/jdk/java/nio/Buffer/BasicFloat.java",
+        "test/jdk/java/nio/Buffer/BasicInt.java",
+        "test/jdk/java/nio/Buffer/BasicLong.java",
+        "test/jdk/java/nio/Buffer/BasicShort.java",
+        "test/micro/org/openjdk/bench/java/nio/ByteBuffers.java",
+        "test/micro/org/openjdk/bench/java/nio/CharBuffers.java",
+        "test/micro/org/openjdk/bench/java/nio/DoubleBuffers.java",
+        "test/micro/org/openjdk/bench/java/nio/FloatBuffers.java",
+        "test/micro/org/openjdk/bench/java/nio/IntBuffers.java",
+        "test/micro/org/openjdk/bench/java/nio/LongBuffers.java",
+        "test/micro/org/openjdk/bench/java/nio/ShortBuffers.java",
+        "test/micro/org/openjdk/bench/java/nio/X-Buffers-bin.java.template",
+        "test/micro/org/openjdk/bench/java/nio/X-Buffers.java.template"
+      ],
+      "body_excerpt": "Instead of try/catch, directly invoke `Preconditions` in - `StringCharBuffer::subSequence`, which gets it aligned with `subSequence(int start, int end)` in `java/nio/ByteBufferAs-X-Buffer.java.template:235` - `*Buffer::wrap` - `Buffer#checkIndex(int)` Confirmed via newly added benchmarks (see 174579d0) that changes don't introduce a performance regression. These changes improve the message detail of thrown `IOOBE` exceptions. Tests are adopted accordingly, see 7a28a98e. Tiers 1-2 are clear. --------- - [X] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Polic"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33633,
+      "title": "8396112: DTLS handshake reassembly does not reject inconsistent message lengths across fragments",
+      "url": "https://github.com/openjdk/jdk/pull/33633",
+      "author": "Sovtouch",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "4 个 Review、1 条评论",
+      "created_at": "2026-10-29T12:43:04Z",
+      "updated_at": "2026-10-30T20:11:09Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 4,
+      "changed_files": [
+        "src/java.base/share/classes/sun/security/ssl/DTLSInputRecord.java",
+        "test/jdk/javax/net/ssl/DTLS/InconsistentFragmentLength.java"
+      ],
+      "body_excerpt": "DTLSReassembler can queue fragments of the same handshake message with different total messageLength values. Reassembly holes are initialized from the first fragment, while the output array is allocated using the fragment with the lowest offset. For the same epoch, message sequence, and HELLO_REQUEST type, submit these fragments in order: offset 5, length 50, total message length 100; offset 0, length 5, total message length 10; offset 55, length 45, total message length 100. The final fragment completes the holes, but copying the buffered fragments into the array sized for a ten-byte message "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33623,
+      "title": "8393731: Integer overflow in FrameSetView.parseDigits() silently converts large positive values to zero",
+      "url": "https://github.com/openjdk/jdk/pull/33623",
+      "author": "prsadhuk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review",
+      "created_at": "2026-10-29T06:17:50Z",
+      "updated_at": "2026-10-30T17:33:13Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/java.desktop/share/classes/javax/swing/text/html/FrameSetView.java",
+        "test/jdk/javax/swing/text/html/FrameSetOverflowTest.java"
+      ],
+      "body_excerpt": "FrameSetView parses percentage values from HTML frameset attributes using an int. So, large values can overflow and become zero or negative. For example, 4294967296% which is 2^32 is parsed as zero, causing the frame to receive an incorrect share of the available space. The fix checks whether adding the next digit would exceed Integer.MAX_VALUE. If so, it returns Integer.MAX_VALUE. Values within the supported range retain their existing behavior. The subsequent percentage calculations also is needed to use long arithmetic to prevent overflow, when adding percentages, normalizing them to a tota"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33619,
+      "title": "8396082: Shenandoah: Metaspace OOM ignores ClassUnloadingWithConcurrentMark",
+      "url": "https://github.com/openjdk/jdk/pull/33619",
+      "author": "earthling-amzn",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-29T00:38:22Z",
+      "updated_at": "2026-10-30T21:45:33Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-gc",
+        "shenandoah"
+      ],
+      "modules": [
+        "GC",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahHeuristics.cpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahHeuristics.hpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahPassiveHeuristics.cpp",
+        "src/hotspot/share/gc/shenandoah/heuristics/shenandoahPassiveHeuristics.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahArguments.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahControlThread.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGenerationalControlThread.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahRegulatorThread.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahRegulatorThread.hpp",
+        "test/hotspot/jtreg/gc/shenandoah/oom/TestClassLoaderLeak.java",
+        "test/hotspot/jtreg/gc/shenandoah/options/TestClassUnloadingArguments.java"
+      ],
+      "body_excerpt": "When metaspace is exhausted, but expansion satisfies the allocation, Shenandoah overrides `ClassUnloadingWithConcurrentMark` and performs a concurrent cycle that unloads classes. This is a vestige from a time before Shenandoah supported concurrent class unloading. The simplest thing here is to ignore this flag completely and just let `ClassUnloading` control whether classes are unloaded during a full gc and concurrent cycles. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33613,
+      "title": "8396064: Wrong values in AOT TypeProfileParmsLimit mismatch error",
+      "url": "https://github.com/openjdk/jdk/pull/33613",
+      "author": "devnexen",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 个 Review、5 条评论",
+      "created_at": "2026-10-28T19:28:42Z",
+      "updated_at": "2026-10-30T18:56:25Z",
+      "merged_at": null,
+      "closed_at": "2026-10-30T18:55:48Z",
+      "labels": [
+        "integrated",
+        "hotspot-runtime"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "PPC"
+      ],
+      "comments_today": 5,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/cds/filemap.cpp",
+        "test/hotspot/jtreg/runtime/cds/appcds/aotProfile/AOTProfileFlags.java"
+      ],
+      "body_excerpt": "When the AOT cache was created with a different TypeProfileParmsLimit than the current run, `FileMapHeader::validate` rejects the cache correctly but reports the mismatch with `_type_profile_args_limit` and `TypeProfileArgsLimit`, a copy-paste from the args limit check just above it. The message also spelled the flag `TypeProfileParamsLimit`. The fix prints the parms values and uses the real flag name. `AOTProfileFlags.java` already exercises this mismatch, but it matched the message with a pattern loose enough to accept any flag name and any values, which is why this went unnoticed. The ArgsL"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33591,
+      "title": "8395909: Make the test failure_handler take an early native thread stack dump",
+      "url": "https://github.com/openjdk/jdk/pull/33591",
+      "author": "stefank",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-27T15:20:15Z",
+      "updated_at": "2026-10-30T16:25:10Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "test/failure_handler/src/share/classes/jdk/test/failurehandler/ToolKit.java",
+        "test/failure_handler/src/share/classes/jdk/test/failurehandler/action/ActionSet.java",
+        "test/failure_handler/src/share/conf/common.properties",
+        "test/failure_handler/src/share/conf/linux.properties",
+        "test/failure_handler/src/share/conf/mac.properties",
+        "test/failure_handler/src/share/conf/windows.properties"
+      ],
+      "body_excerpt": "When running our CI tests we have a failure handler registered that will try to capture the state of the process when we hit a timeout. It is important to get thread dumps when the process hangs, and to make sure that we get one as fast as possible we have recently updated the failure handler to start by taking an initial Java thread dump. That all works well for Java-level deadlocks and hangs. However, it doesn't work well when it is the JVM that is hanging. When that happens, the requested Java thread dump will likely be blocked and time out. We have two distinct scenarios: 1) The JVM is tru"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33568,
+      "title": "8395708: The clhsdb \"dumpcodecache\" command prints NullPointerException repeatedly",
+      "url": "https://github.com/openjdk/jdk/pull/33568",
+      "author": "jyukutyo",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-26T12:27:49Z",
+      "updated_at": "2026-10-30T18:30:02Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "serviceability"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/code/CodeCache.java",
+        "test/hotspot/jtreg/serviceability/sa/TestDebugInfoDecode.java"
+      ],
+      "body_excerpt": "This change prevents NullPointerException in the clhsdb dumpcodecache command. `CodeCache.createCodeBlobWrapper()` causes NullPointerException. `CodeHeap.findStart()` may return null and `CodeHeap.iterate()` passes it to `CodeCache.createCodeBlobWrapper()` as the `cbStart` argument. https://github.com/openjdk/jdk/blob/bbd629b0ef4d0ac7fbc2b33bb76170fd15060cd3/src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/memory/CodeHeap.java#L111 So this change makes `createCodeBlobWrapper()` return null when `cbStart` is null. ### Testing * jtreg:hotspot/jtreg/serviceability/sa/ ``` $ make test TEST=\"jtr"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33557,
+      "title": "8395815: AArch64: Add support for AtomicAccess::PlatformXchg<1> on Linux",
+      "url": "https://github.com/openjdk/jdk/pull/33557",
+      "author": "jsikstro",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、3 条评论",
+      "created_at": "2026-10-25T11:11:44Z",
+      "updated_at": "2026-10-31T11:35:48Z",
+      "merged_at": null,
+      "closed_at": "2026-10-31T09:30:09Z",
+      "labels": [
+        "integrated",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/assembler_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/atomic_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/stubDeclarations_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/stubGenerator_aarch64.cpp",
+        "src/hotspot/os_cpu/linux_aarch64/atomicAccess_linux_aarch64.hpp",
+        "src/hotspot/os_cpu/linux_aarch64/atomic_linux_aarch64.S"
+      ],
+      "body_excerpt": "Hello, [JDK-8372528](https://bugs.openjdk.org/browse/JDK-8372528) unified the supported operand sizes for AtomicAccess compare-and-exchange (cmpxchg) and exchange (xchg) operations by introducing 1-byte exchange support through AtomicAccess::XchgUsingCmpxchg for AtomicAccess::xchg. As a follow-up, we should specialize AtomicAccess::PlatformXchg<1> on Linux by adding predefined and JIT-compiled stubs, selected depending on LSE support. This allows byte-sized exchanges to use a single atomic read-modify-write instruction when LSE is available, avoiding the CAS retry loop. The stub for `aarch64_a"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33527,
+      "title": "8395705: Remove support for GXL heap dumps",
+      "url": "https://github.com/openjdk/jdk/pull/33527",
+      "author": "YaSuenag",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review",
+      "created_at": "2026-10-23T01:17:51Z",
+      "updated_at": "2026-10-31T15:09:51Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "serviceability"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/tools/JMap.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/utilities/HeapGXLWriter.java"
+      ],
+      "body_excerpt": "Earlier versions of the SA jmap tool supported dumping the Java heap in Graph eXchange Language (GXL) format. However, neither jcmd nor jhsdb provides a command-line option to invoke this feature now. In addition, the sun.jvm.hotspot.utilities package, which contains HeapGXLWriter, is not exported by the jdk.hotspot.agent module. HeapGXLWriter seem to be no longer maintained and cannot handle flattened objects introduced by Valhalla. Updating it to support flattened objects would provide little benefit, since this feature is not exposed through the current command-line tools. This change passe"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33525,
+      "title": "8321810: Shenandoah: Surge worker threads when GC is under duress",
+      "url": "https://github.com/openjdk/jdk/pull/33525",
+      "author": "earthling-amzn",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-10-22T23:01:33Z",
+      "updated_at": "2026-10-30T19:50:06Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-gc",
+        "shenandoah"
+      ],
+      "modules": [
+        "GC"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/gc/shared/taskTerminator.cpp",
+        "src/hotspot/share/gc/shared/taskTerminator.hpp",
+        "src/hotspot/share/gc/shared/taskqueue.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahConcurrentGC.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahConcurrentGC.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahConcurrentMark.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahController.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahController.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahElasticTask.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahElasticTask.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahElasticTask.inline.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGenerationalEvacuationTask.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGenerationalEvacuationTask.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGenerationalHeap.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahGenerationalHeap.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahHeap.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahHeap.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahHeap.inline.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahInPlacePromoter.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahInPlacePromoter.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahMark.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahMark.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahPhaseTimings.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahPhaseTimings.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahScanRemembered.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahScanRemembered.inline.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahTaskqueue.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahTaskqueue.hpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahWorkGroup.cpp",
+        "src/hotspot/share/gc/shenandoah/shenandoahWorkGroup.hpp"
+      ],
+      "body_excerpt": "This change enables Shenandoah to _recruit_ more workers during the mark, evac, and update phases when an allocation stall occurs. This is accomplished by starting these phases with _all_ threads in the work group scheduled. Threads that are not _eligible_ for work (i.e., their thread id is less than the concurrent worker count) are held in reserve. An allocation stall increases the concurrent worker count and notifies ineligible threads, which will then join in the work. To make this work for the mark phase, `TaskTerminator` and `TerminatorTerminator` were modified to route ineligible threads"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33483,
+      "title": "8383787: JVMTI_EVENT_SAMPLED_OBJECT_ALLOC may make a cloned object accessible to Java before clone completed",
+      "url": "https://github.com/openjdk/jdk/pull/33483",
+      "author": "lmesnik",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-21T01:21:25Z",
+      "updated_at": "2026-10-30T23:09:53Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "serviceability",
+        "hotspot"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/prims/jvm.cpp",
+        "test/hotspot/jtreg/serviceability/jvmti/events/SampledObjectAlloc/SampledObjectAfterCloning/SampledObjectAfterCloningTest.java",
+        "test/hotspot/jtreg/serviceability/jvmti/events/SampledObjectAlloc/SampledObjectAfterCloning/libSampledObjectAfterCloning.cpp"
+      ],
+      "body_excerpt": "The SampledObjectAlloc event is called before object is cloned. It might potentially cause the issues because Clone() implementation might rely on the fact that object is not updated before creation an updating by clone. The proposed fix is to call SampledObjectAlloc after clone is completed like it is done for VMObjectAlloc. Thus clone is atomic and can't be interrupted by Java code. The JVMTI specification is not specific to the exact time when the event is called. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/l"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33468,
+      "title": "8394922: Remove unused macros from jdk native libs",
+      "url": "https://github.com/openjdk/jdk/pull/33468",
+      "author": "MBaesken",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-20T14:59:57Z",
+      "updated_at": "2026-10-30T17:15:06Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "serviceability",
+        "core-libs",
+        "client"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "macOS"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.base/macosx/native/libjli/java_md_macosx.m",
+        "src/java.base/share/native/libverify/check_code.c",
+        "src/java.base/unix/native/libjli/java_md.c",
+        "src/java.base/unix/native/libjli/java_md_common.c",
+        "src/java.management/share/native/libmanagement/management.c",
+        "src/jdk.hotspot.agent/share/native/libsaproc/sadis.c",
+        "src/jdk.jdwp.agent/share/native/libdt_socket/socketTransport.c",
+        "src/jdk.jdwp.agent/share/native/libjdwp/inStream.c",
+        "src/jdk.jdwp.agent/share/native/libjdwp/log_messages.c",
+        "src/jdk.jpackage/share/native/common/app.cpp",
+        "src/jdk.management/share/native/libmanagement_ext/management_ext.c",
+        "src/jdk.management/unix/native/libmanagement_ext/OperatingSystemImpl.c"
+      ],
+      "body_excerpt": "When testing the gcc flag '-Wunused-macros' to warn about unused macros, a couple of unused macros have been reported by the compiler, that could be removed. https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-macros --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[ \\] "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33447,
+      "title": "8394261: TLS 1.3: SSLSessionImpl.childSessions holds long object chains",
+      "url": "https://github.com/openjdk/jdk/pull/33447",
+      "author": "rm-gh-8",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、2 个 Review、7 条评论",
+      "created_at": "2026-10-19T17:47:47Z",
+      "updated_at": "2026-10-30T19:34:44Z",
+      "merged_at": null,
+      "closed_at": "2026-10-30T19:34:31Z",
+      "labels": [
+        "integrated",
+        "security"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86",
+        "macOS",
+        "Windows"
+      ],
+      "comments_today": 7,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/java.base/share/classes/sun/security/ssl/NewSessionTicket.java",
+        "src/java.base/share/classes/sun/security/ssl/SSLSessionContextImpl.java",
+        "src/java.base/share/classes/sun/security/ssl/SSLSessionImpl.java",
+        "test/jdk/sun/security/ssl/SSLSessionImpl/ResumeChecksClient.java",
+        "test/jdk/sun/security/ssl/SSLSessionImpl/ResumeChecksClientStateless.java"
+      ],
+      "body_excerpt": "This PR uses a shared per session family depth limit + per session depth value to enforce invalidation. This will remove the container's (ConcurrentLinkedQueue) strong references to the child sessions, which allows child sessions to be garbage collected when they are no longer reachable. The drawback is that the invalidation depth limit will be per family, so once a session is invalidated at the specified depth, all deeper sessions will be invalidated, not just its descendants. Ran related tests on linux-x64, linux-aarch64, macos-aarch64 and windows-x64: make test TEST=test/jdk/sun/security/ss"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33443,
+      "title": "8393423: Add VM option to force assembly phase cpu feature configuration in the production phase",
+      "url": "https://github.com/openjdk/jdk/pull/33443",
+      "author": "ashu-mehra",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "6 条评论",
+      "created_at": "2026-10-19T16:18:54Z",
+      "updated_at": "2026-10-30T18:46:26Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V",
+        "AArch64",
+        "x86",
+        "PPC"
+      ],
+      "comments_today": 6,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/vm_version_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/vm_version_aarch64.hpp",
+        "src/hotspot/cpu/riscv/vm_version_riscv.cpp",
+        "src/hotspot/cpu/riscv/vm_version_riscv.hpp",
+        "src/hotspot/cpu/x86/vm_version_x86.cpp",
+        "src/hotspot/cpu/x86/vm_version_x86.hpp",
+        "src/hotspot/os_cpu/linux_riscv/vm_version_linux_riscv.cpp",
+        "src/hotspot/share/cds/aotCacheAccess.cpp",
+        "src/hotspot/share/cds/aotCacheAccess.hpp",
+        "src/hotspot/share/cds/aotMetaspace.cpp",
+        "src/hotspot/share/cds/aotMetaspace.hpp",
+        "src/hotspot/share/cds/cdsConfig.cpp",
+        "src/hotspot/share/cds/cds_globals.hpp",
+        "src/hotspot/share/cds/filemap.cpp",
+        "src/hotspot/share/cds/filemap.hpp",
+        "src/hotspot/share/code/aotCodeCache.cpp",
+        "src/hotspot/share/code/aotCodeCache.hpp",
+        "src/hotspot/share/runtime/abstract_vm_version.cpp",
+        "src/hotspot/share/runtime/abstract_vm_version.hpp",
+        "src/hotspot/share/runtime/init.cpp",
+        "test/hotspot/jtreg/runtime/cds/appcds/aotCache/TestUseAOTCacheCpuFeaturesOnlyOption.java",
+        "test/hotspot/jtreg/runtime/cds/appcds/aotCode/AOTCodeCPUFeatureIncompatibilityTest.java"
+      ],
+      "body_excerpt": "As mentioned in the linked JBS issue, this patch adds an option `UseAOTCacheCpuFeaturesOnly` to force assembly time cpu features during the production run, iff the production run cpu features are a super set of the cpu features stored in the AOTCache. To achieve this, JVM needs access to the archived cpu features in the AOTCache before the cpu features are determined and finalized by `VM_Version`. Before this patch, cpu features were stored in AOTCodeCache region of the AOTCache, which makes it difficult to get hold of archived cpu features until AOTCodeCache is initialized. This patch moves c"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33433,
+      "title": "8385968: TLS support for Hybrid Key Exchange Provider",
+      "url": "https://github.com/openjdk/jdk/pull/33433",
+      "author": "haimaychao",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "16 个 Review、1 条评论",
+      "created_at": "2026-10-19T07:53:51Z",
+      "updated_at": "2026-10-31T11:52:28Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 16,
+      "changed_files": [
+        "src/java.base/share/classes/com/sun/crypto/provider/SunJCE.java",
+        "src/java.base/share/classes/sun/security/ssl/DHasKEM.java",
+        "src/java.base/share/classes/sun/security/ssl/Hybrid.java",
+        "src/java.base/share/classes/sun/security/ssl/HybridProvider.java",
+        "src/java.base/share/classes/sun/security/ssl/KAKeyDerivation.java",
+        "src/java.base/share/classes/sun/security/ssl/KEMKeyExchange.java",
+        "src/java.base/share/classes/sun/security/ssl/NamedGroup.java",
+        "test/jdk/javax/crypto/KeyGenerator/CompareKeys.java",
+        "test/jdk/sun/security/provider/all/Deterministic.java",
+        "test/jdk/sun/security/ssl/HybridKeyExchange/TestHybrid.java",
+        "test/micro/org/openjdk/bench/javax/crypto/full/KEMBench.java",
+        "test/micro/org/openjdk/bench/javax/crypto/full/KeyPairGeneratorBench.java"
+      ],
+      "body_excerpt": "This feature enables SunJSSE to use a TLS 1.3 hybrid named group implemented directly by a security provider as JCA `KeyPairGenerator` and `KEM` services. It also moves the JDK implementations of `X25519MLKEM768`, SecP256r1MLKEM768, and `SecP384r1MLKEM1024` into SunJCE provider. --------- - [X] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, wi"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33404,
+      "title": "8394272: C2: Excessive inlining with IncrementalInlineVector causes slow compilation and timeouts",
+      "url": "https://github.com/openjdk/jdk/pull/33404",
+      "author": "jatin-bhateja",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-16T08:46:29Z",
+      "updated_at": "2026-10-31T00:01:28Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "Vector API",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/opto/c2_globals.hpp",
+        "src/hotspot/share/opto/compile.hpp",
+        "src/hotspot/share/opto/doCall.cpp",
+        "test/hotspot/jtreg/compiler/igvn/TestMaskedStoreIdealization.java",
+        "test/hotspot/jtreg/compiler/lib/ir_framework/IRNode.java",
+        "test/hotspot/jtreg/compiler/vectorapi/TestFloat16RearrangeInlining.java",
+        "test/hotspot/jtreg/compiler/vectorapi/TestVectorFallbackInlining.java",
+        "test/hotspot/jtreg/compiler/vectorapi/TestVectorTest.java"
+      ],
+      "body_excerpt": "Hi All, This patch fixes the performance regression seen due to excessive inlining with -XX:+IncrementalInlineVector by reducing its scope to vector slice for now. Since @ForceInline is heavily used in VectorAPI, late inlining the fallback of a failed vector intrinsic pulls in the entire transitive closure with the inlining budgets suppressed, which leads to very large graphs, slow compilation and the reported timeouts. Restricting fallback inlining to slice, the operation IncrementalInlineVector was introduced for, restores compile time and code size to the -IncrementalInlineVector level whil"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33395,
+      "title": "8381370: SA is not writing out flattened fields to the hprof file",
+      "url": "https://github.com/openjdk/jdk/pull/33395",
+      "author": "YaSuenag",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-15T23:52:02Z",
+      "updated_at": "2026-10-30T17:37:40Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "serviceability"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "测试",
+        "Valhalla/JEP"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/oops/ObjectHeap.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/runtime/VM.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/utilities/AbstractHeapGraphWriter.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/utilities/HeapGXLWriter.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/utilities/HeapHprofBinWriter.java",
+        "test/hotspot/jtreg/serviceability/sa/LingeredAppWithValueObject.java",
+        "test/hotspot/jtreg/serviceability/sa/TestJhsdbJmapWithValueObject.java",
+        "test/jdk/ProblemList-enable-preview.txt"
+      ],
+      "body_excerpt": "Valhalla introduced flattened value object, however SA cannot dump it into heapdump e.g. `jhsdb jmap --binaryheap`. Actually HeapHprofBinWriter.java has following lines. Hence the user cannot check flattened object from heapdump generated by SA. ```java case JVM_SIGNATURE_CLASS: case JVM_SIGNATURE_ARRAY: { if (field.isFlat()) { // FIXME - we don't handle flattened fields yet. Just treat them // as a null reference. See JDK-8381370. writeObjectID(null); ``` This PR addressed it. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://op"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33374,
+      "title": "8391637: RISC-V: Use DWARF in jstack to unwind native frames on Linux",
+      "url": "https://github.com/openjdk/jdk/pull/33374",
+      "author": "yanglong1010",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-15T02:18:04Z",
+      "updated_at": "2026-10-30T17:54:29Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "build",
+        "serviceability"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "make/autoconf/flags-cflags.m4",
+        "make/modules/jdk.hotspot.agent/Lib.gmk",
+        "src/jdk.hotspot.agent/linux/native/libsaproc/DwarfParser.cpp",
+        "src/jdk.hotspot.agent/linux/native/libsaproc/dwarf.hpp",
+        "src/jdk.hotspot.agent/linux/native/libsaproc/dwarf_regs_riscv64.h",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/debugger/linux/DwarfCFrame.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/debugger/linux/LinuxCDebugger.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/debugger/linux/LinuxDebugger.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/debugger/linux/riscv64/LinuxRISCV64CFrame.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/debugger/linux/riscv64/LinuxRISCV64ThreadContext.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/runtime/riscv64/RISCV64ContinuationEntry.java",
+        "test/hotspot/jtreg/serviceability/sa/TestJhsdbJstackMixed.java",
+        "test/hotspot/jtreg/serviceability/sa/TestJhsdbJstackMixedCore.java",
+        "test/hotspot/jtreg/serviceability/sa/TestJhsdbJstackMixedWithXComp.java"
+      ],
+      "body_excerpt": "Hi, could I have a review of this patch. This patch fixes [JDK-8391637](https://bugs.openjdk.org/browse/JDK-8391637). Due to my GitHub account settings (Enable Copilot Code Review for all my PRs), my previous [PR](https://github.com/openjdk/jdk/pull/33358) had Copilot Review enabled by default. I have disabled it and now open this new PR, with no changes made to the code. On `risc-v`, [LinuxRISCV64CFrame.sender()](https://github.com/openjdk/jdk/blob/c368bac40e185398fbc40dc4d75a457f7a36f954/src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/debugger/linux/riscv64/LinuxRISCV64CFrame.java#L70) v"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33360,
+      "title": "8394402: (process) Native memory leak in ProcessBuilder POSIX_SPAWN after JDK-8377907",
+      "url": "https://github.com/openjdk/jdk/pull/33360",
+      "author": "dlwldnjs1009",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review、1 条评论",
+      "created_at": "2026-10-14T11:52:18Z",
+      "updated_at": "2026-10-31T00:45:42Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86",
+        "macOS"
+      ],
+      "comments_today": 1,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.base/unix/native/libjava/ProcessImpl_md.c"
+      ],
+      "body_excerpt": "JDK-8377907 added file actions to spawnChild() without cleanup. This patch destroys them at both adddup2 error exits and immediately after posix_spawn(). The cleanup helper preserves errno so it does not change the IOException diagnostics in forkAndExec(). ### Testing macOS 26.2/aarch64, release build. Before: JDK 27+35-2325. After: commit 1077a0ab5ec. make exploded-test TEST=\"jtreg:test/jdk/java/lang/ProcessBuilder\": 26 passed, 0 failed, 13 not run. Manual checks used MallocStackLogging=1 and `leaks --fullStacks <PID>`. Counts sum all ROOT LEAK groups labeled realloc in _posix_spawn_file_acti"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33338,
+      "title": "8394260: x86: improve Adler32 intrinsic on AVX2",
+      "url": "https://github.com/openjdk/jdk/pull/33338",
+      "author": "LangruiZhou",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-13T08:56:30Z",
+      "updated_at": "2026-10-31T10:59:41Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "security",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/x86/stubGenerator_x86_64_adler.cpp"
+      ],
+      "body_excerpt": "### Description The AVX2 loop in generate_updateBytesAdler32() processed 16 bytes per iteration using two vpshufb and four vpaddd instructions, and reduced the accumulators with vpmulld followed by a vphaddd chain. VPHADDD is not a cheap single-µop operation: it decodes to three µops on Intel P-cores — two in-lane shuffle µops plus one add — and those shuffle µops contend for the shuffle pipes; the AVX forms are also microcoded on AMD Zen and Intel E-cores ([uops.info](https://uops.info/html-instr/VPHADDD_YMM_YMM_YMM.html)). In a hot reduction loop this makes the vphaddd chain throughput-limit"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33283,
+      "title": "8394161: Make LayoutKind flat-only and add stricter type checking around value layouts",
+      "url": "https://github.com/openjdk/jdk/pull/33283",
+      "author": "stefank",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-10-09T11:22:11Z",
+      "updated_at": "2026-10-30T16:32:36Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "serviceability",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "GC",
+        "运行时与诊断",
+        "核心类库",
+        "构建与工具链"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/share/ci/ciArray.cpp",
+        "src/hotspot/share/ci/ciField.cpp",
+        "src/hotspot/share/ci/ciField.hpp",
+        "src/hotspot/share/ci/ciFlatArrayKlass.hpp",
+        "src/hotspot/share/ci/ciInstance.cpp",
+        "src/hotspot/share/ci/ciInstanceKlass.cpp",
+        "src/hotspot/share/ci/ciObjArrayKlass.cpp",
+        "src/hotspot/share/classfile/fieldLayoutBuilder.cpp",
+        "src/hotspot/share/classfile/fieldLayoutBuilder.hpp",
+        "src/hotspot/share/code/aotCodeCache.cpp",
+        "src/hotspot/share/gc/z/zBarrierSet.inline.hpp",
+        "src/hotspot/share/memory/oopFactory.cpp",
+        "src/hotspot/share/oops/arrayKlass.hpp",
+        "src/hotspot/share/oops/fieldInfo.cpp",
+        "src/hotspot/share/oops/fieldInfo.hpp",
+        "src/hotspot/share/oops/fieldInfo.inline.hpp",
+        "src/hotspot/share/oops/flatArrayKlass.cpp",
+        "src/hotspot/share/oops/flatArrayKlass.hpp",
+        "src/hotspot/share/oops/instanceKlass.cpp",
+        "src/hotspot/share/oops/instanceKlass.hpp",
+        "src/hotspot/share/oops/klass.cpp",
+        "src/hotspot/share/oops/layoutKind.cpp",
+        "src/hotspot/share/oops/layoutKind.hpp",
+        "src/hotspot/share/oops/objArrayKlass.cpp",
+        "src/hotspot/share/oops/valueKlass.cpp",
+        "src/hotspot/share/oops/valueKlass.hpp",
+        "src/hotspot/share/oops/valueKlass.inline.hpp",
+        "src/hotspot/share/oops/valuePayload.hpp",
+        "src/hotspot/share/oops/valuePayload.inline.hpp",
+        "src/hotspot/share/opto/library_call.cpp",
+        "src/hotspot/share/opto/memnode.cpp",
+        "src/hotspot/share/opto/output.cpp",
+        "src/hotspot/share/opto/type.cpp",
+        "src/hotspot/share/prims/jvm.cpp",
+        "src/hotspot/share/prims/jvmtiTagMap.cpp",
+        "src/hotspot/share/prims/jvmtiTagMapTable.cpp",
+        "src/hotspot/share/prims/jvmtiTagMapTable.hpp",
+        "src/hotspot/share/prims/methodHandles.cpp",
+        "src/hotspot/share/prims/unsafe.cpp",
+        "src/hotspot/share/runtime/fieldDescriptor.cpp"
+      ],
+      "body_excerpt": "Today LayoutKind serves multiple purposes in the code: 1) Describe the layout of a value field [REFERENCE, *_FLAT] 2) Describe the layout of a field, flat layout not applicable or flat layout [UNKNOWN, *_FLAT] 3) Describe the layout of a value payload [BUFFERED, *_FLAT] 4) Describe uninitialized values for (1-3) [UNKNOWN] A surprising (to me) amount of code lands in (2). This leads to us having to be careful around the values that are invalid to use at the various locations in the code. I want to make it so that it is easier to know that you are passing around valid values and that we catch ea"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33113,
+      "title": "8393068: Optimize uniform vector byte shift operations using x86 GFNI instruction",
+      "url": "https://github.com/openjdk/jdk/pull/33113",
+      "author": "jatin-bhateja",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review",
+      "created_at": "2026-09-29T05:07:00Z",
+      "updated_at": "2026-10-30T22:47:02Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "Vector API",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/cpu/x86/c2_MacroAssembler_x86.cpp",
+        "src/hotspot/cpu/x86/c2_MacroAssembler_x86.hpp",
+        "src/hotspot/cpu/x86/stubDeclarations_x86.hpp",
+        "src/hotspot/cpu/x86/stubGenerator_x86_64.cpp",
+        "src/hotspot/cpu/x86/stubGenerator_x86_64.hpp",
+        "src/hotspot/cpu/x86/x86.ad",
+        "test/hotspot/jtreg/compiler/lib/ir_framework/IRNode.java",
+        "test/hotspot/jtreg/compiler/lib/ir_framework/test/ApplicableIRRulesPrinter.java",
+        "test/hotspot/jtreg/compiler/vectorapi/TestGFNIUniformByteShift.java",
+        "test/micro/org/openjdk/bench/jdk/incubator/vector/ByteShiftBenchmark.java"
+      ],
+      "body_excerpt": "Hi All, x86 AVX-512 targets provides packed shifts for 16, 32, and 64-bit lanes, but not for bytes. C2 lowers LShiftVB, RShiftVB, and URShiftVB by widening bytes to words, shifting, masking, and packing. That sequence is the byte-shift bottleneck. GFNI **gf2p8affineqb** instruction applies one 8×8 bit matrix to every byte. Logical left, logical right, and arithmetic right shifts by 0..7 are fixed matrices derived from the identity 0x0102040810204080. Patch uses this lowering for 128-, 256-, and 512-bit vectors when GFNI is available and keeps the existing widen/shift/pack path when GFNI is abs"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32661,
+      "title": "8391440: Test vmTestbase/nsk/jdwp/StackFrame/PopFrames/popframes001/TestDescription.java failed: Unexpected VM_DEATH event received: 99 (expected: 2)",
+      "url": "https://github.com/openjdk/jdk/pull/32661",
+      "author": "shivshah-oracle",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review、1 条评论",
+      "created_at": "2026-09-02T20:11:48Z",
+      "updated_at": "2026-10-30T21:08:41Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "serviceability",
+        "hotspot-runtime",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/x86/templateInterpreterGenerator_x86.cpp",
+        "src/hotspot/share/interpreter/interpreterRuntime.cpp",
+        "src/hotspot/share/interpreter/interpreterRuntime.hpp",
+        "src/hotspot/share/prims/jvmtiEnvBase.cpp",
+        "src/hotspot/share/runtime/continuationFreezeThaw.cpp",
+        "test/hotspot/jtreg/ProblemList-Virtual.txt",
+        "test/hotspot/jtreg/TEST.quick-groups",
+        "test/hotspot/jtreg/compiler/jsr292/patches/java.base/java/lang/invoke/MethodHandleHelper.java",
+        "test/hotspot/jtreg/runtime/interpreter/PopFrameMethodNameInvariantTest.java",
+        "test/hotspot/jtreg/vmTestbase/nsk/jdwp/StackFrame/PopFrames/popframes001.java",
+        "test/hotspot/jtreg/vmTestbase/nsk/jdwp/StackFrame/PopFrames/popframes001a.java",
+        "test/hotspot/jtreg/vmTestbase/nsk/jdwp/StackFrame/PopFrames/popframes002/TestDescription.java",
+        "test/hotspot/jtreg/vmTestbase/nsk/jdwp/StackFrame/PopFrames/popframes003/TestDescription.java"
+      ],
+      "body_excerpt": "When a virtual thread suspended at a breakpoint gets unmounted and mounted again only the top frame is thawed. The caller stays frozen in the stack chunk and the popped frame returns into the continuation return barrier. The interpreter's popframe entry treats that return address like a deoptimized caller, preserves the arguments, sets the reexecution bit and returns. The barrier then thawed the caller as a plain return. Arguments and bit left behind, no reexecution of the invoke, run() went on with a zero result. Thaw finishes it now. An interpreted caller gets the preserved arguments back on"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32359,
+      "title": "8377386: Vector: Support vector product instructions",
+      "url": "https://github.com/openjdk/jdk/pull/32359",
+      "author": "chadrako",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-08-13T22:48:49Z",
+      "updated_at": "2026-10-30T18:58:27Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "core-libs",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "Vector API",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/aarch64_vector.ad",
+        "src/hotspot/cpu/aarch64/aarch64_vector_ad.m4",
+        "src/hotspot/cpu/aarch64/assembler_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/vm_version_aarch64.hpp",
+        "src/hotspot/os_cpu/bsd_aarch64/vm_version_bsd_aarch64.cpp",
+        "src/hotspot/os_cpu/linux_aarch64/vm_version_linux_aarch64.cpp",
+        "src/hotspot/os_cpu/windows_aarch64/vm_version_windows_aarch64.cpp",
+        "src/hotspot/share/classfile/vmIntrinsics.hpp",
+        "src/hotspot/share/opto/c2compiler.cpp",
+        "src/hotspot/share/opto/classes.hpp",
+        "src/hotspot/share/opto/library_call.cpp",
+        "src/hotspot/share/opto/library_call.hpp",
+        "src/hotspot/share/opto/matcher.cpp",
+        "src/hotspot/share/opto/vectorIntrinsics.cpp",
+        "src/hotspot/share/opto/vectornode.cpp",
+        "src/hotspot/share/opto/vectornode.hpp",
+        "src/hotspot/share/prims/vectorSupport.hpp",
+        "src/java.base/share/classes/jdk/internal/vm/vector/VectorSupport.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ByteVector.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/X-Vector.java.template",
+        "test/hotspot/gtest/aarch64/aarch64-asmtest.py",
+        "test/hotspot/gtest/aarch64/asmtest.out.h",
+        "test/hotspot/jtreg/compiler/lib/ir_framework/IRNode.java",
+        "test/hotspot/jtreg/compiler/lib/ir_framework/test/ApplicableIRRulesPrinter.java",
+        "test/hotspot/jtreg/compiler/vectorapi/TestVectorDotProduct.java",
+        "test/jdk/jdk/incubator/vector/ByteVectorDotProductTest.java",
+        "test/micro/org/openjdk/bench/jdk/incubator/vector/VectorDotBenchmark.java"
+      ],
+      "body_excerpt": "Adds support for vectorized dot product on aarch64 (`sdot` and `udot`) through the Vector API Dedicated dot product instructions have been shown to provide up to 10x throughput for lucene ([results](https://github.com/apache/lucene/pull/13572)) compared to vectorized multiply and add. This PR adds two new methods to `ByteVector` to leverage the aarch dot product instructions `sdot` and `udot` respectively. - `IntVector dot(Vector<Byte> v, Vector<Integer> acc)` - `IntVector dotUnsigned(Vector<Byte> v, Vector<Integer> acc)` Each int lane of the result holds the dot product of the corresponding g"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31749,
+      "title": "8386573: Test \"java/awt/PrintJob/PrintProgressBarTest.java\" failed after clicking the Print button, and the test terminated with RuntimeException: Test FAILED: ClassCastException",
+      "url": "https://github.com/openjdk/jdk/pull/31749",
+      "author": "prsadhuk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-07-02T05:49:00Z",
+      "updated_at": "2026-10-30T17:46:55Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "macOS",
+        "Windows"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/java.desktop/macosx/classes/com/apple/laf/AquaProgressBarUI.java",
+        "src/java.desktop/share/classes/javax/swing/plaf/basic/BasicProgressBarUI.java",
+        "src/java.desktop/windows/classes/com/sun/java/swing/plaf/windows/WindowsProgressBarUI.java",
+        "test/jdk/java/awt/PrintJob/PrintProgressBarTest.java"
+      ],
+      "body_excerpt": "[JDK-6328248](https://bugs.openjdk.org/browse/JDK-6328248) fixed PrintJob (1.1 Graphics API) based JProgressBar printing for most L&F however it seems to cause ClassCastException in AquaProgressBarUI.paint as non-Graphics2D path was not handled `Caused by: java.lang.ClassCastException: class sun.print.ProxyPrintGraphics cannot be cast to class java.awt.Graphics2D (sun.print.ProxyPrintGraphics and java.awt.Graphics2D are in module java.desktop of loader 'bootstrap') ` FIx is made to render Aqua progress bar into BufferedImage, then drawImage for non-Graphics2D case where 1.1 PrintJob is used --"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31668,
+      "title": "8387067: C2: \"assert(C->live_nodes() <= C->max_node_limit()) failed: Live Node limit exceeded limit\" for large string concats",
+      "url": "https://github.com/openjdk/jdk/pull/31668",
+      "author": "0zzy0sbourne",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-06-25T01:04:55Z",
+      "updated_at": "2026-10-30T17:35:03Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "merge-conflict",
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/stringopts.cpp",
+        "src/hotspot/share/opto/stringopts.hpp",
+        "test/hotspot/jtreg/compiler/stringopts/TestLargeIntConcat.java",
+        "test/hotspot/jtreg/compiler/stringopts/TestWorstCaseIntConcat.java"
+      ],
+      "body_excerpt": "When a method has a very large number of `StringBuilder.append(int)` calls (e.g., 500+), C2's `PhaseStringOpts::replace_string_concat()` can exceed the live node limit because each int append expands into ~150 IR nodes (division, modulo, character extraction). Add a node budget check before expanding each concat: if the estimated cost `(num_arguments * 150)` would exceed the remaining node limit, skip the optimization. The method still compiles correctly via the unoptimized StringBuilder path. ### Testing Added `test/hotspot/jtreg/compiler/stringopts/TestLargeIntConcat.java` which exercises a "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31631,
+      "title": "8375979: Add pollset based Selector implementation (aix)",
+      "url": "https://github.com/openjdk/jdk/pull/31631",
+      "author": "varada1110",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review",
+      "created_at": "2026-06-23T11:58:53Z",
+      "updated_at": "2026-10-30T20:54:56Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "nio"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/java.base/aix/classes/sun/nio/ch/AixPollPort.java",
+        "src/java.base/aix/classes/sun/nio/ch/DefaultSelectorProvider.java",
+        "src/java.base/aix/classes/sun/nio/ch/Pollset.java",
+        "src/java.base/aix/classes/sun/nio/ch/PollsetSelectorImpl.java",
+        "src/java.base/aix/classes/sun/nio/ch/PollsetSelectorProvider.java",
+        "src/java.base/aix/native/libnio/ch/Pollset.c",
+        "test/jdk/java/nio/channels/Selector/BasicAccept.java",
+        "test/jdk/java/nio/channels/Selector/RegisterDuringSelect.java",
+        "test/jdk/java/nio/channels/Selector/SelectWithConsumer.java",
+        "test/jdk/java/nio/channels/Selector/UpdateReadyOps.java",
+        "test/jdk/java/nio/channels/Selector/Wakeup.java"
+      ],
+      "body_excerpt": "This PR introduces the PollsetSelector implementation for AIX. Test results are positive, there are no related failures. Testing done for : tier1, tier2, java/nio, java/net [Fastdebug] Benchmark results showed that the pollset is showing better performance with one ready channel, 1000 registered channels. Pollset remains ~constant as the number of registered channels increases whereas poll becomes slower as it appears to scan all registered descriptors. benchmark results: ``` With Pollset selector provider: Benchmark (nchannels) Mode Cnt Score Error Units SelectorWakeup.test N/A thrpt 15 14977"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31601,
+      "title": "8387003: Stale doc comment in TrustFinalFields.java after JDK-8376777",
+      "url": "https://github.com/openjdk/jdk/pull/31601",
+      "author": "jsikstro",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "有更新",
+      "created_at": "2026-06-22T06:59:37Z",
+      "updated_at": "2026-10-31T11:35:58Z",
+      "merged_at": null,
+      "closed_at": "2026-06-22T08:04:55Z",
+      "labels": [
+        "integrated",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/jdk/internal/vm/annotation/TrustFinalFields.java"
+      ],
+      "body_excerpt": "Hello, This is a trivial cleanup after [JDK-8376777](https://bugs.openjdk.org/browse/JDK-8376777), which missed a reference to a renamed method in the doc comment in TrustFinalFields.java. Testing: * GHA --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[x\\] Chang"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31344,
+      "title": "8353598: Iterative AOT Training Run",
+      "url": "https://github.com/openjdk/jdk/pull/31344",
+      "author": "iklam",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、3 条评论",
+      "created_at": "2026-06-01T21:58:42Z",
+      "updated_at": "2026-10-30T16:29:05Z",
+      "merged_at": null,
+      "closed_at": "2026-10-30T16:28:54Z",
+      "labels": [
+        "integrated",
+        "serviceability",
+        "hotspot"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "PPC"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/cds/aotArtifactFinder.cpp",
+        "src/hotspot/share/cds/aotCacheAccess.cpp",
+        "src/hotspot/share/cds/aotClassLinker.cpp",
+        "src/hotspot/share/cds/aotClassLocation.cpp",
+        "src/hotspot/share/cds/aotHeap.cpp",
+        "src/hotspot/share/cds/aotLinkedClassBulkLoader.cpp",
+        "src/hotspot/share/cds/aotLinkedClassTable.cpp",
+        "src/hotspot/share/cds/aotMapLogger.cpp",
+        "src/hotspot/share/cds/aotMapLogger.hpp",
+        "src/hotspot/share/cds/aotMappedHeapLoader.cpp",
+        "src/hotspot/share/cds/aotMetaspace.cpp",
+        "src/hotspot/share/cds/aotModules.cpp",
+        "src/hotspot/share/cds/aotStreamedHeapLoader.cpp",
+        "src/hotspot/share/cds/aotSystemDictionary.cpp",
+        "src/hotspot/share/cds/aotSystemDictionary.hpp",
+        "src/hotspot/share/cds/archiveBuilder.cpp",
+        "src/hotspot/share/cds/archiveUtils.cpp",
+        "src/hotspot/share/cds/archiveUtils.hpp",
+        "src/hotspot/share/cds/cdsConfig.cpp",
+        "src/hotspot/share/cds/cdsConfig.hpp",
+        "src/hotspot/share/cds/cdsHeapVerifier.cpp",
+        "src/hotspot/share/cds/cds_globals.hpp",
+        "src/hotspot/share/cds/cppVtables.cpp",
+        "src/hotspot/share/cds/dumpTimeClassInfo.cpp",
+        "src/hotspot/share/cds/dumpTimeClassInfo.inline.hpp",
+        "src/hotspot/share/cds/dynamicArchive.cpp",
+        "src/hotspot/share/cds/dynamicArchive.hpp",
+        "src/hotspot/share/cds/filemap.cpp",
+        "src/hotspot/share/cds/filemap.hpp",
+        "src/hotspot/share/cds/finalImageRecipes.cpp",
+        "src/hotspot/share/cds/lambdaFormInvokers.cpp",
+        "src/hotspot/share/cds/runTimeClassInfo.cpp",
+        "src/hotspot/share/ci/ciMethod.cpp",
+        "src/hotspot/share/classfile/classLoader.cpp",
+        "src/hotspot/share/classfile/javaClasses.cpp",
+        "src/hotspot/share/classfile/stringTable.cpp",
+        "src/hotspot/share/classfile/systemDictionary.cpp",
+        "src/hotspot/share/oops/constantPool.cpp",
+        "src/hotspot/share/oops/instanceKlass.cpp",
+        "src/hotspot/share/oops/klass.cpp"
+      ],
+      "body_excerpt": "Before this PR, you cannot use -XX:AOTCache in the training run: ``` $ java -XX:AOTCache=foo.aot -cp HelloWorld.jar \\ -XX:AOTMode=record -XX:AOTConfiguration=hw.aotconfig \\ HelloWorld [...] AOTCache must not be specified when using -XX:AOTMode=record ``` However, in some cases, it may be desirable to train the AOT cache in two or more steps. For example: ## Separate Training for Framework and Application: - First perform a training run to exercise commonly-used areas of the framework. - Second, perform a training run of a specific application. The idea is that important parts of the framework "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 30535,
+      "title": "8379629: Add StressDeepIGVNRevisit diagnostic flag to force deep revisit in all IGVN optimize() calls",
+      "url": "https://github.com/openjdk/jdk/pull/30535",
+      "author": "krk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2026-04-01T12:27:11Z",
+      "updated_at": "2026-10-30T19:37:58Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/compiler/compilerDefinitions.cpp",
+        "src/hotspot/share/opto/c2_globals.hpp",
+        "src/hotspot/share/opto/phaseX.cpp",
+        "src/hotspot/share/runtime/flags/jvmFlagConstraintsCompiler.cpp",
+        "src/hotspot/share/runtime/flags/jvmFlagConstraintsCompiler.hpp",
+        "test/hotspot/jtreg/compiler/c2/igvn/TestDeepIGVNRevisit.java",
+        "test/hotspot/jtreg/compiler/c2/igvn/TestStressDeepIGVNRevisitFlag.java"
+      ],
+      "body_excerpt": "Add `StressDeepIGVNRevisit` diagnostic flag (`all`/`random`) to force deep revisit in `PhaseIterGVN::optimize()` calls, helping uncover latent optimizer bugs. - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 reviews required, with at least 1 [Reviewer](https"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 30473,
+      "title": "8346177: C2: optimize simple increment loops with loop-invariant strides",
+      "url": "https://github.com/openjdk/jdk/pull/30473",
+      "author": "krk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2026-03-27T16:12:50Z",
+      "updated_at": "2026-10-30T19:38:01Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/loopnode.cpp",
+        "test/hotspot/jtreg/compiler/loopopts/TestRedundantSafepointElimination.java",
+        "test/hotspot/jtreg/compiler/loopopts/parallel_iv/TestParallelIvCast.java",
+        "test/hotspot/jtreg/compiler/loopopts/parallel_iv/TestParallelIvInvariantIncrement.java",
+        "test/hotspot/jtreg/compiler/loopopts/parallel_iv/TestParallelIvMultiExit.java"
+      ],
+      "body_excerpt": "The old `replace_parallel_iv` only optimized parallel IVs with constant increments that evenly divided the primary IV's stride. Patterns like `a += field` or `a += param` where the increment is loop-invariant but not a compile-time constant were left as accumulation loops. This patch generalizes the optimization to accept any loop-invariant increment, adds subtraction support, and removes the exact-divisibility requirement. Instead of computing a ratio between strides, the iteration count is computed directly as `(iv - init) / stride_con`. A simple benchmark `for (i=0; i<100000; i++) a += inc`"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 27271,
+      "title": "8367603: Optimize exact division in BigDecimal",
+      "url": "https://github.com/openjdk/jdk/pull/27271",
+      "author": "fabioromano1",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2025-09-13T20:11:22Z",
+      "updated_at": "2026-10-30T20:45:18Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/java/math/BigDecimal.java",
+        "src/java.base/share/classes/java/math/BigInteger.java",
+        "test/jdk/java/math/BigDecimal/DivideTests.java",
+        "test/micro/org/openjdk/bench/java/math/BigDecimalDivide.java"
+      ],
+      "body_excerpt": "A formula to lower the overestimate for the precision of an exact quotient, without introducing too expensive operations of division on numerator and denominator. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 reviews required, with at least 2 [R"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 22449,
+      "title": "8336759: C2: int counted loop with long limit not recognized as counted loop",
+      "url": "https://github.com/openjdk/jdk/pull/22449",
+      "author": "tabjy",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2024-11-29T01:08:04Z",
+      "updated_at": "2026-10-30T20:14:03Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/opto/c2_globals.hpp",
+        "src/hotspot/share/opto/loopnode.cpp",
+        "src/hotspot/share/opto/loopnode.hpp",
+        "src/hotspot/share/opto/loopopts.cpp",
+        "test/hotspot/jtreg/compiler/lib/ir_framework/IRNode.java",
+        "test/hotspot/jtreg/compiler/loopopts/TestIntCountedLoopLongLimit.java",
+        "test/hotspot/jtreg/compiler/loopopts/TestIntCountedLoopLongLimitDeopt.java",
+        "test/hotspot/jtreg/compiler/loopopts/TestIntCountedLoopLongLimitTemplated.java",
+        "test/hotspot/jtreg/compiler/loopopts/TestTruncationWrapFuzzer.java",
+        "test/hotspot/jtreg/compiler/loopopts/superword/TestMemorySegment.java"
+      ],
+      "body_excerpt": "This patch implements [JDK-8336759](https://bugs.openjdk.org/browse/JDK-8336759) that recognizes int counted loops with long limits. Currently, patterns like `for ( int i =...; i < long_limit; ...)` where int `i` is implicitly promoted to long (i.e., `(long) i < long_limit`) is not recognized as (int) counted loop. This patch speculatively and optimistically converts long limits to ints and deoptimize if the limit is outside int range, allowing more optimization opportunities. In other words, it transforms ```java for (int i = 0; (long) i < long_limit; i++) {...} ``` to ```java if (int_min <= "
+    }
+  ]
+}

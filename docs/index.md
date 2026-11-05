@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-11-03](reports/2026/2026-11-03.md)
+### [2026-11-04](reports/2026/2026-11-04.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 102 |
+| 有活动的 PR | 119 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 19 |
-| 活跃贡献者 | 66 |
+| RISC-V 相关 PR | 15 |
+| 活跃贡献者 | 67 |
 
 ## 今日关注
 
-- [#33693](https://github.com/openjdk/jdk/pull/33693) 8396510: RISC-V: Optimize AES-CBC decryption intrinsic（新建、4 条评论）
-- [#33688](https://github.com/openjdk/jdk/pull/33688) 8396494: RISC-V: Remove unused Zic64b support（新建、3 个 Review、6 条评论）
-- [#33684](https://github.com/openjdk/jdk/pull/33684) 8396399: VMObjectAlloc is not called from clone() intrinsic（新建、2 个 Review、5 条评论）
-- [#33679](https://github.com/openjdk/jdk/pull/33679) 8390642: [Valhalla] Shenandoah: Support compressed oops（新建、5 条评论）
-- [#33677](https://github.com/openjdk/jdk/pull/33677) 8389239: RISC-V: Optimize copy_memory_v with fixed-VL loops and m1 tail handling（有更新）
-- [#33669](https://github.com/openjdk/jdk/pull/33669) 8396406: RISC-V: Add RVV path for array fill（3 个 Review、1 条评论）
-- [#33668](https://github.com/openjdk/jdk/pull/33668) 8389700: [Valhalla] Store capturing does not work for atomic flat fields and array elements（已关闭）
-- [#33656](https://github.com/openjdk/jdk/pull/33656) 8396232: TestJhsdbJstackWithVirtualThread.java reports UnalignedAddressException silently（1 条评论）
+- [#33688](https://github.com/openjdk/jdk/pull/33688) 8396494: RISC-V: Remove unused Zic64b support（已关闭、3 条评论）
+- [#33684](https://github.com/openjdk/jdk/pull/33684) 8396399: VMObjectAlloc is not called from clone() intrinsic（7 个 Review、2 条评论）
+- [#33679](https://github.com/openjdk/jdk/pull/33679) 8390642: [Valhalla] Shenandoah: Support compressed oops（2 个 Review）
+- [#33656](https://github.com/openjdk/jdk/pull/33656) 8396232: TestJhsdbJstackWithVirtualThread.java reports UnalignedAddressException silently（已关闭、2 个 Review、7 条评论）
+- [#33604](https://github.com/openjdk/jdk/pull/33604) 8396037: PPC64: Remove postalloc expansion from MachConstantBaseNode（1 条评论）
+- [#33562](https://github.com/openjdk/jdk/pull/33562) 8307498: Specialize atomic bitset functions for linux-riscv（已关闭、8 条评论）
+- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（10 条评论）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Add sign information to value layouts（有更新）
 
-[查看完整日报](reports/2026/2026-11-03.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-04.md) · [浏览全部历史](reports/index.md)

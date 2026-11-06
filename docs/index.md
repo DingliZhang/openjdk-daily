@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-11-04](reports/2026/2026-11-04.md)
+### [2026-11-05](reports/2026/2026-11-05.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 119 |
+| 有活动的 PR | 117 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 15 |
-| 活跃贡献者 | 67 |
+| RISC-V 相关 PR | 12 |
+| 活跃贡献者 | 78 |
 
 ## 今日关注
 
-- [#33688](https://github.com/openjdk/jdk/pull/33688) 8396494: RISC-V: Remove unused Zic64b support（已关闭、3 条评论）
-- [#33684](https://github.com/openjdk/jdk/pull/33684) 8396399: VMObjectAlloc is not called from clone() intrinsic（7 个 Review、2 条评论）
-- [#33679](https://github.com/openjdk/jdk/pull/33679) 8390642: [Valhalla] Shenandoah: Support compressed oops（2 个 Review）
-- [#33656](https://github.com/openjdk/jdk/pull/33656) 8396232: TestJhsdbJstackWithVirtualThread.java reports UnalignedAddressException silently（已关闭、2 个 Review、7 条评论）
-- [#33604](https://github.com/openjdk/jdk/pull/33604) 8396037: PPC64: Remove postalloc expansion from MachConstantBaseNode（1 条评论）
-- [#33562](https://github.com/openjdk/jdk/pull/33562) 8307498: Specialize atomic bitset functions for linux-riscv（已关闭、8 条评论）
-- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（10 条评论）
-- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Add sign information to value layouts（有更新）
+- [#33747](https://github.com/openjdk/jdk/pull/33747) 8396497: RISC-V: Optimize HotSpot HeapWord copy routines（新建、5 条评论）
+- [#33741](https://github.com/openjdk/jdk/pull/33741) 8396800: RISC-V: Simplify RVV arraycopy with byte-based copying（新建、3 个 Review、5 条评论）
+- [#33726](https://github.com/openjdk/jdk/pull/33726) RISC-V: Use sh1add in RVV String.indexOf(char)（新建、4 条评论）
+- [#33684](https://github.com/openjdk/jdk/pull/33684) 8396399: VMObjectAlloc is not called from clone() intrinsic（已关闭、4 个 Review、3 条评论）
+- [#33443](https://github.com/openjdk/jdk/pull/33443) 8393423: Add VM option to force assembly phase cpu feature configuration in the production phase（7 个 Review、2 条评论）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Add sign information to value layouts（2 条评论）
+- [#33018](https://github.com/openjdk/jdk/pull/33018) 8392810: RISC-V: Support for Zacas/Zabha atomics C++ HotSpot code（1 条评论）
+- [#32971](https://github.com/openjdk/jdk/pull/32971) 8392747: RISC-V: Add SHA3 GPR intrinsic（2 条评论）
 
-[查看完整日报](reports/2026/2026-11-04.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-05.md) · [浏览全部历史](reports/index.md)

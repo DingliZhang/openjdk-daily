@@ -1,0 +1,583 @@
+{
+  "date": "2026-11-08",
+  "generated_at": "2026-11-09T07:06:56.100794+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 33789,
+      "title": "8396910: RISC-V: Sign-extend the BigInteger mulAdd intrinsic result",
+      "url": "https://github.com/openjdk/jdk/pull/33789",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、9 条评论",
+      "created_at": "2026-11-08T14:35:35Z",
+      "updated_at": "2026-11-09T06:56:05Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 9,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/macroAssembler_riscv.cpp",
+        "test/hotspot/jtreg/compiler/c2/riscv64/TestMulAddSignExtension.java"
+      ],
+      "body_excerpt": "The RISC-V BigInteger.implMulAdd intrinsic returns its carry zero-extended, whereas its Java int result must be sign-extended to satisfy the integer-register convention. For negative carries, this can cause incorrect results in subsequent integer comparisons. This change sign-extends the result at the common exit, preserving unsigned carry arithmetic inside the loop. A regression test in compiler/c2/riscv64/TestMulAddSignExtension.java checks zero, positive, and negative carries across tail-loop and unrolled-loop boundaries. Testing: TestMulAddSignExtension fails before the fix and passes afte"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33788,
+      "title": "8394693: ZGC: `ZMountPoint::find_preferred_mountpoint` does not respect the preferred order",
+      "url": "https://github.com/openjdk/jdk/pull/33788",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、2 个 Review、5 条评论",
+      "created_at": "2026-11-08T08:09:21Z",
+      "updated_at": "2026-11-08T11:00:22Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "GC",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 5,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/os/linux/gc/z/zMountPoint_linux.cpp",
+        "src/hotspot/os/linux/gc/z/zMountPoint_linux.hpp",
+        "src/hotspot/os/linux/gc/z/zPhysicalMemoryBacking_linux.cpp",
+        "src/hotspot/os/linux/gc/z/zPhysicalMemoryBacking_linux.hpp",
+        "test/hotspot/gtest/gc/z/test_zMountPoint_linux.cpp"
+      ],
+      "body_excerpt": "Please review this ZGC fix. `ZMountPoint::find_preferred_mountpoint()` picks the first available mount point that matches any entry in the preferred list, so the mount-table order can override the preferred order. For example: ```text Preferred order: /dev/shm, /run/shm Mount-table order: /run/shm, /dev/shm The current code selects /run/shm, even though /dev/shm has higher priority. ``` **Fix:** Swap the nested loops to look for the preferred mount points in priority order. **Testing:** - Added gtests to cover the preferred mount-point order - `gc/z`: 20 passed. --------- - [x] I confirm that "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33787,
+      "title": "8395707: GIFImageReader misplaces rows in interlaced GIF frames 2-4 pixels high",
+      "url": "https://github.com/openjdk/jdk/pull/33787",
+      "author": "mickleness",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-11-08T07:46:26Z",
+      "updated_at": "2026-11-08T18:23:31Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.desktop/share/classes/com/sun/imageio/plugins/gif/GIFImageReader.java",
+        "test/jdk/javax/imageio/plugins/gif/InterlaceTest.java"
+      ],
+      "body_excerpt": "ImageIO's GIF decoder didn't decode interlaced images correctly when the height was 2-4 pixels. For a tall gif (over 8px tall), interlacing is supposed to deliver pixels as follows: Pass 1: rows 0, 8, 16, etc Pass 2: rows 4, 12, 20, etc Pass 3: rows 2, 6, 10, etc. Pass 4: rows 1, 3, 5, etc. But for a short gif (4px or less), we were computing the wrong value for `streamY` and screwing up the order rows were delivered. With this PR: we immediately move on to the appropriate interlacing pass so `streamY` makes sense. For example, here is some sample output from the attached test before this prop"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33786,
+      "title": "8396908: RISC-V: Disable RVV for vector lengths exceeding 1024 bits",
+      "url": "https://github.com/openjdk/jdk/pull/33786",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、8 条评论",
+      "created_at": "2026-11-08T05:55:49Z",
+      "updated_at": "2026-11-08T15:26:57Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "Vector API",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 8,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/vm_version_riscv.cpp",
+        "test/hotspot/jtreg/compiler/vectorapi/TestBiMorphicMismatchedMemSegment.java",
+        "test/hotspot/jtreg/compiler/vectorapi/TestVectorMaskToLongStress.java",
+        "test/hotspot/jtreg/compiler/vectorapi/VectorMaskFromLongTest.java",
+        "test/hotspot/jtreg/compiler/vectorapi/VectorMaskToLongTest.java"
+      ],
+      "body_excerpt": "Hi, this patch add a conservative upper bound of 128 bytes (1024 bits) for RVV vector lengths, as wider vectors are not reliably supported by the current backend. When the detected vector length exceeds this limit, the JVM emits a warning, disables RVV, and resets MaxVectorSize to zero. The existing minimum-length check remains unchanged. Disabling RVV rather than clamping MaxVectorSize preserves the assumption that enabled RVV uses the hardware vector length. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33785,
+      "title": "8328184: SunMSCAPI ignores LOCALMACHINE when storing and removing certificates",
+      "url": "https://github.com/openjdk/jdk/pull/33785",
+      "author": "PeyaPeyaPeyang",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、4 条评论",
+      "created_at": "2026-11-08T02:30:54Z",
+      "updated_at": "2026-11-08T02:44:51Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 4,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.crypto.mscapi/windows/classes/sun/security/mscapi/CKeyStore.java",
+        "src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp",
+        "test/jdk/sun/security/mscapi/LocalMachineStore.java"
+      ],
+      "body_excerpt": "Please review this fix for SunMSCAPI storing and removing certs in `CURRENTUSER` even when a `LOCALMACHINE` keystore is selected. The native `storeCertificate` and `removeCertificate` methods currently use `CertOpenSystemStore`, which opens the `CURRENTUSER` store. This fix passes the store location through JNI and uses `CertOpenStore` with `CERT_SYSTEM_STORE_LOCAL_MACHINE` for `LOCALMACHINE` keystores. The manual regression test `LocalMachineStore` verifies certificate placement and deletion; the test requires administrator privileges. Testing: - `LocalMachineStore` - manual `keytool -genkeyp"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33778,
+      "title": "8396653: [macOS] MOUSE_DRAGGED can arrive without the button modifier, so MOUSE_RELEASED goes to the wrong component and JTextField autoscroll never stops  (typing keeps overwriting the first character)",
+      "url": "https://github.com/openjdk/jdk/pull/33778",
+      "author": "yogi1967",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-11-06T18:45:08Z",
+      "updated_at": "2026-11-08T08:00:59Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "核心类库"
+      ],
+      "architectures": [
+        "x86",
+        "macOS"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.desktop/macosx/classes/sun/lwawt/macosx/CPlatformResponder.java"
+      ],
+      "body_excerpt": "**Symptom:** On macOS, after selecting text in a Swing `JTextField` with the mouse from right to left (including the first character, and releasing just past the field's left edge), typing does not work normally. Each typed character replaces the previous one, so the field only ever shows one character. Clicking in the field clears the state. **Cause:** On macOS, `nsToJavaModifiers` reads the current button state. If a `MOUSE_DRAGGED` event is converted after the button is released, it has no button modifier, so the mouse grab is dropped and `MOUSE_RELEASED` is delivered to the wrong component"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33709,
+      "title": "8396624: Extend SHA tests to cover keccak intrinsics",
+      "url": "https://github.com/openjdk/jdk/pull/33709",
+      "author": "missa-prime",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-11-03T23:47:48Z",
+      "updated_at": "2026-11-08T06:53:24Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/hotspot/jtreg/compiler/intrinsics/sha/TestDigest.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/TestInvoke.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/InvokeSanityTestBase.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA1MultiBlockIntrinsics.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA256MultiBlockIntrinsics.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA3MultiBlockIntrinsics.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA3ParallelIntrinsics.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA512MultiBlockIntrinsics.java",
+        "test/hotspot/jtreg/compiler/testlibrary/sha/predicate/IntrinsicPredicates.java"
+      ],
+      "body_excerpt": "The primary reason for this set of changes is to sanity check the **doubleKeccak** and **quadKeccak** methods. This includes their intrinsified and pure Java variants. The new JTREG source files listed below essentially validate return values from invoked private methods using the Java Reflection API. 1. `jtreg:test/hotspot/jtreg/compiler/intrinsics/sha/TestInvoke.java` 2. `jtreg:test/hotspot/jtreg/compiler/intrinsics/sha/sanity/InvokeSanityTestBase.java` 3. `jtreg:test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA3ParallelIntrinsics.java` Additionally, the multi block intrinsic tests n"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33681,
+      "title": "8394682: ZGC: `MetadataAllocationRequest` are not processed with `-ClassUnloading`",
+      "url": "https://github.com/openjdk/jdk/pull/33681",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-11-02T16:38:48Z",
+      "updated_at": "2026-11-08T03:37:54Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-gc"
+      ],
+      "modules": [
+        "GC",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/gc/z/zUnload.cpp",
+        "test/hotspot/jtreg/gc/z/TestMetaspaceWithClassUnloadingDisabled.java"
+      ],
+      "body_excerpt": "Please review this fix. When class unloading is disabled, `ZUnload::purge()` returns early, leaving queued metaspace allocation requests unprocessed. Threads waiting in `wait_for_purge()` can hang. **Fix:** Call `Metaspace::purge(false)` before returning: ```cpp if (!ClassUnloading) { Metaspace::purge(false); return; } ``` `Metaspace::purge(false)` - existing request-processing code - false: skips chunk-manager cleanup but still processes allocation requests and wakes the waiters **Testing :** - Added `TestMetaspaceWithClassUnloadingDisabled` - `gc/z`: 21 passed - `gc/metaspace` 13 passed, 7 s"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33298,
+      "title": "8318110: [jmh] the test CharBufferAppend.java failed with 2 active threads",
+      "url": "https://github.com/openjdk/jdk/pull/33298",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "3 条评论",
+      "created_at": "2026-10-10T17:27:54Z",
+      "updated_at": "2026-11-08T03:53:18Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "nio"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "跨平台/未分类"
+      ],
+      "comments_today": 3,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/micro/org/openjdk/bench/java/nio/CharBufferAppend.java"
+      ],
+      "body_excerpt": "Please review this small benchmark fix. `CharBufferAppend` fails with `BufferOverflowException` when run with `-t 2`, because the JMH workers share the same static buffers. ```txt java.nio.BufferOverflowException at java.base/java.nio.CharBuffer.put(CharBuffer.java:1051) at java.base/java.nio.CharBuffer.append(CharBuffer.java:2099) at java.base/java.nio.DirectCharBufferS.append(DirectCharBufferS.java:480) at org.openjdk.bench.java.nio.CharBufferAppend.appendDirectToDirect(CharBufferAppend.java:82) at org.openjdk.bench.java.nio.jmh_generated.CharBufferAppend_appendDirectToDirect_jmhTest.appendD"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32852,
+      "title": "8392322: RISC-V: Optimize C++ atomic loads and stores on Ztso",
+      "url": "https://github.com/openjdk/jdk/pull/32852",
+      "author": "zifeihan",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "2 个 Review",
+      "created_at": "2026-09-12T17:01:28Z",
+      "updated_at": "2026-11-09T01:58:33Z",
+      "merged_at": null,
+      "closed_at": "2026-11-09T01:57:57Z",
+      "labels": [
+        "integrated",
+        "hotspot-runtime",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/vm_version_riscv.cpp",
+        "src/hotspot/cpu/riscv/vm_version_riscv.hpp",
+        "src/hotspot/os_cpu/linux_riscv/atomicAccess_linux_riscv.hpp"
+      ],
+      "body_excerpt": "Hi, please consider. Under Ztso, RISC-V loads implicitly have acquire semantics and stores implicitly have release semantics, so the hardware fences RVWMO needs for acquire/release are redundant. The JIT already exploits this, and OrderAccess::acquire()/ release() are Ztso-aware (they degrade to a compiler_barrier()). The overhead of this optimization is similar to what was discussed in https://github.com/openjdk/jdk/pull/33018, but it's much smaller than what that PR involved, because there's no performance penalty from the ld flag + full fence here. I didn't observe any additional overhead i"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32766,
+      "title": "8391909: Improve ConfinedSegmentPool Performance",
+      "url": "https://github.com/openjdk/jdk/pull/32766",
+      "author": "minborg",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2026-09-08T14:20:12Z",
+      "updated_at": "2026-11-08T05:32:45Z",
+      "merged_at": null,
+      "closed_at": "2026-11-08T05:32:45Z",
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/jdk/internal/foreign/ArenaImpl.java",
+        "src/java.base/share/classes/jdk/internal/foreign/ConfinedSegmentPool.java",
+        "test/jdk/java/foreign/TestConfinedSegmentPool.java",
+        "test/jdk/java/foreign/TestConfinedSegmentPoolDefensiveRelease.java"
+      ],
+      "body_excerpt": "This PR proposes to improve the performance of the newly integrated confined arena cache. Confined arenas now remember the platform pool array and the pool array index used for pool acquisition. Upon closing the arena, the pool can be returned (in most cases) directly to the correct index in the confined arena cache. If the opportunistic pool index is occupied, the logic falls back to the regular path, which scans the array for an empty slot. The PR additionally proposes to add a test to make sure the unusual release path works correctly. --------- - [x] I confirm that I make this contribution"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32634,
+      "title": "8361207: Build native Windows ARM64 MSI packages",
+      "url": "https://github.com/openjdk/jdk/pull/32634",
+      "author": "yeelam-gordon",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2026-09-01T23:57:28Z",
+      "updated_at": "2026-11-08T06:20:25Z",
+      "merged_at": null,
+      "closed_at": "2026-11-08T06:20:25Z",
+      "labels": [
+        "oca",
+        "core-libs"
+      ],
+      "modules": [
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.jpackage/windows/classes/jdk/jpackage/internal/WixPipeline.java",
+        "src/jdk.jpackage/windows/classes/jdk/jpackage/internal/resources/WinResources.properties",
+        "test/jdk/tools/jpackage/junit/windows/jdk.jpackage/jdk/jpackage/internal/WixPipelineTest.java",
+        "test/jdk/tools/jpackage/junit/windows/junit.java",
+        "test/jdk/tools/jpackage/resources/close-application-os-condition.wxf",
+        "test/jdk/tools/jpackage/windows/WinArm64MsiTest.java"
+      ],
+      "body_excerpt": "8361207: Build native Windows ARM64 MSI packages ## Summary `jpackage --type app-image` already works correctly on Windows Arm64. This change fixes `jpackage --type msi` so it invokes WiX Toolset 4+ with `-arch arm64` on an AArch64 JDK, instead of collapsing every 64-bit architecture down to `x64`. This lets WiX select its Arm64 (\"A64\") custom actions (e.g. `Wix4CloseApplications_A64` instead of `Wix4CloseApplications_X64`) and produce native Arm64 MSI Summary Information metadata. `WixPipeline` now maps the running architecture to the WiX `-arch` argument directly from `jdk.internal.util.Arch"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32496,
+      "title": "8350085: RISC-V: Enable upper GPR registers in C1",
+      "url": "https://github.com/openjdk/jdk/pull/32496",
+      "author": "Elain520",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review",
+      "created_at": "2026-08-24T08:33:59Z",
+      "updated_at": "2026-11-09T06:48:04Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "sponsor",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 0,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/c1_Defs_riscv.hpp",
+        "src/hotspot/cpu/riscv/c1_FrameMap_riscv.cpp",
+        "src/hotspot/cpu/riscv/c1_LinearScan_riscv.hpp",
+        "src/hotspot/cpu/riscv/c1_Runtime1_riscv.cpp"
+      ],
+      "body_excerpt": "This change enables additional general-purpose registers for RISC-V C1 register allocation. The caller-save register set grows from 13 to 22 registers, including x9 and the available upper GPRs. FrameMap and LinearScan use the corresponding allocation boundaries, and Runtime1 OopMap generation uses the FrameMap caller-save register list. The existing Runtime1 save/restore sequence already covers x9. Oracle copyright years in all four source files touched by this PR are updated to 2026. Validation of the x9 revision (2026-11-09): - RISC-V server release and fastdebug images: both built successf"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32048,
+      "title": "8389111: C2: Use BMI2 BZHI for variable int low-bit masks on x86",
+      "url": "https://github.com/openjdk/jdk/pull/32048",
+      "author": "aprilivy",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-07-25T23:08:25Z",
+      "updated_at": "2026-11-08T08:00:46Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/x86/x86.ad",
+        "test/hotspot/jtreg/compiler/intrinsics/bmi/TestBzhiI2L.java",
+        "test/hotspot/jtreg/compiler/intrinsics/bmi/TestBzhiIR.java",
+        "test/hotspot/jtreg/compiler/intrinsics/bmi/verifycode/BzhiTestI2L.java"
+      ],
+      "body_excerpt": "C2 currently lowers variable `int` low-bit masks of the form: value & ((1 << bits) - 1) to a five-instruction sequence on x86. This change adds a BMI2 matcher rule that uses `BZHI`, reducing it to three instructions. The shift count is explicitly masked with `31` because Java shift distances wrap modulo 32, while `BZHI` treats counts greater than or equal to 32 differently. A scalar JMH throughput benchmark on a Ryzen 9 9950X3D improved from approximately 0.199 ns/op to 0.185 ns/op (6.9%). Testing: - HotSpot release and fastdebug builds - `compiler/intrinsics/bmi`: 26/26 tests passed - Verifie"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 31914,
+      "title": "Zgc",
+      "url": "https://github.com/openjdk/jdk/pull/31914",
+      "author": "Harshit470250",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2026-07-15T14:10:02Z",
+      "updated_at": "2026-11-08T08:32:17Z",
+      "merged_at": null,
+      "closed_at": "2026-11-08T08:32:17Z",
+      "labels": [
+        "merge-conflict",
+        "build",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "GC",
+        "运行时与诊断",
+        "构建与工具链"
+      ],
+      "architectures": [
+        "x86",
+        "s390"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "make/autoconf/jvm-features.m4",
+        "src/hotspot/cpu/s390/c1_CodeStubs_s390.cpp",
+        "src/hotspot/cpu/s390/c1_LIRAssembler_s390.cpp",
+        "src/hotspot/cpu/s390/c2_CodeStubs_s390.cpp",
+        "src/hotspot/cpu/s390/downcallLinker_s390.cpp",
+        "src/hotspot/cpu/s390/gc/shared/barrierSetAssembler_s390.cpp",
+        "src/hotspot/cpu/s390/gc/shared/barrierSetAssembler_s390.hpp",
+        "src/hotspot/cpu/s390/gc/z/zAddress_s390.cpp",
+        "src/hotspot/cpu/s390/gc/z/zAddress_s390.hpp",
+        "src/hotspot/cpu/s390/gc/z/zAddress_s390.inline.hpp",
+        "src/hotspot/cpu/s390/gc/z/zBarrierSetAssembler_s390.cpp",
+        "src/hotspot/cpu/s390/gc/z/zBarrierSetAssembler_s390.hpp",
+        "src/hotspot/cpu/s390/gc/z/zGlobals_s390.hpp",
+        "src/hotspot/cpu/s390/gc/z/z_s390.ad",
+        "src/hotspot/cpu/s390/interp_masm_s390.cpp",
+        "src/hotspot/cpu/s390/jniFastGetField_s390.cpp",
+        "src/hotspot/cpu/s390/macroAssembler_s390.cpp",
+        "src/hotspot/cpu/s390/macroAssembler_s390.hpp",
+        "src/hotspot/cpu/s390/s390.ad",
+        "src/hotspot/cpu/s390/sharedRuntime_s390.cpp",
+        "src/hotspot/cpu/s390/stubGenerator_s390.cpp",
+        "src/hotspot/cpu/s390/templateInterpreterGenerator_s390.cpp",
+        "src/hotspot/cpu/s390/vm_version_s390.hpp",
+        "src/hotspot/os_cpu/linux_s390/gc/z/zSyscall_linux_s390.hpp"
+      ],
+      "body_excerpt": "--------- - [ ] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must not contain extraneous whitespace - \\[ \\] Commit message must refer to an issue - \\[ \\] Change must be properly reviewed (2 reviews required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer), 1 [Author](https://openjdk.org/bylaws#author)) ### Error &nbsp;⚠️ Pull request body is missing required line: `- [x]"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 23934,
+      "title": "8351351: Pre-hash mode, context string, etc for ML-DSA",
+      "url": "https://github.com/openjdk/jdk/pull/23934",
+      "author": "wangweij",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2025-03-06T15:12:54Z",
+      "updated_at": "2026-11-07T21:54:34Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/sun/security/provider/ML_DSA.java",
+        "src/java.base/share/classes/sun/security/provider/ML_DSA_Impls.java",
+        "src/java.base/share/classes/sun/security/provider/NamedSignature.java",
+        "src/java.base/share/classes/sun/security/provider/SignatureMessageAccumulator.java",
+        "src/java.base/share/classes/sun/security/util/InternalSignatureParameterSpec.java",
+        "test/jdk/sun/security/provider/ML-DSA/Parameters.java",
+        "test/jdk/sun/security/provider/acvp/Launcher.java",
+        "test/jdk/sun/security/provider/acvp/ML_DSA_Test.java"
+      ],
+      "body_excerpt": "Add a new `SignatureParameterSpec` internal API to fully utilize the capabilities of ML-DSA. The updated ACVP test demonstrates its usage. The new API is internal because it's not yet clear how to provide this feature to users. A key should not be shared between plain ML-DSA and HashML-DSA, but context can. Features like `internal` and `externalMu` should only be used for very special occasions. --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, "
+    }
+  ]
+}

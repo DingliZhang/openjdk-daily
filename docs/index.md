@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-11-09](reports/2026/2026-11-09.md)
+### [2026-11-10](reports/2026/2026-11-10.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 69 |
+| 有活动的 PR | 117 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 20 |
-| 活跃贡献者 | 47 |
+| RISC-V 相关 PR | 16 |
+| 活跃贡献者 | 77 |
 
 ## 今日关注
 
-- [#33793](https://github.com/openjdk/jdk/pull/33793) 8396916: JVMTI includes are missing in JDK-8396399（新建、3 个 Review、8 条评论）
-- [#33792](https://github.com/openjdk/jdk/pull/33792) 8396923: RISC-V: Allow Zalasr and Ztso to be used together（新建、4 条评论）
-- [#33789](https://github.com/openjdk/jdk/pull/33789) 8396910: RISC-V: Sign-extend the BigInteger mulAdd intrinsic result（已关闭、7 个 Review、3 条评论）
-- [#33786](https://github.com/openjdk/jdk/pull/33786) 8396908: RISC-V: Disable RVV for vector lengths exceeding 1024 bits（有更新）
-- [#33782](https://github.com/openjdk/jdk/pull/33782) 8396901: RISC-V: Eliminate redundant sign extensions after masking（2 个 Review）
-- [#33772](https://github.com/openjdk/jdk/pull/33772) 8387705: [Valhalla] Barrier data for StoreLSpecial should be attached before matching（7 个 Review）
-- [#33769](https://github.com/openjdk/jdk/pull/33769) 8396815: C2: Null-safe version of is_XXX / isa_XXX（5 个 Review、1 条评论）
-- [#33747](https://github.com/openjdk/jdk/pull/33747) 8396497: RISC-V: Optimize HotSpot HeapWord copy routines（1 个 Review、1 条评论）
+- [#33817](https://github.com/openjdk/jdk/pull/33817) 8397037: Shenandoah: C2 AD needs to include gc_globals.hpp（新建、2 个 Review、5 条评论）
+- [#33811](https://github.com/openjdk/jdk/pull/33811) 8397023: RISC-V: Use sh1add in RVV String.indexOf(char)（新建、5 条评论）
+- [#33793](https://github.com/openjdk/jdk/pull/33793) 8396916: JVMTI includes are missing in JDK-8396399（已关闭、3 条评论）
+- [#33782](https://github.com/openjdk/jdk/pull/33782) 8396901: RISC-V: Eliminate redundant sign extensions after masking（已关闭、2 个 Review、3 条评论）
+- [#33726](https://github.com/openjdk/jdk/pull/33726) 8397023: RISC-V: Use sh1add in RVV String.indexOf(char)（已关闭、1 条评论）
+- [#33693](https://github.com/openjdk/jdk/pull/33693) 8396510: RISC-V: Optimize AES-CBC decryption intrinsic（1 条评论）
+- [#33669](https://github.com/openjdk/jdk/pull/33669) 8396406: RISC-V: Add RVV path for array fill（6 条评论）
+- [#33558](https://github.com/openjdk/jdk/pull/33558) 8395819: RISC-V: Implement compact uncommon trap sequences（4 个 Review、1 条评论）
 
-[查看完整日报](reports/2026/2026-11-09.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-10.md) · [浏览全部历史](reports/index.md)

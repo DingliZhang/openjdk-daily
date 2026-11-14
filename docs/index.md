@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-11-12](reports/2026/2026-11-12.md)
+### [2026-11-13](reports/2026/2026-11-13.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 126 |
+| 有活动的 PR | 113 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 14 |
-| 活跃贡献者 | 69 |
+| RISC-V 相关 PR | 11 |
+| 活跃贡献者 | 79 |
 
 ## 今日关注
 
-- [#33859](https://github.com/openjdk/jdk/pull/33859) 8397197: RISC-V: Clean up address stub handling（新建、2 个 Review、9 条评论）
-- [#33858](https://github.com/openjdk/jdk/pull/33858) 8397194: Avoid saving and restoring APX EGPRs around C2 calls to x86-64 stubs（新建、4 条评论）
-- [#33851](https://github.com/openjdk/jdk/pull/33851) 8397184: RISC-V: Use Zabha for byte-sized atomic bitwise operations（3 条评论）
-- [#33849](https://github.com/openjdk/jdk/pull/33849) 8397183: RISC-V: Synchronize CPU features with finalized flags（1 条评论）
-- [#33844](https://github.com/openjdk/jdk/pull/33844) 8397174: RISC-V: Enable gather/scatter and mask-folding IR tests on RVV（5 个 Review、1 条评论）
-- [#33840](https://github.com/openjdk/jdk/pull/33840) 8396947: C2: make is/isa/as for Type be like for Node（有更新）
-- [#33833](https://github.com/openjdk/jdk/pull/33833) 8394685: ZGC: Reference.clear may extend the lifetime of the referent（2 条评论）
-- [#33786](https://github.com/openjdk/jdk/pull/33786) 8396907: RISC-V: Disable RVV for vector lengths exceeding 1024 bits（有更新）
+- [#33892](https://github.com/openjdk/jdk/pull/33892) 8397266: RISC-V: Replace generated CPU feature subclasses with descriptors（新建、6 条评论）
+- [#33859](https://github.com/openjdk/jdk/pull/33859) 8397197: RISC-V: Clean up address stub handling（已关闭、3 个 Review、3 条评论）
+- [#33858](https://github.com/openjdk/jdk/pull/33858) 8397194: Avoid saving and restoring APX EGPRs around C2 calls to x86-64 stubs（有更新）
+- [#33849](https://github.com/openjdk/jdk/pull/33849) 8397183: RISC-V: Synchronize CPU features with finalized flags（2 个 Review、1 条评论）
+- [#33840](https://github.com/openjdk/jdk/pull/33840) 8396947: C2: make is/isa/as for Type be like for Node（已关闭、9 个 Review、3 条评论）
+- [#33811](https://github.com/openjdk/jdk/pull/33811) 8397023: RISC-V: Use sh1add in RVV String.indexOf(char)（1 个 Review）
+- [#33772](https://github.com/openjdk/jdk/pull/33772) 8387705: [Valhalla] Barrier data for StoreLSpecial should be attached before matching（1 个 Review）
+- [#33769](https://github.com/openjdk/jdk/pull/33769) 8396815: C2: Null-safe version of is_XXX / isa_XXX（4 个 Review、1 条评论）
 
-[查看完整日报](reports/2026/2026-11-12.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-13.md) · [浏览全部历史](reports/index.md)

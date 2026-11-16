@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-11-14](reports/2026/2026-11-14.md)
+### [2026-11-15](reports/2026/2026-11-15.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 72 |
+| 有活动的 PR | 26 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 6 |
-| 活跃贡献者 | 50 |
+| RISC-V 相关 PR | 3 |
+| 活跃贡献者 | 19 |
 
 ## 今日关注
 
-- [#33892](https://github.com/openjdk/jdk/pull/33892) 8397266: RISC-V: Replace generated CPU feature subclasses with descriptors（已关闭、2 个 Review、3 条评论）
-- [#33849](https://github.com/openjdk/jdk/pull/33849) 8397183: RISC-V: Synchronize CPU features with finalized flags（有更新）
-- [#33844](https://github.com/openjdk/jdk/pull/33844) 8397174: RISC-V: Enable gather/scatter and mask-folding IR tests on RVV（已关闭、1 个 Review、3 条评论）
-- [#33811](https://github.com/openjdk/jdk/pull/33811) 8397023: RISC-V: Use sh1add in RVV String.indexOf(char)（1 个 Review、1 条评论）
-- [#33677](https://github.com/openjdk/jdk/pull/33677) 8389239: RISC-V: Split copy_memory_v and add m1 tail handling for forward copy（有更新）
-- [#32205](https://github.com/openjdk/jdk/pull/32205) 8389749: RISC-V: Optimize RVV string/array comparison with tiered approach（1 个 Review）
-- [#33906](https://github.com/openjdk/jdk/pull/33906) 8397382: Simplify partial array processing infrastructure（新建、5 条评论）
-- [#33905](https://github.com/openjdk/jdk/pull/33905) 8389454: JFR OldObjectSample crashes or reports invalid indices for flat value arrays（新建、4 条评论）
+- [#33833](https://github.com/openjdk/jdk/pull/33833) 8394685: ZGC: Reference.clear may extend the lifetime of the referent（1 条评论）
+- [#33417](https://github.com/openjdk/jdk/pull/33417) 8336664: Add sign information to value layouts（1 个 Review）
+- [#32205](https://github.com/openjdk/jdk/pull/32205) 8389749: RISC-V: Optimize RVV string/array comparison with tiered approach（2 个 Review）
+- [#33911](https://github.com/openjdk/jdk/pull/33911) 8397210: C2: make some Type methods static（新建、5 条评论）
+- [#33910](https://github.com/openjdk/jdk/pull/33910) 8396625: [macos27] FrameMouseEventAbsoluteCoordsTest.java test fails（新建、1 个 Review、5 条评论）
+- [#33909](https://github.com/openjdk/jdk/pull/33909) 8397390: [TESTBUG][AIX] SEGV during gtests teardown in ~UnitTestImpl（新建、4 条评论）
+- [#33908](https://github.com/openjdk/jdk/pull/33908) 8397386: TestDeadStoreToHeader fails in product build（新建、已关闭、3 个 Review、12 条评论）
+- [#33907](https://github.com/openjdk/jdk/pull/33907) 8397221: java/net/vthread/BlockingSocketOps.java#no-vmcontinuations observed failing intermittently（新建、7 条评论）
 
-[查看完整日报](reports/2026/2026-11-14.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-15.md) · [浏览全部历史](reports/index.md)

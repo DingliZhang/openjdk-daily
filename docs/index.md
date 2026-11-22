@@ -4,24 +4,23 @@
 
 ## 最新日报
 
-### [2026-11-20](reports/2026/2026-11-20.md)
+### [2026-11-21](reports/2026/2026-11-21.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 108 |
+| 有活动的 PR | 58 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 8 |
-| 活跃贡献者 | 74 |
+| RISC-V 相关 PR | 3 |
+| 活跃贡献者 | 43 |
 
 ## 今日关注
 
-- [#33994](https://github.com/openjdk/jdk/pull/33994) 8397889: Implement a C1 runtime stub for writing to flattened fields（新建、4 个 Review、5 条评论）
-- [#33988](https://github.com/openjdk/jdk/pull/33988) 8397517: [Leyden] Use ciEnv::is_aot_compile() instead of AOTCodeCache::is_on_for_dump() during AOT compilation（新建、5 条评论）
-- [#33963](https://github.com/openjdk/jdk/pull/33963) 8397773: RISC-V: Remove redundant zero-fill predicates from ClearArray matching rules（已关闭、2 个 Review、3 条评论）
-- [#33951](https://github.com/openjdk/jdk/pull/33951) 8397074: [Leyden] Cleanup usage of #if INCLUDE_CDS（有更新）
-- [#33858](https://github.com/openjdk/jdk/pull/33858) 8397194: Avoid saving and restoring APX EGPRs around C2 calls to x86-64 stubs（1 条评论）
-- [#33798](https://github.com/openjdk/jdk/pull/33798) 8392453: JVM should be able to display AOT cache configurations（4 个 Review、3 条评论）
-- [#33469](https://github.com/openjdk/jdk/pull/33469) 8394923: RISC-V: Use slli+bgez for the ZGC load barrier（3 个 Review、1 条评论）
-- [#28866](https://github.com/openjdk/jdk/pull/28866) 8373794: Move nmethod header from CodeCache（已关闭、1 条评论）
+- [#34009](https://github.com/openjdk/jdk/pull/34009) 8397994: RISC-V: Remove redundant long-to-int conversion in masked widening（新建、4 条评论）
+- [#33988](https://github.com/openjdk/jdk/pull/33988) 8397517: [Leyden] Use ciEnv::is_aot_compile() instead of AOTCodeCache::is_on_for_dump() during AOT compilation（1 条评论）
+- [#33798](https://github.com/openjdk/jdk/pull/33798) 8392453: JVM should be able to display AOT cache configurations（2 个 Review）
+- [#34010](https://github.com/openjdk/jdk/pull/34010) 8397997: AArch64: Emit one instruction for masked widening with a non-negative immediate（新建、1 个 Review、4 条评论）
+- [#34008](https://github.com/openjdk/jdk/pull/34008) Test case for JDK-8392112: AOTStreamedHeapLoader race when an interned string shares its value（新建、4 条评论）
+- [#34007](https://github.com/openjdk/jdk/pull/34007) 8397957: [macosx] java/awt/color/ICC_Profile/GetProfileDataAfterTransform.java fails: subprocess stderr not empty (ApplePersistenceIgnoreState)（新建、6 条评论）
+- [#34006](https://github.com/openjdk/jdk/pull/34006) 8391554: Shenandoah: Remembered set scan delays SATB draining（新建、5 条评论）
 
-[查看完整日报](reports/2026/2026-11-20.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-21.md) · [浏览全部历史](reports/index.md)

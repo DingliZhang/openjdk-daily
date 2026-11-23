@@ -1,0 +1,595 @@
+{
+  "date": "2026-11-22",
+  "generated_at": "2026-11-23T08:07:32.832981+00:00",
+  "pulls": [
+    {
+      "repository": "openjdk/jdk",
+      "number": 34013,
+      "title": "8385976: ZGC: AOT uses fake off-heap oops which trips up ZVerifyOops",
+      "url": "https://github.com/openjdk/jdk/pull/34013",
+      "author": "benshuai5D",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、5 条评论",
+      "created_at": "2026-11-22T10:58:49Z",
+      "updated_at": "2026-11-22T11:17:16Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "GC",
+        "运行时与诊断",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/cds/aotMapLogger.cpp",
+        "src/hotspot/share/cds/aotMappedHeap.hpp",
+        "src/hotspot/share/cds/aotMappedHeapWriter.cpp",
+        "src/hotspot/share/cds/aotStreamedHeap.hpp",
+        "src/hotspot/share/cds/aotStreamedHeapWriter.cpp",
+        "src/hotspot/share/oops/typeArrayKlass.cpp",
+        "src/hotspot/share/oops/typeArrayKlass.hpp",
+        "src/hotspot/share/runtime/fieldDescriptor.cpp",
+        "src/hotspot/share/runtime/fieldDescriptor.hpp",
+        "test/hotspot/jtreg/runtime/cds/TestAOTMapWithZGC.java"
+      ],
+      "body_excerpt": "Please review this AOT fix. AOT objects are kept in off-heap buffers while the archive is being created. Some code paths still treat these buffer addresses as real Java heap oops. For example: - Field patching: `AOTStreamedHeapWriter::copy_one_source_obj_to_buffer()` -> `update_buffered_object_field()` -> `cast_to_oop(buffered_obj)->field_addr()` - Archived reference-index lookup: `AOTMapLogger::OopData obj_at(oop* addr)` -> `cast_from_oop<uintptr_t>(*addr)` The same pattern is also used by FakeOop's field, string, and array accessors. With `ZVerifyOops` enabled, calls such as `field_addr()`, "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 34012,
+      "title": "8398008: ProblemList java/awt/dnd/DragOverDropTargetPerformanceTest.java due to the JDK-8398009 for MacOS 27",
+      "url": "https://github.com/openjdk/jdk/pull/34012",
+      "author": "lawrence-andrew",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "新建、1 个 Review、9 条评论",
+      "created_at": "2026-11-22T00:42:44Z",
+      "updated_at": "2026-11-22T19:00:34Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "client"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "macOS"
+      ],
+      "comments_today": 9,
+      "reviews_today": 1,
+      "changed_files": [
+        "test/jdk/ProblemList.txt"
+      ],
+      "body_excerpt": "Test fails on MacOS 27 --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). @prrace <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue - \\[x\\] Change must be properly reviewed (2 reviews required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer), 1 [Author](https://openjdk.org/bylaws#author)) ### Issue * [JDK-8398008](https://bugs"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 34011,
+      "title": "8398008: ProblemList java/awt/dnd/DragOverDropTargetPerformanceTest.java due to the JDK-8333097 for MacOS 27",
+      "url": "https://github.com/openjdk/jdk/pull/34011",
+      "author": "lawrence-andrew",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "新建、已关闭、5 条评论",
+      "created_at": "2026-11-22T00:04:57Z",
+      "updated_at": "2026-11-22T00:19:15Z",
+      "merged_at": null,
+      "closed_at": "2026-11-22T00:16:30Z",
+      "labels": [],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "macOS"
+      ],
+      "comments_today": 5,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/jdk/ProblemList.txt"
+      ],
+      "body_excerpt": "This test fails on MacOS 27 @prrace @azuev-java --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[ \\] Change must be properly reviewed (1 review required, with at least 1 [Reviewer](https://openjdk.org/bylaws#reviewer)) - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an issue ### Error &nbsp;⚠️ This pull request must be associated with at least"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 34010,
+      "title": "8397997: AArch64: Emit one instruction for masked widening with a non-negative immediate",
+      "url": "https://github.com/openjdk/jdk/pull/34010",
+      "author": "albertnetymk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 个 Review、1 条评论",
+      "created_at": "2026-11-21T09:25:37Z",
+      "updated_at": "2026-11-22T03:35:10Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "AArch64"
+      ],
+      "comments_today": 1,
+      "reviews_today": 1,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/aarch64.ad",
+        "src/hotspot/cpu/aarch64/aarch64_ad.m4",
+        "test/hotspot/jtreg/compiler/c2/aarch64/TestMaskedWidening.java"
+      ],
+      "body_excerpt": "`ubfizIConvI2LAndI` folded the widening into one `ubfiz`, but only for `2^n - 1` masks (n <= 30) on a plain int. The proposed `convI2L_andI_reg_imm` lifts both restrictions: `iRegI` -> `iRegIorL2I` lets a `ConvL2I` source match, and `immI_bitmask` -> `immILogNonNeg` accepts any 32-bit logical immediate with bit 31 clear. Both relaxation rely on the mask leaving the sign bit clear, so `ubfiz` becomes `andw`, which covers every such mask and zero-extends as a side effect. Negative masks keep `andw` + `sxtw`; non-immediate masks still fall back. `(long) (v & 0x7ff)`, `int v` -- neither restrictio"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 34009,
+      "title": "8397994: RISC-V: Remove redundant long-to-int conversion in masked widening",
+      "url": "https://github.com/openjdk/jdk/pull/34009",
+      "author": "albertnetymk",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-11-21T08:37:25Z",
+      "updated_at": "2026-11-23T01:32:28Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/riscv.ad",
+        "src/hotspot/cpu/riscv/riscv_b.ad",
+        "test/hotspot/jtreg/compiler/c2/riscv64/TestMaskedWidening.java"
+      ],
+      "body_excerpt": "In `(long) ((int) v & mask)`, the long-truncation part can be skipped when the mask is non-negative. E.g. `(long) ((int) v & 0x7ff)`, before: ```asm sext.w t3, a1 andi a0, t3, 2047 ``` after: ```asm andi a0, a1, 2047 ``` `(long) ((int) v & 0xffff)` with Zbb, before: ```asm sext.w t3, a1 zext.h a0, t3 ``` after: ```asm zext.h a0, a1 ``` Test: tier1 --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Pr"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33811,
+      "title": "8397023: RISC-V: Use sh1add in RVV String.indexOf(char)",
+      "url": "https://github.com/openjdk/jdk/pull/33811",
+      "author": "PeterPtroc",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review、2 条评论",
+      "created_at": "2026-11-10T10:07:34Z",
+      "updated_at": "2026-11-22T06:41:35Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "ready",
+        "rfr",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "RISC-V",
+        "x86"
+      ],
+      "comments_today": 2,
+      "reviews_today": 2,
+      "changed_files": [
+        "src/hotspot/cpu/riscv/c2_MacroAssembler_riscv.cpp"
+      ],
+      "body_excerpt": "Hi, please consider this small change to use shift_left_add() in the RVV String.indexOf(char) intrinsic, enabling sh1add for UTF-16 when Zba is enabled. Testing: SG2044 release/fastdebug builds; TestStringIndexOfCharIntrinsics (±UseRVV, ±UseZba). --------- - [x] I confirm that I make this contribution in accordance with the [OpenJDK Interim AI Policy](https://openjdk.org/legal/ai). <!-- Anything below this marker will be automatically updated, please do not edit manually! --> --------- ### Progress - \\[x\\] Change must not contain extraneous whitespace - \\[x\\] Commit message must refer to an is"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33785,
+      "title": "8328184: SunMSCAPI ignores LOCALMACHINE when storing and removing certificates",
+      "url": "https://github.com/openjdk/jdk/pull/33785",
+      "author": "PeyaPeyaPeyang",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-11-08T02:30:54Z",
+      "updated_at": "2026-11-22T23:02:06Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security"
+      ],
+      "modules": [
+        "测试"
+      ],
+      "architectures": [
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/jdk.crypto.mscapi/windows/classes/sun/security/mscapi/CKeyStore.java",
+        "src/jdk.crypto.mscapi/windows/native/libsunmscapi/security.cpp",
+        "test/jdk/sun/security/mscapi/LocalMachineStore.java"
+      ],
+      "body_excerpt": "Please review this fix for SunMSCAPI storing and removing certs in `CURRENTUSER` even when a `LOCALMACHINE` keystore is selected. The native `storeCertificate` and `removeCertificate` methods currently use `CertOpenSystemStore`, which opens the `CURRENTUSER` store. This fix passes the store location through JNI and uses `CertOpenStore` with `CERT_SYSTEM_STORE_LOCAL_MACHINE` for `LOCALMACHINE` keystores. The manual regression test `LocalMachineStore` verifies certificate placement and deletion; the test requires administrator privileges. Testing: - `LocalMachineStore` - manual `keytool -genkeyp"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33709,
+      "title": "8396624: Extend SHA tests to cover keccak intrinsics",
+      "url": "https://github.com/openjdk/jdk/pull/33709",
+      "author": "missa-prime",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2026-11-03T23:47:48Z",
+      "updated_at": "2026-11-22T05:39:11Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "security",
+        "hotspot-compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "test/hotspot/jtreg/compiler/intrinsics/sha/TestDigest.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/TestInvoke.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/InvokeSanityTestBase.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA1MultiBlockIntrinsics.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA256MultiBlockIntrinsics.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA3MultiBlockIntrinsics.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA3ParallelIntrinsics.java",
+        "test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA512MultiBlockIntrinsics.java",
+        "test/hotspot/jtreg/compiler/testlibrary/sha/predicate/IntrinsicPredicates.java"
+      ],
+      "body_excerpt": "The primary reason for this set of changes is to sanity check the **doubleKeccak** and **quadKeccak** methods. This includes their intrinsified and pure Java variants. The new JTREG source files listed below essentially validate return values from invoked private methods using the Java Reflection API. 1. `jtreg:test/hotspot/jtreg/compiler/intrinsics/sha/TestInvoke.java` 2. `jtreg:test/hotspot/jtreg/compiler/intrinsics/sha/sanity/InvokeSanityTestBase.java` 3. `jtreg:test/hotspot/jtreg/compiler/intrinsics/sha/sanity/TestSHA3ParallelIntrinsics.java` Additionally, the multi block intrinsic tests n"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33665,
+      "title": "8394577: VectorAPI: Serviceability agent is missing type support for Location::vector",
+      "url": "https://github.com/openjdk/jdk/pull/33665",
+      "author": "dev-jonghoonpark",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-11-01T20:50:32Z",
+      "updated_at": "2026-11-22T15:58:44Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "serviceability",
+        "hotspot-runtime",
+        "compiler"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "Vector API",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/runtime/vmStructs.cpp",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/code/Location.java",
+        "src/jdk.hotspot.agent/share/classes/sun/jvm/hotspot/ui/classbrowser/HTMLGenerator.java",
+        "test/hotspot/jtreg/serviceability/sa/LingeredAppWithVector.java",
+        "test/hotspot/jtreg/serviceability/sa/TestVectorDebugInfoDecode.java"
+      ],
+      "body_excerpt": "When C2 scalar-replaces a Vector API object, its payload is recorded in debug info as a `Location::vector`. SA's `Location.getType()` does not recognize this type and throws \"should not reach here\" when it decodes such a location. The cause is that `vmStructs` does not export HotSpot's `Location::vector`, and SA's `Location` has no corresponding type. ## Changes - `vmStructs.cpp`: export `Location::vector` - SA `Location.java`: add `Type.VECTOR` and handle it in `getType()`, `Type.getValue()` and `printOn()` - `HTMLGenerator.java`: handle `VECTOR` in `locationAsString()` ## Testing - New test "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33659,
+      "title": "8394915: Thread dump improvements",
+      "url": "https://github.com/openjdk/jdk/pull/33659",
+      "author": "AlanBateman",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "有更新",
+      "created_at": "2026-10-31T14:37:51Z",
+      "updated_at": "2026-11-21T16:33:20Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "csr",
+        "serviceability",
+        "core-libs"
+      ],
+      "modules": [
+        "运行时与诊断",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 0,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/share/services/threadService.cpp",
+        "src/java.base/share/classes/java/util/concurrent/StructuredTaskScopeImpl.java",
+        "src/java.base/share/classes/jdk/internal/misc/ThreadFlock.java",
+        "src/java.base/share/classes/jdk/internal/vm/ThreadDumper.java",
+        "src/java.base/share/classes/jdk/internal/vm/ThreadSnapshot.java",
+        "src/jdk.management/share/classes/com/sun/management/doc-files/threadDump.html",
+        "test/jdk/com/sun/management/HotSpotDiagnosticMXBean/DumpThreads.java",
+        "test/jdk/jdk/internal/misc/ThreadFlock/ThreadFlockTest.java",
+        "test/lib/jdk/test/lib/threaddump/ThreadDump.java"
+      ],
+      "body_excerpt": "This is an update to the thread dump generated by HotSportDiagnosticMXBean.dumpThreads and the jcmd equivalent. 1. The thread output is updated to include the identity string of the Thread object to make it easier link a Thread.join usage to the target thread. 2. The parkBlocker is now set when parked in StructuredTaskScope.join parks to make it easier to find the STS in the thread dump. 3. The thread CPU time is now included for platform threads when available. 4. The JSON dump escapes forward slash between the module and class name in the stack traces. Escaping of this character is optional "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 33595,
+      "title": "8395991: Enable pointer authentication in JIT-ed code on Windows/ARM64",
+      "url": "https://github.com/openjdk/jdk/pull/33595",
+      "author": "raneashay",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 个 Review、1 条评论",
+      "created_at": "2026-10-27T22:22:11Z",
+      "updated_at": "2026-11-22T10:59:03Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "build",
+        "serviceability",
+        "hotspot",
+        "core-libs"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "核心类库",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 1,
+      "reviews_today": 2,
+      "changed_files": [
+        ".github/workflows/main.yml",
+        ".github/workflows/test.yml",
+        "doc/building.html",
+        "doc/building.md",
+        "make/autoconf/flags-cflags.m4",
+        "src/hotspot/cpu/aarch64/aarch64.ad",
+        "src/hotspot/cpu/aarch64/macroAssembler_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/vm_version_aarch64.cpp",
+        "src/hotspot/os_cpu/windows_aarch64/pauth_windows_aarch64.S",
+        "src/hotspot/os_cpu/windows_aarch64/pauth_windows_aarch64.inline.hpp",
+        "src/hotspot/os_cpu/windows_aarch64/vm_version_windows_aarch64.cpp",
+        "src/hotspot/share/prims/whitebox.cpp",
+        "test/hotspot/jtreg/runtime/aarch64/TestReturnAddressProtection.java",
+        "test/hotspot/jtreg/serviceability/dcmd/jvmti/DataDumpDcmdTest.java",
+        "test/hotspot/jtreg/serviceability/dcmd/jvmti/LoadAgentDcmdTest.java",
+        "test/jdk/java/lang/IO/IO.java",
+        "test/lib/jdk/test/whitebox/WhiteBox.java"
+      ],
+      "body_excerpt": "This patch enables PAC and AUT instructions for pointer signing and authentication in JIT code on Windows/ARM64 when \"UseBranchProtection\" flag is set and when the processor supports the feature. Specifically, JVM detects hardware support by reading ID_AA64ISAR1_EL1 and ID_AA64ISAR2_EL1 registers via CP4031 and CP4032 keys in the Windows registry. Then, if the \"UseBranchProtection\" flag is set, then HotSpot emits the signing and authenticating instructions. Windows uses AArch64's \"B\" key, so this patch selects between \"paciaz\" and \"pacibz\" instructions (and similarly, between \"autiaz\" and \"aut"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32373,
+      "title": "8390049: Zero-copy vector alternative to a scalar loop over charAt",
+      "url": "https://github.com/openjdk/jdk/pull/32373",
+      "author": "cushon",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2026-08-14T11:04:41Z",
+      "updated_at": "2026-11-23T06:41:47Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "core-libs"
+      ],
+      "modules": [
+        "Vector API",
+        "核心类库",
+        "测试"
+      ],
+      "architectures": [
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/java.base/share/classes/java/lang/String.java",
+        "src/java.base/share/classes/java/lang/System.java",
+        "src/java.base/share/classes/jdk/internal/access/JavaLangAccess.java",
+        "src/java.base/share/classes/jdk/internal/vm/vector/StringVectorSupport.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ByteVector.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ByteVector128.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ByteVector256.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ByteVector512.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ByteVector64.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ByteVectorMax.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ShortVector.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ShortVector128.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ShortVector256.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ShortVector512.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ShortVector64.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/ShortVectorMax.java",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/X-Vector.java.template",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/X-VectorBits.java.template",
+        "src/jdk.incubator.vector/share/classes/jdk/incubator/vector/gen-src.sh",
+        "test/jdk/jdk/incubator/vector/StringLoadTest.java",
+        "test/micro/org/openjdk/bench/jdk/incubator/vector/StringLoadBenchmark.java"
+      ],
+      "body_excerpt": "This change adds Vector API methods that load the code units of a `java.lang.String` into a vector without copying, to allow processing a `String` with a vector loop instead of a scalar loop over `charAt`. As discussed in the [panama-dev@ thread 'String processing and Vector APIs'](https://mail.openjdk.org/archives/list/panama-dev@openjdk.org/thread/YSPX3TBXZTZEFZNXWDYOZCWLUQPC62P6/), one motivating use-case is a regex library that wants to accelerate scans for character classes. Implementing these methods outside the JDK using scalar `charAt` loops is slower than a vectorized implementation. "
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 32365,
+      "title": "8067946: StackYellowPages and StackRedPages have no effect on Windows",
+      "url": "https://github.com/openjdk/jdk/pull/32365",
+      "author": "raneashay",
+      "vendor": "未归属",
+      "state": "已关闭",
+      "activity": "已关闭、1 条评论",
+      "created_at": "2026-08-14T04:22:40Z",
+      "updated_at": "2026-11-21T18:33:28Z",
+      "merged_at": null,
+      "closed_at": "2026-11-21T18:33:22Z",
+      "labels": [
+        "rfr",
+        "build",
+        "hotspot-runtime",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断",
+        "构建与工具链",
+        "测试"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "make/autoconf/flags-ldflags.m4",
+        "make/test/JtregNativeHotspot.gmk",
+        "src/hotspot/cpu/aarch64/downcallLinker_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/globals_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/sharedRuntime_aarch64.cpp",
+        "src/hotspot/cpu/x86/downcallLinker_x86_64.cpp",
+        "src/hotspot/cpu/x86/globals_x86.hpp",
+        "src/hotspot/cpu/x86/sharedRuntime_x86_64.cpp",
+        "src/hotspot/os/windows/os_windows.cpp",
+        "src/hotspot/os/windows/os_windows.hpp",
+        "src/hotspot/share/runtime/stackOverflow.cpp",
+        "src/hotspot/share/runtime/stackOverflow.hpp",
+        "test/hotspot/jtreg/runtime/StackGuardPages/TestWindowsStackOverflow.java",
+        "test/hotspot/jtreg/runtime/StackGuardPages/TestWindowsStackPages.java",
+        "test/hotspot/jtreg/runtime/StackGuardPages/libTestWindowsStackOverflow.c"
+      ],
+      "body_excerpt": "This patch rewrites the code in the Windows port of HotSpot for detecting, handling, and reporting stack overflows. This patch is motivated by documented failures in JDK-8152598, JDK-8156538, JDK-8157521, JDK-8157924, JDK-8335362, and in JDK-8067946. The key result of this patch is that in addition to preventing the crashes that can be reproduced using the information in the above JBS issues, HotSpot on Windows now supports far-access stack bangs in compiled code while continuing to leverage Windows' incremental stack growth based on guard pages, ensuring that we don't sacrifice performance th"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 28855,
+      "title": "8373696: AArch64: Refine post-call NOPs",
+      "url": "https://github.com/openjdk/jdk/pull/28855",
+      "author": "ruben-arm",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "1 条评论",
+      "created_at": "2025-12-16T22:45:08Z",
+      "updated_at": "2026-11-22T11:49:52Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "rfr",
+        "hotspot"
+      ],
+      "modules": [
+        "C2 编译器",
+        "运行时与诊断"
+      ],
+      "architectures": [
+        "AArch64",
+        "x86"
+      ],
+      "comments_today": 1,
+      "reviews_today": 0,
+      "changed_files": [
+        "src/hotspot/cpu/aarch64/aarch64.ad",
+        "src/hotspot/cpu/aarch64/macroAssembler_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/macroAssembler_aarch64.hpp",
+        "src/hotspot/cpu/aarch64/nativeInst_aarch64.cpp",
+        "src/hotspot/cpu/aarch64/nativeInst_aarch64.hpp",
+        "src/hotspot/share/code/nmethod.cpp",
+        "src/hotspot/share/code/nmethod.hpp",
+        "src/hotspot/share/memory/heap.hpp",
+        "src/hotspot/share/runtime/flags/jvmFlagConstraintsCompiler.cpp"
+      ],
+      "body_excerpt": "Extend MOVK-based scheme to MOVK/MOVZ allowing to store 19 bits of metadata directly. Where metadata does not fit into one MOVK/MOVZ, for C2-compiled code attempt storing it after the main code and refer to the location via 18 bits of offset value stored within MOVN. The measurements have been run on Arm Neoverse V2 CPU. Each workload has been run in 20 interleaved pairs of the baseline and the patched versions. Order of the configurations in each pair was chosen randomly. Each of these runs has been run as one JMH fork with 30 warm-up iterations and 30 measurement iterations. Only the final s"
+    },
+    {
+      "repository": "openjdk/jdk",
+      "number": 21655,
+      "title": "8342869: Errors related to unused code on Windows after 8339120 in awt",
+      "url": "https://github.com/openjdk/jdk/pull/21655",
+      "author": "TheShermanTanker",
+      "vendor": "未归属",
+      "state": "开启",
+      "activity": "2 条评论",
+      "created_at": "2024-10-23T05:07:37Z",
+      "updated_at": "2026-11-21T17:17:23Z",
+      "merged_at": null,
+      "closed_at": null,
+      "labels": [
+        "merge-conflict",
+        "build",
+        "client"
+      ],
+      "modules": [
+        "核心类库",
+        "构建与工具链"
+      ],
+      "architectures": [
+        "x86",
+        "Windows"
+      ],
+      "comments_today": 2,
+      "reviews_today": 0,
+      "changed_files": [
+        "make/modules/java.base/Lib.gmk",
+        "src/java.desktop/share/native/common/awt/debug/debug_trace.h",
+        "src/java.desktop/windows/native/libawt/windows/awt_Component.cpp",
+        "src/java.desktop/windows/native/libawt/windows/awt_Component.h",
+        "src/java.desktop/windows/native/libawt/windows/awt_Font.cpp",
+        "src/java.desktop/windows/native/libawt/windows/awt_PrintControl.cpp",
+        "src/java.desktop/windows/native/libawt/windows/awt_PrintJob.cpp"
+      ],
+      "body_excerpt": "After 8339120, gcc began catching many different instances of unused code in the Windows specific codebase. Some of these seem to be bugs. I've taken the effort to mark out all the relevant globals and locals that trigger the unused warnings and addressed all of them by commenting out the code as appropriate. I am confident that in many cases this simplistic approach of commenting out code does not fix the underlying issue, and the warning actually found a bug that should be fixed. In these instances, I will be aiming to fix these bugs with help from reviewers, so I recommend anyone reviewing "
+    }
+  ]
+}

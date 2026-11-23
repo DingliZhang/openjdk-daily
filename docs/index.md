@@ -4,23 +4,22 @@
 
 ## 最新日报
 
-### [2026-11-21](reports/2026/2026-11-21.md)
+### [2026-11-22](reports/2026/2026-11-22.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 58 |
+| 有活动的 PR | 15 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 3 |
-| 活跃贡献者 | 43 |
+| RISC-V 相关 PR | 2 |
+| 活跃贡献者 | 12 |
 
 ## 今日关注
 
-- [#34009](https://github.com/openjdk/jdk/pull/34009) 8397994: RISC-V: Remove redundant long-to-int conversion in masked widening（新建、4 条评论）
-- [#33988](https://github.com/openjdk/jdk/pull/33988) 8397517: [Leyden] Use ciEnv::is_aot_compile() instead of AOTCodeCache::is_on_for_dump() during AOT compilation（1 条评论）
-- [#33798](https://github.com/openjdk/jdk/pull/33798) 8392453: JVM should be able to display AOT cache configurations（2 个 Review）
-- [#34010](https://github.com/openjdk/jdk/pull/34010) 8397997: AArch64: Emit one instruction for masked widening with a non-negative immediate（新建、1 个 Review、4 条评论）
-- [#34008](https://github.com/openjdk/jdk/pull/34008) Test case for JDK-8392112: AOTStreamedHeapLoader race when an interned string shares its value（新建、4 条评论）
-- [#34007](https://github.com/openjdk/jdk/pull/34007) 8397957: [macosx] java/awt/color/ICC_Profile/GetProfileDataAfterTransform.java fails: subprocess stderr not empty (ApplePersistenceIgnoreState)（新建、6 条评论）
-- [#34006](https://github.com/openjdk/jdk/pull/34006) 8391554: Shenandoah: Remembered set scan delays SATB draining（新建、5 条评论）
+- [#34009](https://github.com/openjdk/jdk/pull/34009) 8397994: RISC-V: Remove redundant long-to-int conversion in masked widening（1 条评论）
+- [#33811](https://github.com/openjdk/jdk/pull/33811) 8397023: RISC-V: Use sh1add in RVV String.indexOf(char)（2 个 Review、2 条评论）
+- [#34013](https://github.com/openjdk/jdk/pull/34013) 8385976: ZGC: AOT uses fake off-heap oops which trips up ZVerifyOops（新建、5 条评论）
+- [#34012](https://github.com/openjdk/jdk/pull/34012) 8398008: ProblemList java/awt/dnd/DragOverDropTargetPerformanceTest.java due to the JDK-8398009 for MacOS 27（新建、1 个 Review、9 条评论）
+- [#34011](https://github.com/openjdk/jdk/pull/34011) 8398008: ProblemList java/awt/dnd/DragOverDropTargetPerformanceTest.java due to the JDK-8333097 for MacOS 27（新建、已关闭、5 条评论）
+- [#34010](https://github.com/openjdk/jdk/pull/34010) 8397997: AArch64: Emit one instruction for masked widening with a non-negative immediate（1 个 Review、1 条评论）
 
-[查看完整日报](reports/2026/2026-11-21.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-22.md) · [浏览全部历史](reports/index.md)

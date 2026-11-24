@@ -4,22 +4,24 @@
 
 ## 最新日报
 
-### [2026-11-22](reports/2026/2026-11-22.md)
+### [2026-11-23](reports/2026/2026-11-23.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 15 |
+| 有活动的 PR | 89 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 2 |
-| 活跃贡献者 | 12 |
+| RISC-V 相关 PR | 7 |
+| 活跃贡献者 | 56 |
 
 ## 今日关注
 
-- [#34009](https://github.com/openjdk/jdk/pull/34009) 8397994: RISC-V: Remove redundant long-to-int conversion in masked widening（1 条评论）
-- [#33811](https://github.com/openjdk/jdk/pull/33811) 8397023: RISC-V: Use sh1add in RVV String.indexOf(char)（2 个 Review、2 条评论）
-- [#34013](https://github.com/openjdk/jdk/pull/34013) 8385976: ZGC: AOT uses fake off-heap oops which trips up ZVerifyOops（新建、5 条评论）
-- [#34012](https://github.com/openjdk/jdk/pull/34012) 8398008: ProblemList java/awt/dnd/DragOverDropTargetPerformanceTest.java due to the JDK-8398009 for MacOS 27（新建、1 个 Review、9 条评论）
-- [#34011](https://github.com/openjdk/jdk/pull/34011) 8398008: ProblemList java/awt/dnd/DragOverDropTargetPerformanceTest.java due to the JDK-8333097 for MacOS 27（新建、已关闭、5 条评论）
-- [#34010](https://github.com/openjdk/jdk/pull/34010) 8397997: AArch64: Emit one instruction for masked widening with a non-negative immediate（1 个 Review、1 条评论）
+- [#34018](https://github.com/openjdk/jdk/pull/34018) 8398024: RISC-V: Use agnostic vector policies by default（新建、4 条评论）
+- [#34009](https://github.com/openjdk/jdk/pull/34009) 8397994: RISC-V: Remove redundant long-to-int conversion in masked widening（2 个 Review）
+- [#33988](https://github.com/openjdk/jdk/pull/33988) 8397517: [Leyden] Use ciEnv::is_aot_compile() instead of AOTCodeCache::is_on_for_dump() during AOT compilation（3 个 Review）
+- [#33798](https://github.com/openjdk/jdk/pull/33798) 8392453: JVM should be able to display AOT cache configurations（1 个 Review）
+- [#33703](https://github.com/openjdk/jdk/pull/33703) 8396567: [Valhalla] native methods can cause return calling convention mismatch（1 个 Review）
+- [#33679](https://github.com/openjdk/jdk/pull/33679) 8390642: [Valhalla] Shenandoah: Support compressed oops（2 条评论）
+- [#33669](https://github.com/openjdk/jdk/pull/33669) 8396406: RISC-V: Add RVV path for array fill（1 条评论）
+- [#34026](https://github.com/openjdk/jdk/pull/34026) 8398032: Legal method reference rejected after JDK-8392939（新建、3 条评论）
 
-[查看完整日报](reports/2026/2026-11-22.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-23.md) · [浏览全部历史](reports/index.md)

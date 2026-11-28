@@ -4,24 +4,24 @@
 
 ## 最新日报
 
-### [2026-11-26](reports/2026/2026-11-26.md)
+### [2026-11-27](reports/2026/2026-11-27.md)
 
 | 指标 | 数量 |
 |---|---:|
-| 有活动的 PR | 118 |
+| 有活动的 PR | 78 |
 | 已合并 PR | 0 |
-| RISC-V 相关 PR | 15 |
-| 活跃贡献者 | 76 |
+| RISC-V 相关 PR | 16 |
+| 活跃贡献者 | 62 |
 
 ## 今日关注
 
-- [#34081](https://github.com/openjdk/jdk/pull/34081) 8398419: RISC-V: Clean up PlatformXchg definition order（新建、4 个 Review、5 条评论）
-- [#34079](https://github.com/openjdk/jdk/pull/34079) 8398417: RISC-V: Split and simplify RVV memory copy paths（新建、7 个 Review、5 条评论）
-- [#34075](https://github.com/openjdk/jdk/pull/34075) 8398028: [Valhalla] Support 16-byte flat elements（新建、8 条评论）
-- [#34063](https://github.com/openjdk/jdk/pull/34063) 8398327: RISC-V: Use shift-add instructions in more assembler helpers（5 个 Review）
-- [#34062](https://github.com/openjdk/jdk/pull/34062) 8398319: RISC-V: Rename atomic access mode ZTSO to RVTSO（已关闭、4 个 Review、3 条评论）
-- [#34061](https://github.com/openjdk/jdk/pull/34061) 8398318: RISC-V: Use sh3add for Montgomery result stores（1 个 Review）
-- [#34057](https://github.com/openjdk/jdk/pull/34057) 8398143: RISC-V: Avoid materializing zero and null constants in C1 comparisons（已关闭、2 个 Review、3 条评论）
-- [#34054](https://github.com/openjdk/jdk/pull/34054) 8397462: C1 crash: assert(state != nullptr) failed: state must be defined（已关闭、1 个 Review、3 条评论）
+- [#34105](https://github.com/openjdk/jdk/pull/34105) 8397820: [Valhalla] C2: Give a more descriptive name to StoreLSpecial and LoadLSpecial（新建、5 条评论）
+- [#34101](https://github.com/openjdk/jdk/pull/34101) 8388924: RISC-V: Add Zbb xnor instruction selection rules（新建、5 条评论）
+- [#34100](https://github.com/openjdk/jdk/pull/34100) 8398485: RISC-V: Simplify secondary supers table bitmap check（新建、2 个 Review、5 条评论）
+- [#34099](https://github.com/openjdk/jdk/pull/34099) 8398484: RISC-V: Clean up C2 fast-lock/unlock flag handling（新建、2 个 Review、5 条评论）
+- [#34097](https://github.com/openjdk/jdk/pull/34097) 8353851: [Valhalla] C1: Branches added for check_flat_array are opaque to the register allocator（新建、8 条评论）
+- [#34081](https://github.com/openjdk/jdk/pull/34081) 8398419: RISC-V: Clean up PlatformXchg definition order（已关闭、3 条评论）
+- [#34079](https://github.com/openjdk/jdk/pull/34079) 8398417: RISC-V: Split and simplify RVV memory copy paths（2 个 Review）
+- [#34063](https://github.com/openjdk/jdk/pull/34063) 8398327: RISC-V: Use shift-add instructions in more assembler helpers（已关闭、1 个 Review、3 条评论）
 
-[查看完整日报](reports/2026/2026-11-26.md) · [浏览全部历史](reports/index.md)
+[查看完整日报](reports/2026/2026-11-27.md) · [浏览全部历史](reports/index.md)
